@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">PretoApp</string>
+
+    <string name="select_language_title">LANGUAGE</string>
+    <string name="english_btn_text">English</string>
+    <string name="spanish_btn_text">Espanol</string>
+
+    //-------Login Option screen
+    <string name="continue_with_facebook">Continue with\nfacebook</string>
+    <string name="continue_with_email">Continue with\nemail</string>
+
+
+    //------Registration Screen
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="acceptance_text">When creating an account you agree to Preto\'s\nTerms and Conditions and its privacy policies.</string>
+    <string name="accept">ACCEPT</string>
+    <string name="register">REGISTER</string>
+    <string name="already_account">Already have an account? Sign in</string>
+
+    //Login Screen
+    <string name="login">LOGIN</string>
+
+    //PrivacyPolicy
+    <string name="privacy_policy_title">Privacy Policy</string>
+    <string name="terms_and_conditions_title">Terms &amp; Conditions</string>
+
+    //Home Screen
+
+    <string name="breakfast">BREAKFAST</string>
+    <string name="lunch">LUNCH</string>
+    <string name="dinner">DINNER</string>
+    <string name="preorder">PRE ORDER</string>
+    <string name="snacks">SNACKS</string>
+    <string name="other">OTHER</string>
+    <string name="near_you">NEAR YOU</string>
+
+</resources>
