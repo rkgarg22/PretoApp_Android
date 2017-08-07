@@ -21,7 +21,12 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".PrivacyPolicy" />
         <activity android:name=".TermsAndConditionsActivity" />
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".SettingActivity" />
+        <activity android:name=".AyudaActivity" />
+        <activity android:name=".ContactUsActivity" />
+        <activity android:name=".FaqActivity" />
+        <activity android:name=".FavouriteListActivity"></activity>
     </application>
 
 </manifest>
