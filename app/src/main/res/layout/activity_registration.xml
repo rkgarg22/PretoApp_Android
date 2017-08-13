@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/logoView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:src="@drawable/logo_portrait" />
@@ -76,6 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/acceptance_text"
+            android:textSize="12sp"
             android:textColor="@android:color/white" />
 
         <LinearLayout
@@ -106,6 +107,7 @@
             android:text="@string/register" />
 
         <TextView
+            android:id="@+id/signInClick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

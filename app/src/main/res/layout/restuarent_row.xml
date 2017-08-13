@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="170dp"
+    android:layout_height="wrap_content"
     android:background="@color/color_cyan"
     android:orientation="vertical">
 
@@ -53,8 +53,8 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/small_food_icon" />
 
@@ -72,14 +72,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/nameLayout"
         android:background="@android:color/white"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/dealImage"
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="130dp"
             android:layout_weight="1.2"
             android:background="@drawable/login_bg" />
 
@@ -88,7 +89,9 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:layout_marginBottom="5dp"
+            android:paddingTop="5dp"
+            android:paddingLeft="5dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -100,14 +103,15 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:text="Type of food"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                android:id="@+id/textView" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:text="Breakfast"
                 android:textColor="@color/color_blue"
                 android:textSize="15sp" />
@@ -115,14 +119,14 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="3dp"
                 android:text="Range"
                 android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2dp"
                 android:text="$20"
                 android:textColor="@color/color_blue"
                 android:textSize="15sp" />
@@ -140,7 +144,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:src="@drawable/circular_favorite" />
+                android:src="@drawable/thumb_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -169,4 +173,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>

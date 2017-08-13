@@ -3,11 +3,11 @@
 
     <string name="select_language_title">LANGUAGE</string>
     <string name="english_btn_text">English</string>
-    <string name="spanish_btn_text">Espanol</string>
+    <string name="spanish_btn_text">Spanish</string>
 
     //-------Login Option screen
-    <string name="continue_with_facebook">Continue with\nfacebook</string>
-    <string name="continue_with_email">Continue with\nemail</string>
+    <string name="continue_with_facebook">Register using\nfacebook</string>
+    <string name="continue_with_email">Register using\nan email</string>
 
 
     //------Registration Screen
@@ -21,11 +21,11 @@
     <string name="already_account">Already have an account? Sign in</string>
 
     //Login Screen
-    <string name="login">LOGIN</string>
+    <string name="login">SIGN IN</string>
 
     //PrivacyPolicy
-    <string name="privacy_policy_title">Privacy Policy</string>
-    <string name="terms_and_conditions_title">Terms &amp; Conditions</string>
+    <string name="privacy_policy_title">PRIVACY POLICY</string>
+    <string name="terms_and_conditions_title">TERMS AND CONDITIONS</string>
 
     //Home Screen
 
@@ -34,36 +34,37 @@
     <string name="dinner">DINNER</string>
     <string name="preorder">PRE ORDER</string>
     <string name="snacks">SNACKS</string>
-    <string name="other">OTHER</string>
+    <string name="other">SUPPLIES</string>
     <string name="near_you">NEAR YOU</string>
 
 
     // Setting Screem
 
-    <string name="privacy_policy">Privacy Policy</string>
-    <string name="terms_and_conditions">Terms &amp; Conditions</string>
-    <string name="ayuda">Help</string>
-    <string name="contact_us">Contact Us</string>
-    <string name="select_language">Select Language</string>
-    <string name="logout">LogOut</string>
+    <string name="privacy_policy">PRIVACY POLICY</string>
+    <string name="terms_and_conditions">TERMS AND CONDITIONS</string>
+    <string name="ayuda">HELP</string>
+    <string name="contact_us">CONTACT US</string>
+    <string name="select_language">CHANGE LANGUAGE</string>
+    <string name="logout">SIGN OUT</string>
 
     //Ayuda Screen
-    <string name="ayuda_title">AYUDA</string>
-    <string name="video">How does it work?</string>
+    <string name="ayuda_title">HELP</string>
+    <string name="video">HOW DOES IT WORK</string>
     <string name="faq">FAQ</string>
 
     //Contact Us
-    <string name="contact_us_title">Contact Us</string>
-    <string name="first_name">First Name:</string>
-    <string name="phone">Phone:</string>
-    <string name="mail">Mail:</string>
-    <string name="Affair">Affair:</string>
-    <string name="message">Message:</string>
+    <string name="contact_us_title">CONTACT</string>
+    <string name="first_name">NAME:</string>
+    <string name="phone">PHONE NUMBER:</string>
+    <string name="mail">EMAIL:</string>
+    <string name="Affair">SUBJECT:</string>
+    <string name="message">MESSAGE:</string>
+    <string name="send_btn">SEND</string>
 
     // FAQ
     <string name="faq_title">FAQ</string>
 
     //Favorite List
-    <string name="favorite_list_title">FAVORITOS</string>
+    <string name="favorite_list_title">FAVORITES</string>
 
 </resources>

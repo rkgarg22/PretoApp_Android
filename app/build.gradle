@@ -21,6 +21,7 @@ android {
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -33,6 +34,15 @@ android {
         main {
             svg.srcDir 'src/main/svg'
         }
+    }
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+    productFlavors {
+    }
+
+    aaptOptions{
+        cruncherEnabled false
     }
 }
 

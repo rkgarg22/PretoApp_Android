@@ -20,8 +20,8 @@ public class SplashActivity extends AppCompatActivity {
 
 
                     } else {
-                        //Intent i = new Intent(SplashActivity.this, NewLoginSignupActivity.class);
-                        //startActivity(i);
+                        Intent i = new Intent(SplashActivity.this, LanguageSelectActivity.class);
+                        startActivity(i);
                     }
 
                 } catch (Exception e) {
@@ -32,6 +32,5 @@ public class SplashActivity extends AppCompatActivity {
             }
         };
         t.start();
-
     }
 }

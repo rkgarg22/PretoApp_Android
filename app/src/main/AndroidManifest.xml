@@ -3,9 +3,11 @@
     package="com.elisa.pretoapp">
 
     <application
+        android:name=".PretoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".SplashActivity">
@@ -26,7 +28,8 @@
         <activity android:name=".AyudaActivity" />
         <activity android:name=".ContactUsActivity" />
         <activity android:name=".FaqActivity" />
-        <activity android:name=".FavouriteListActivity"></activity>
+        <activity android:name=".FavouriteListActivity"/>
+        <activity android:name=".ResturantListByCategoryActivity"/>
     </application>
 
 </manifest>

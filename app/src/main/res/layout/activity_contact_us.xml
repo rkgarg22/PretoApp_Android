@@ -23,12 +23,23 @@
             android:textSize="20sp" />
 
         <ImageButton
-            android:layout_width="wrap_content"
+            android:id="@+id/backButtonClick"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
             android:src="@drawable/back_button" />
+
+        <ImageButton
+            android:id="@+id/homeButtonClick"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/home_btn" />
 
     </RelativeLayout>
 
@@ -125,9 +136,9 @@
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
-                    android:text="Submit"
-                    android:textColor="@android:color/white"
-                    android:background="@drawable/shape_round_blue"/>
+                    android:background="@drawable/shape_round_blue"
+                    android:text="@string/send_btn"
+                    android:textColor="@android:color/white" />
             </LinearLayout>
 
         </LinearLayout>
