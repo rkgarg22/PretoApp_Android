@@ -27,7 +27,7 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="5dp">
 
-                <TextView
+                <CustomControl.LatoBlackTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pani Shop"
@@ -58,7 +58,7 @@
                 android:layout_marginLeft="10dp"
                 android:src="@drawable/small_food_icon" />
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -93,14 +93,15 @@
             android:paddingTop="5dp"
             android:paddingLeft="5dp">
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="IT Park, Chandigarh"
                 android:textColor="@color/color_blue"
-                android:textSize="15sp" />
+                android:textSize="15sp"
+                android:id="@+id/textView7" />
 
-            <TextView
+            <CustomControl.LatoLightTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -108,7 +109,7 @@
                 android:textSize="18sp"
                 android:id="@+id/textView" />
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -116,14 +117,14 @@
                 android:textColor="@color/color_blue"
                 android:textSize="15sp" />
 
-            <TextView
+            <CustomControl.LatoLightTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:text="Range"
                 android:textSize="18sp" />
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -146,7 +147,7 @@
                 android:layout_marginTop="10dp"
                 android:src="@drawable/thumb_icon" />
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -160,7 +161,7 @@
                 android:layout_marginTop="5dp"
                 android:background="@drawable/green_circle" />
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"

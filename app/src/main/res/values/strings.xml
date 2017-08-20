@@ -67,4 +67,42 @@
     //Favorite List
     <string name="favorite_list_title">FAVORITES</string>
 
+    //Filter
+    <string name="filter_title">ADVANCED FILTERS</string>
+    <string name="openNow">Open now</string>
+    <string name="average_cost_title">Average cost</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+
+    <string name="category">Category</string>
+    <string name="breakfast_cat">Breakfast</string>
+    <string name="lunch_cat">Lunch</string>
+    <string name="dinner_cat">Dinner</string>
+    <string name="snacks_cat">Snacks</string>
+    <string name="preorder_cat">Pre order</string>
+    <string name="supplies_cat">Supplies</string>
+
+    <string name="type_of_food">Type of food</string>
+    <string name="meat">Meat</string>
+    <string name="signature_cuisine">Signature cuisine</string>
+    <string name="sea_food">Sea food</string>
+    <string name="healthy">Healthy</string>
+    <string name="vegetarian">Vegetarian</string>
+    <string name="hamburguers">Hamburguers</string>
+    <string name="fusion">Fusion</string>
+    <string name="typical">Typical</string>
+    <string name="fast_food">Fast food</string>
+    <string name="peruvian">Peruvian</string>
+    <string name="international">International</string>
+    <string name="mediterranean">Mediterranean</string>
+
+    <string name="arrange_by_number_of_likes">Arrange by number of likes</string>
+    <string name="delivery">Delivery</string>
+    <string name="togo">To go</string>
+    <string name="payment_method">Payment Method</string>
+    <string name="cash">Cash</string>
+    <string name="debit_card">Debit card</string>
+    <string name="credit_card">Credit card</string>
+    <string name="sodexo">Sodexo</string>
+    <string name="big_pass">Big pass</string>
 </resources>

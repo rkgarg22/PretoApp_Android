@@ -1,0 +1,1057 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginBottom="-5dp"
+    android:background="@drawable/filter_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/titleLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/color_blue">
+
+        <ImageButton
+            android:id="@+id/backButtonClick"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/back_button" />
+
+        <CustomControl.LatoBoldTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="@string/filter_title"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/homeButtonClick"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:layout_alignParentRight="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/home_btn" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@drawable/search_icon" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="15dp"
+        android:layout_weight="6"
+        android:background="@drawable/shape_rounded_corner"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <CheckBox
+                        android:id="@+id/openNowCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@android:color/darker_gray"
+                        android:buttonTint="@android:color/darker_gray" />
+
+                    <CustomControl.LatoLightTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="15dp"
+                        android:layout_toLeftOf="@+id/openNowCheckBox"
+                        android:text="@string/openNow"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_cyan" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:orientation="horizontal">
+
+                    <CustomControl.LatoSemiBoldTextView
+                        android:id="@+id/averageCostTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/average_cost_title"
+                        android:textColor="@color/color_blue" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/fromEditText"
+                                android:layout_width="100dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentRight="true"
+                                android:textSize="12sp"
+                                android:inputType="numberDecimal"
+                                android:padding="5dp"
+                                android:singleLine="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/shape_rounded_corner_blue" />
+
+                            <CustomControl.LatoLightTextView
+                                android:id="@+id/textView2"
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentTop="true"
+
+                                android:layout_toLeftOf="@+id/fromEditText"
+                                android:gravity="center_vertical"
+                                android:text="@string/from"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <EditText
+                                android:id="@+id/toEditText"
+                                android:layout_width="100dp"
+                                android:layout_height="30dp"
+                                android:textSize="12sp"
+                                android:padding="5dp"
+                                android:singleLine="true"
+                                android:inputType="numberDecimal"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:background="@drawable/shape_rounded_corner_blue" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="60dp"
+                                android:layout_height="match_parent"
+                                android:layout_centerVertical="true"
+                                android:layout_toLeftOf="@id/toEditText"
+                                android:gravity="center_vertical"
+                                android:text="@string/to"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_cyan" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal">
+
+                    <CustomControl.LatoSemiBoldTextView
+                        android:id="@+id/categoryTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/category"
+                        android:textColor="@color/color_blue" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <CheckBox
+                                    android:id="@+id/breakfastCheckBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@android:color/darker_gray"
+                                    android:buttonTint="@android:color/darker_gray" />
+
+                                <CustomControl.LatoLightTextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/breakfastCheckBox"
+                                    android:text="@string/breakfast_cat"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                                <CheckBox
+                                    android:id="@+id/LunchCheckBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@android:color/darker_gray"
+                                    android:buttonTint="@android:color/darker_gray" />
+
+                                <CustomControl.LatoLightTextView
+                                    android:layout_width="65dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/LunchCheckBox"
+                                    android:text="@string/lunch_cat"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <CheckBox
+                                    android:id="@+id/dinnerCheckBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@android:color/darker_gray"
+                                    android:buttonTint="@android:color/darker_gray" />
+
+                                <CustomControl.LatoLightTextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/dinnerCheckBox"
+                                    android:text="@string/dinner_cat"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                                <CheckBox
+                                    android:id="@+id/snacksCheckBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@android:color/darker_gray"
+                                    android:buttonTint="@android:color/darker_gray" />
+
+                                <CustomControl.LatoLightTextView
+                                    android:id="@+id/textView3"
+                                    android:layout_width="65dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toStartOf="@+id/snacksCheckBox"
+                                    android:text="@string/snacks_cat"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <CheckBox
+                                    android:id="@+id/preorderCheckBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@android:color/darker_gray"
+                                    android:buttonTint="@android:color/darker_gray" />
+
+                                <CustomControl.LatoLightTextView
+                                    android:id="@+id/textView4"
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toStartOf="@+id/preorderCheckBox"
+                                    android:text="@string/preorder_cat"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                                <CheckBox
+                                    android:id="@+id/suppliesCheckBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@android:color/darker_gray"
+                                    android:buttonTint="@android:color/darker_gray" />
+
+                                <CustomControl.LatoLightTextView
+                                    android:layout_width="65dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/suppliesCheckBox"
+                                    android:text="@string/supplies_cat"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_cyan" />
+
+                <RelativeLayout
+                    android:id="@+id/typeOFFoodLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <CustomControl.LatoSemiBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/type_of_food"
+                        android:textColor="@color/color_blue" />
+
+                    <CheckBox
+                        android:id="@+id/typeOfFoodCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@android:color/darker_gray"
+                        android:buttonTint="@android:color/darker_gray" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:id="@+id/typeOFFoodOptionLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <CheckBox
+                                android:id="@+id/meatCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="@string/meat"
+                                android:textSize="16sp"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/meatCheckBox"
+                                android:id="@+id/textView5" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2">
+
+                            <CheckBox
+                                android:id="@+id/signatureCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical|right"
+                                android:layout_toLeftOf="@+id/signatureCheckBox"
+                                android:text="@string/signature_cuisine"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <CheckBox
+                                android:id="@+id/seaFoodCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="@string/sea_food"
+                                android:textSize="16sp"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/seaFoodCheckBox" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2">
+
+                            <CheckBox
+                                android:id="@+id/healthyCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical|right"
+                                android:layout_toLeftOf="@+id/healthyCheckBox"
+                                android:text="@string/healthy"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <CheckBox
+                                android:id="@+id/vegetarianCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="@string/vegetarian"
+                                android:textSize="16sp"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/vegetarianCheckBox"
+                                />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2">
+
+                            <CheckBox
+                                android:id="@+id/hamburguersCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical|right"
+                                android:layout_toLeftOf="@+id/hamburguersCheckBox"
+                                android:text="@string/hamburguers"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <CheckBox
+                                android:id="@+id/fusionCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="@string/fusion"
+                                android:textSize="16sp"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/fusionCheckBox" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2">
+
+                            <CheckBox
+                                android:id="@+id/typicalCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical|right"
+                                android:layout_toLeftOf="@+id/typicalCheckBox"
+                                android:text="@string/typical"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <CheckBox
+                                android:id="@+id/fastFoodCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="80dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="@string/fast_food"
+                                android:textSize="16sp"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/fastFoodCheckBox"
+                                 />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2">
+
+                            <CheckBox
+                                android:id="@+id/peruvianCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical|right"
+                                android:layout_toLeftOf="@+id/peruvianCheckBox"
+                                android:text="@string/peruvian"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical">
+
+                            <CheckBox
+                                android:id="@+id/internationalCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <CustomControl.LatoLightTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_vertical|right"
+                                android:text="@string/international"
+                                android:textSize="16sp"
+                                android:layout_centerVertical="true"
+                                android:layout_toStartOf="@+id/internationalCheckBox" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1.2">
+
+                            <CheckBox
+                                android:id="@+id/mediterraneanCheckBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:backgroundTint="@android:color/darker_gray"
+                                android:buttonTint="@android:color/darker_gray" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:gravity="center_vertical|right"
+                                android:layout_toLeftOf="@+id/mediterraneanCheckBox"
+                                android:text="@string/mediterranean"
+                                android:textSize="16sp" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_cyan" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <CustomControl.LatoSemiBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/arrange_by_number_of_likes"
+                        android:textColor="@color/color_blue" />
+
+                    <CheckBox
+                        android:id="@+id/noOFLikesCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@android:color/darker_gray"
+                        android:buttonTint="@android:color/darker_gray" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_cyan" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <CustomControl.LatoSemiBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/delivery"
+                        android:textColor="@color/color_blue" />
+
+                    <CheckBox
+                        android:id="@+id/deliveryCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@android:color/darker_gray"
+                        android:buttonTint="@android:color/darker_gray" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_cyan" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp">
+
+                    <CustomControl.LatoSemiBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/togo"
+                        android:textColor="@color/color_blue" />
+
+                    <CheckBox
+                        android:id="@+id/togoCheckBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:backgroundTint="@android:color/darker_gray"
+                        android:buttonTint="@android:color/darker_gray" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/color_cyan" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:orientation="horizontal">
+
+                    <CustomControl.LatoSemiBoldTextView
+                        android:id="@+id/paymentMethodTextView"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:text="@string/payment_method"
+                        android:textColor="@color/color_blue" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.5"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <CheckBox
+                                    android:id="@+id/cashCheckBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@android:color/darker_gray"
+                                    android:buttonTint="@android:color/darker_gray" />
+
+                                <CustomControl.LatoLightTextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/cashCheckBox"
+                                    android:text="@string/cash"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                                <CheckBox
+                                    android:id="@+id/sodexoCheckBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@android:color/darker_gray"
+                                    android:buttonTint="@android:color/darker_gray" />
+
+                                <CustomControl.LatoLightTextView
+                                    android:layout_width="65dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/sodexoCheckBox"
+                                    android:text="@string/sodexo"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <CheckBox
+                                    android:id="@+id/debitCardCheckBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@android:color/darker_gray"
+                                    android:buttonTint="@android:color/darker_gray" />
+
+                                <CustomControl.LatoLightTextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toLeftOf="@+id/debitCardCheckBox"
+                                    android:text="@string/debit_card"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                                <CheckBox
+                                    android:id="@+id/bigPassCheckBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@android:color/darker_gray"
+                                    android:buttonTint="@android:color/darker_gray" />
+
+                                <CustomControl.LatoLightTextView
+                                    android:layout_width="65dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toStartOf="@+id/bigPassCheckBox"
+                                    android:text="@string/big_pass"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:gravity="center">
+
+                                <CheckBox
+                                    android:id="@+id/creditCardCheckBox"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_centerVertical="true"
+                                    android:backgroundTint="@android:color/darker_gray"
+                                    android:buttonTint="@android:color/darker_gray" />
+
+                                <CustomControl.LatoLightTextView
+                                    android:layout_width="80dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toStartOf="@+id/creditCardCheckBox"
+                                    android:text="@string/credit_card"
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1">
+
+                            </RelativeLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <CustomControl.LatoBoldButton
+            android:layout_width="120dp"
+            android:text="OK"
+            android:background="@drawable/shape_rounded_corner"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -29,6 +29,16 @@
                 android:src="@drawable/search" />
 
             <ImageButton
+                android:id="@+id/filterBtnClick"
+                android:layout_toRightOf="@+id/searchBtnClick"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/filter" />
+
+            <ImageButton
                 android:id="@+id/verticalDotsBtn"
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
@@ -79,7 +89,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/breakfast" />
 
-                <TextView
+                <CustomControl.LatoBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -104,7 +114,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/lunch" />
 
-                <TextView
+                <CustomControl.LatoBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -130,7 +140,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/dinner" />
 
-                <TextView
+                <CustomControl.LatoBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -155,7 +165,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/custom_made" />
 
-                <TextView
+                <CustomControl.LatoBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -180,7 +190,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/cravings" />
 
-                <TextView
+                <CustomControl.LatoBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -205,7 +215,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/supplies" />
 
-                <TextView
+                <CustomControl.LatoBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -230,7 +240,7 @@
                     android:layout_height="wrap_content"
                     android:src="@drawable/near_you" />
 
-                <TextView
+                <CustomControl.LatoBoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -269,7 +279,7 @@
             android:gravity="center"
             android:orientation="horizontal"
             android:background="@android:color/white">
-            <EditText
+            <CustomControl.LatoBoldEditText
                 android:layout_width="200dp"
                 android:layout_height="50dp" />
 

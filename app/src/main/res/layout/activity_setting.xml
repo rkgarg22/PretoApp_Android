@@ -31,7 +31,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/dinner" />
+                android:src="@drawable/user_image" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -63,12 +63,13 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="@string/privacy_policy"
-                android:textColor="@color/color_blue" />
+                android:textColor="@color/color_blue"
+                android:id="@+id/textView6" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -86,7 +87,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -109,7 +110,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -132,7 +133,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -155,7 +156,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -178,7 +179,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"

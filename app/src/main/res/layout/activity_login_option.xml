@@ -36,7 +36,7 @@
             android:src="@drawable/facebook_button"
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
-        <TextView
+        <CustomControl.LatoHeavyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -64,7 +64,7 @@
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
 
-        <TextView
+        <CustomControl.LatoHeavyTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

@@ -52,4 +52,10 @@ public class HomeActivity extends AppCompatActivity {
         resturantIntent.putExtra("categorySelect",tag);
         startActivity(resturantIntent);
     }
+
+    @OnClick(R.id.filterBtnClick)
+    public void filterBtnClick(View view){
+        Intent filterIntent = new Intent(this,FilterActivity.class);
+        startActivity(filterIntent);
+    }
 }

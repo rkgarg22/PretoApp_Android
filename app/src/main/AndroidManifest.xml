@@ -28,8 +28,9 @@
         <activity android:name=".AyudaActivity" />
         <activity android:name=".ContactUsActivity" />
         <activity android:name=".FaqActivity" />
-        <activity android:name=".FavouriteListActivity"/>
-        <activity android:name=".ResturantListByCategoryActivity"/>
+        <activity android:name=".FavouriteListActivity" />
+        <activity android:name=".ResturantListByCategoryActivity" />
+        <activity android:name=".FilterActivity"></activity>
     </application>
 
 </manifest>

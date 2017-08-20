@@ -13,7 +13,7 @@
         android:layout_height="50dp"
         android:background="@color/navigation_bar_color">
 
-        <TextView
+        <CustomControl.LatoBoldTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -74,7 +74,7 @@
                 android:orientation="vertical"
                 android:padding="15dp">
 
-                <EditText
+                <CustomControl.LatoBoldEditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/shape_rounded_corner"
@@ -85,7 +85,7 @@
                     android:textColor="@color/color_blue"
                     android:textColorHint="@color/color_blue" />
 
-                <EditText
+                <CustomControl.LatoBoldEditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="15dp"
@@ -97,7 +97,7 @@
                     android:textColor="@color/color_blue"
                     android:textColorHint="@color/color_blue" />
 
-                <EditText
+                <CustomControl.LatoBoldEditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="15dp"
@@ -109,7 +109,7 @@
                     android:textColor="@color/color_blue"
                     android:textColorHint="@color/color_blue" />
 
-                <EditText
+                <CustomControl.LatoBoldEditText
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="15dp"
@@ -121,7 +121,7 @@
                     android:textColor="@color/color_blue"
                     android:textColorHint="@color/color_blue" />
 
-                <EditText
+                <CustomControl.LatoBoldEditText
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginTop="15dp"
@@ -132,7 +132,7 @@
                     android:textColor="@color/color_blue"
                     android:textColorHint="@color/color_blue" />
 
-                <Button
+                <CustomControl.LatoBoldButton
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"
