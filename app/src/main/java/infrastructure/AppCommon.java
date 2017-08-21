@@ -130,89 +130,65 @@ public class AppCommon {
         return mSharedPreferences.getFloat(MYPerference.USER_LONGITUDE, 0.0f);
     }
 
-    public void setFirstName(String firstName) {
+    public void setUserID(String userID) {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString(MYPerference.FIRST_NAME, firstName);
+        mEditor.putString(MYPerference.USER_ID, userID);
         mEditor.apply();
     }
 
-    public void setLastName(String lastName) {
+    public String getUserID() {
+        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
+        return mSharedPreferences.getString(MYPerference.USER_ID, "");
+    }
+
+
+    public void setName(String name) {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString(MYPerference.LAST_NAME, lastName);
+        mEditor.putString(MYPerference.NAME, name);
         mEditor.apply();
     }
 
-    public String getUserFirstName() {
+    public String getName() {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.FIRST_NAME, "");
+        return mSharedPreferences.getString(MYPerference.NAME, "");
     }
 
-    public String getUserLastName() {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.LAST_NAME, "");
-    }
-
-
-    public void setUserEmail(String emailAddress) {
+    public void setUserEmail(String userEmail) {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString(MYPerference.USER_EMAIL, emailAddress);
+        mEditor.putString(MYPerference.EMAIL_ID, userEmail);
         mEditor.apply();
     }
 
     public String getUserEmail() {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.USER_EMAIL, "");
+        return mSharedPreferences.getString(MYPerference.EMAIL_ID, "");
     }
 
-    public void setNewsletterSubscritpionCheckboxState(boolean b) {
+    public void setProfilePicUrl(String profilePicUrl) {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putBoolean(MYPerference.CHECKBOX_STATE, b);
+        mEditor.putString(MYPerference.PROFILE_PIC_URL, profilePicUrl);
         mEditor.apply();
     }
 
-    public boolean getNewsletterSubscriptionCheckboxState() {
+    public String getProfilePicUrl() {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getBoolean(MYPerference.CHECKBOX_STATE, false);
+        return mSharedPreferences.getString(MYPerference.PROFILE_PIC_URL, "");
     }
 
-    public static void setDoneButtonState(boolean b) {
+    public void setLanguage(String language) {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putBoolean(MYPerference.DONE_BUTTON_STATE, b);
+        mEditor.putString(MYPerference.LANGUGAGE_SELECTION, language);
         mEditor.apply();
     }
 
-    public boolean getDoneButtonState() {
+    public String getSelectedLanguage() {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getBoolean(MYPerference.DONE_BUTTON_STATE, false);
-    }
-
-    public void setPushButtonState(String status) {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString(MYPerference.PUSH_BUTTON_STATE, status);
-        mEditor.apply();
-    }
-
-    public String getPushButtonState() {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.PUSH_BUTTON_STATE, "");
-    }
-
-    public void setFetchedLocation(boolean b) {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putBoolean(MYPerference.IS_LOCATION_FETCHED, b);
-        mEditor.apply();
-    }
-
-    public boolean isFetchedLocation() {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getBoolean(MYPerference.IS_LOCATION_FETCHED, false);
+        return mSharedPreferences.getString(MYPerference.LANGUGAGE_SELECTION, "es");
     }
 
     public String getBase64ImageString(Bitmap photo) {
@@ -228,79 +204,7 @@ public class AppCommon {
         return imgString;
     }
 
-    public void setAutoRenewButtonState(String status) {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString(MYPerference.BUTTON_STATE, status);
-        mEditor.apply();
-    }
 
-    public String getAutoRenewButtonState() {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.BUTTON_STATE, "");
-    }
-
-    public String getdeviceToken() {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, mContext.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.DEVICE_TOKEN, "");
-    }
-
-    public void setDeviceToken(String status) {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, mContext.MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString(MYPerference.DEVICE_TOKEN, status);
-        mEditor.commit();
-
-    }
-
-    public void setBrainTreeCustID(String custID) {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString(MYPerference.CUST_ID, custID);
-        mEditor.apply();
-    }
-
-    public String getBrainTreeCustID() {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.CUST_ID, "");
-    }
-
-    public void setRegistrationType(String type) {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString(MYPerference.REG_TYPE, type);
-        mEditor.apply();
-    }
-
-    public String getRegistrationType() {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.REG_TYPE, "");
-    }
-
-    public void setZipcode(String zipcode) {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString(MYPerference.ZIP_CODE, zipcode);
-        mEditor.apply();
-    }
-
-    public String getZipCode() {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.ZIP_CODE, "");
-    }
-
-
-    public void setImage(String image) {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString(MYPerference.IMAGE, image);
-        mEditor.apply();
-    }
-
-    public String getImage() {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.IMAGE, "");
-    }
 
     public void setNonTouchableFlags(Activity activity) {
         if (activity != null) {

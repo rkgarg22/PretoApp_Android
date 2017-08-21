@@ -753,7 +753,7 @@
                                 android:backgroundTint="@android:color/darker_gray"
                                 android:buttonTint="@android:color/darker_gray" />
 
-                            <TextView
+                            <CustomControl.LatoLightTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_centerVertical="true"

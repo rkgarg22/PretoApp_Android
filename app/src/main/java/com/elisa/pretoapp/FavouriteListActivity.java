@@ -29,8 +29,8 @@ public class FavouriteListActivity extends AppCompatActivity {
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         favoritesRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-        adapter = new ResturantAdapter(this);
-        favoritesRecyclerView.setAdapter(adapter);
+        //adapter = new ResturantAdapter(this);
+        //favoritesRecyclerView.setAdapter(adapter);
     }
 
     @OnClick(R.id.backButtonClick)

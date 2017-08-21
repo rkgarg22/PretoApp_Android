@@ -1,5 +1,6 @@
 package com.elisa.pretoapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,4 +33,14 @@ public class LoginOptionActivity extends AppCompatActivity {
         startActivityForResult(registrationIntent,REGISTRATION_INTENT);
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode== REGISTRATION_INTENT){
+            if(resultCode == Activity.RESULT_OK){
+                LoginOptionActivity.this.finish();
+            }
+        }
+
+    }
 }

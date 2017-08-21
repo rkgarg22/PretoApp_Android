@@ -1,0 +1,16 @@
+<resources>
+    <string name="enterEmailText">Email can\'t be empty.</string>
+    <string name="enterPassword">Password can\'t be empty.</string>
+    <string name="enterValidEmailText">Incorrect email address.</string>
+    <string name="enterValidPasswordText">Enter more than 6 characters.</string>
+    <string name="enterName">Enter your name</string>
+
+
+    <string name="serverError">Server error!</string>
+    <string name="networkTitle">Internet connection is required.</string>
+    <string name="loginSuccessfully">Login Successfully!</string>
+    <string name="registerSuccessfully">Account successfully created</string>
+
+    <string name="accept_terms_and_conditon">Please accept terms &amp; conditions</string>
+
+</resources>

@@ -105,4 +105,13 @@
     <string name="credit_card">Credit card</string>
     <string name="sodexo">Sodexo</string>
     <string name="big_pass">Big pass</string>
+
+    <string name="ok"> Ok</string>
+
+    <string name="Average_cost">Average cost:</string>
+
+    <string name="open">Open</string>
+    <string name="closed">Closed</string>
+    <string name="no_fixed_hour">No fixed\nhours</string>
+
 </resources>

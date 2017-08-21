@@ -24,9 +24,13 @@ import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
+import APIResponse.ResturantObject;
+import CustomControl.LatoBlackTextView;
+import CustomControl.LatoBoldTextView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -38,12 +42,13 @@ import retrofit2.Response;
 
 public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.ViewHolder> {
     private Activity context;
-
+    ArrayList<ResturantObject> resturantObjectArrayList;
     int offset;
 
-    public ResturantAdapter(Activity context) {
+    public ResturantAdapter(Activity context, ArrayList<ResturantObject> resturantObjectArrayList ) {
         this.context = context;
         this.offset = 1;
+        this.resturantObjectArrayList = resturantObjectArrayList;
     }
 
     @Override
@@ -54,21 +59,62 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
+        ResturantObject object = resturantObjectArrayList.get(position);
+        holder.resturantName.setText(object.getRestName());
+        holder.resturantAddress.setText(object.getAddress());
+        holder.typeOFFood.setText(object.getTypeOfFood().get(0));
 
+        String priceStr = context.getResources().getString(R.string.from)+ " $"+object.getPriceFrom()+ " - "+context.getResources().getString(R.string.to)+" $"+ object.getPriceTo();
+        holder.priceRange.setText(priceStr);
+        holder.likeCountTextView.setText(object.getLikesCount());
+        holder.distanceTextView.setText(object.getDistance());
+
+        if(object.getColor().equals("0")){
+            //red
+            holder.currentStatus.setText(context.getResources().getString(R.string.closed));
+        }else if(object.getColor().equals("1")){
+            //green
+            holder.currentStatus.setText(context.getResources().getString(R.string.open));
+        }else{
+            //grey
+            holder.currentStatus.setText(context.getResources().getString(R.string.no_fixed_hour));
+        }
     }
 
 
     @Override
     public int getItemCount() {
-        return 10;
+        return resturantObjectArrayList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        @Bind(R.id.resturantName)
+        LatoBlackTextView resturantName;
+
+        @Bind(R.id.distance)
+        LatoBoldTextView distanceTextView;
+
+        @Bind(R.id.resturantAddress)
+        LatoBoldTextView resturantAddress;
+
+        @Bind(R.id.typeOFFood)
+        LatoBoldTextView typeOFFood;
+
+        @Bind(R.id.priceRange)
+        LatoBoldTextView priceRange;
+
+        @Bind(R.id.likeCount)
+        LatoBoldTextView likeCountTextView;
+
+        @Bind(R.id.currentStatus)
+        LatoBoldTextView currentStatus;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-
         }
     }
+
+
 }

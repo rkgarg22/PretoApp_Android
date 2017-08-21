@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_language_select"
     android:layout_width="match_parent"
@@ -7,114 +7,138 @@
     android:background="@drawable/language_bg"
     tools:context="com.elisa.pretoapp.LanguageSelectActivity">
 
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/logoView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/logo_portrait" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/circular_email_icon" />
-
-        <CustomControl.LatoHeavyEditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/shape_rounded_corner"
-            android:gravity="center"
-            android:hint="@string/name"
-            android:textColor="@color/color_blue"
-            android:textColorHint="@color/color_blue" />
-
-        <CustomControl.LatoHeavyEditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/shape_rounded_corner"
-            android:gravity="center"
-            android:hint="@string/email"
-            android:textColor="@color/color_blue"
-            android:textColorHint="@color/color_blue" />
-
-        <CustomControl.LatoHeavyEditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/shape_rounded_corner"
-            android:gravity="center"
-            android:hint="@string/password"
-            android:textColor="@color/color_blue"
-            android:textColorHint="@color/color_blue" />
-
-        <CustomControl.LatoHeavyEditText
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/shape_rounded_corner"
-            android:gravity="center"
-            android:hint="@string/confirm_password"
-            android:textColor="@color/color_blue"
-            android:textColorHint="@color/color_blue" />
-
-        <CustomControl.LatoBoldTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/acceptance_text"
-            android:textSize="12sp"
-            android:textColor="@android:color/white" />
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <CustomControl.MyriadProBoldTextView
+            <ImageView
+                android:id="@+id/logoView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/accept"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/logo_portrait" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/circular_email_icon" />
+
+            <CustomControl.LatoHeavyEditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_rounded_corner"
+                android:gravity="center"
+                android:hint="@string/name"
+                android:singleLine="true"
+                android:textColor="@color/color_blue"
+                android:textColorHint="@color/color_blue" />
+
+            <CustomControl.LatoHeavyEditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_rounded_corner"
+                android:gravity="center"
+                android:hint="@string/email"
+                android:singleLine="true"
+                android:textColor="@color/color_blue"
+                android:textColorHint="@color/color_blue" />
+
+            <CustomControl.LatoHeavyEditText
+                android:id="@+id/passwordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_rounded_corner"
+                android:gravity="center"
+                android:inputType="textPassword"
+                android:hint="@string/password"
+                android:singleLine="true"
+                android:textColor="@color/color_blue"
+                android:textColorHint="@color/color_blue" />
+
+            <CustomControl.LatoHeavyEditText
+                android:id="@+id/confirmPasswordEditText"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/shape_rounded_corner"
+                android:gravity="center"
+                android:inputType="textPassword"
+                android:hint="@string/confirm_password"
+                android:singleLine="true"
+                android:textColor="@color/color_blue"
+                android:textColorHint="@color/color_blue" />
+
+            <CustomControl.LatoBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/acceptance_text"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <CustomControl.MyriadProBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/accept"
+                    android:textColor="@android:color/white" />
+
+                <CheckBox
+                    android:id="@+id/acceptCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/white"
+                    android:buttonTint="@android:color/white" />
+            </LinearLayout>
+
+
+            <CustomControl.MyriadProBoldButton
+                android:id="@+id/registerBtnClick"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/shape_rounded_corner"
+                android:text="@string/register" />
+
+            <CustomControl.LatoBoldTextView
+                android:id="@+id/signInClick"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="20dp"
+                android:text="@string/already_account"
                 android:textColor="@android:color/white" />
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@android:color/white"
-                android:buttonTint="@android:color/white" />
         </LinearLayout>
+    </ScrollView>
 
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminate="false" />
 
-        <CustomControl.MyriadProBoldButton
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/shape_rounded_corner"
-            android:text="@string/register" />
-
-        <CustomControl.LatoBoldTextView
-            android:id="@+id/signInClick"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:paddingBottom="20dp"
-            android:text="@string/already_account"
-            android:textColor="@android:color/white" />
-
-    </LinearLayout>
-
-</ScrollView>
+</RelativeLayout>

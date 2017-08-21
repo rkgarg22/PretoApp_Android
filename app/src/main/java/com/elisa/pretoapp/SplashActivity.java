@@ -17,13 +17,12 @@ public class SplashActivity extends AppCompatActivity {
                 try {
                     sleep(3000);
                     if (AppCommon.getInstance(SplashActivity.this).isUserLogIn()) {
-
-
+                        Intent i = new Intent(SplashActivity.this, HomeActivity.class);
+                        startActivity(i);
                     } else {
                         Intent i = new Intent(SplashActivity.this, LanguageSelectActivity.class);
                         startActivity(i);
                     }
-
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {

@@ -28,6 +28,7 @@
                 android:paddingLeft="5dp">
 
                 <CustomControl.LatoBlackTextView
+                    android:id="@+id/resturantName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Pani Shop"
@@ -59,6 +60,7 @@
                 android:src="@drawable/small_food_icon" />
 
             <CustomControl.LatoBoldTextView
+                android:id="@+id/distance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -94,22 +96,24 @@
             android:paddingLeft="5dp">
 
             <CustomControl.LatoBoldTextView
+                android:id="@+id/resturantAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="IT Park, Chandigarh"
                 android:textColor="@color/color_blue"
-                android:textSize="15sp"
-                android:id="@+id/textView7" />
+                android:textSize="15sp" />
 
             <CustomControl.LatoLightTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
                 android:text="Type of food"
+                android:textColor="@color/color_blue"
                 android:textSize="18sp"
                 android:id="@+id/textView" />
 
             <CustomControl.LatoBoldTextView
+                android:id="@+id/typeOFFood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
@@ -121,10 +125,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="Range"
+                android:text="@string/Average_cost"
+                android:textColor="@color/color_blue"
                 android:textSize="18sp" />
 
             <CustomControl.LatoBoldTextView
+                android:id="@+id/priceRange"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
@@ -148,6 +154,7 @@
                 android:src="@drawable/thumb_icon" />
 
             <CustomControl.LatoBoldTextView
+                android:id="@+id/likeCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
@@ -162,6 +169,7 @@
                 android:background="@drawable/green_circle" />
 
             <CustomControl.LatoBoldTextView
+                android:id="@+id/currentStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
