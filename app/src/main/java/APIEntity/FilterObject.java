@@ -25,8 +25,8 @@ public class FilterObject {
     @SerializedName("isDeliveryOn")
     String isDeliveryOn = "";
 
-    @SerializedName("toTakeAway")
-    String toTakeAway = "";
+    @SerializedName("isPreOrder")
+    String isPreOrder = "";
 
     @SerializedName("paymentMethods")
     String paymentMethods = "";
@@ -34,7 +34,7 @@ public class FilterObject {
     public FilterObject() {
     }
 
-    public FilterObject(String isOpen, String fromPrice, String toPrice, String categories, String typeOfFood, String isMostLikedOne, String isDeliveryOn, String toTakeAway, String paymentMethods) {
+    public FilterObject(String isOpen, String fromPrice, String toPrice, String categories, String typeOfFood, String isMostLikedOne, String isDeliveryOn, String isPreOrder, String paymentMethods) {
         this.isOpen = isOpen;
         this.fromPrice = fromPrice;
         this.toPrice = toPrice;
@@ -42,7 +42,7 @@ public class FilterObject {
         this.typeOfFood = typeOfFood;
         this.isMostLikedOne = isMostLikedOne;
         this.isDeliveryOn = isDeliveryOn;
-        this.toTakeAway = toTakeAway;
+        this.isPreOrder = isPreOrder;
         this.paymentMethods = paymentMethods;
     }
 
@@ -104,12 +104,12 @@ public class FilterObject {
         this.isDeliveryOn = isDeliveryOn;
     }
 
-    public String getToTakeAway() {
-        return toTakeAway;
+    public String getIsPreOrder() {
+        return isPreOrder;
     }
 
-    public void setToTakeAway(String toTakeAway) {
-        this.toTakeAway = toTakeAway;
+    public void setIsPreOrder(String isPreOrder) {
+        this.isPreOrder = isPreOrder;
     }
 
     public String getPaymentMethods() {

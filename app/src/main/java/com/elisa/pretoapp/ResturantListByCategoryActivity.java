@@ -9,6 +9,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 
 import API.PretoAppService;
@@ -98,7 +100,7 @@ public class ResturantListByCategoryActivity extends AppCompatActivity {
         }
     }
 
-    @OnClick(R.id.backButtonClick)
+    @OnClick(R.id.searchBtnClick)
     public void backButtonClick(View view) {
         this.finish();
     }
@@ -106,9 +108,10 @@ public class ResturantListByCategoryActivity extends AppCompatActivity {
     private void getResturantList(int catID) {
         AppCommon.getInstance(this).setNonTouchableFlags(this);
         if (AppCommon.getInstance(this).isConnectingToInternet(this)) {
+            FilterObject filterObject = new FilterObject();
             GetResturantListEntity listEntity = new GetResturantListEntity(AppCommon.getInstance(this).getUserID(),
                     Integer.toString(catID),
-                    AppCommon.getInstance(this).getSelectedLanguage(), "1", "", "", new FilterObject());
+                    AppCommon.getInstance(this).getSelectedLanguage(), "1", Float.toString(AppCommon.getInstance(this).getUserLatitude()), Float.toString(AppCommon.getInstance(this).getUserLongitude()), filterObject);
             PretoAppService pretoAppService = ServiceGenerator.createService(PretoAppService.class);
             call = pretoAppService.getResturantList(listEntity);
             call.enqueue(new Callback<GetResturantListResponse>() {
@@ -140,6 +143,5 @@ public class ResturantListByCategoryActivity extends AppCompatActivity {
             AppCommon.showDialog(this, this.getResources().getString(R.string.networkTitle));
         }
     }
-
 
 }

@@ -8,7 +8,7 @@ public class GetResturantListResponse {
     @SerializedName("success")
     String success;
 
-    @SerializedName("restuarantList")
+    @SerializedName("result")
     ArrayList<ResturantObject> resturantObjectList;
 
     @SerializedName("error")

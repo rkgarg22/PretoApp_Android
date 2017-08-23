@@ -32,7 +32,7 @@ public class AppCommon {
     public static AppCommon mInstance = null;
     static Context mContext;
     public String favIconStatus = null;
-
+    public static final int LOCATION_PERMISSION_REQUEST_CODE = 1100;
 
     public static AppCommon getInstance(Context _Context) {
         if (mInstance == null) {

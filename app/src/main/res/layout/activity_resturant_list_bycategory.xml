@@ -57,7 +57,7 @@
                 android:background="@android:color/transparent"
                 android:src="@drawable/like" />
 
-            <TextView
+            <CustomControl.LatoBoldTextView
                 android:id="@+id/headerTextView"
                 android:layout_width="180dp"
                 android:layout_height="30dp"

@@ -67,8 +67,8 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
         String priceStr = context.getResources().getString(R.string.from)+ " $"+object.getPriceFrom()+ " - "+context.getResources().getString(R.string.to)+" $"+ object.getPriceTo();
         holder.priceRange.setText(priceStr);
         holder.likeCountTextView.setText(object.getLikesCount());
-        holder.distanceTextView.setText(object.getDistance());
-
+        holder.distanceTextView.setText(object.getDistance()+" km");
+        holder.dealImageView.setImageURI(Uri.parse(object.getImages()));
         if(object.getColor().equals("0")){
             //red
             holder.currentStatus.setText(context.getResources().getString(R.string.closed));
@@ -109,6 +109,9 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
 
         @Bind(R.id.currentStatus)
         LatoBoldTextView currentStatus;
+
+        @Bind(R.id.dealImage)
+        SimpleDraweeView dealImageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
