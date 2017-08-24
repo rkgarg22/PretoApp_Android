@@ -15,11 +15,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 
 import com.elisa.pretoapp.R;
+import com.elisa.pretoapp.ResturantListByCategoryActivity;
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
 
@@ -79,6 +81,7 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
             //grey
             holder.currentStatus.setText(context.getResources().getString(R.string.no_fixed_hour));
         }
+        holder.likeImage.setTag(Integer.toString(position));
     }
 
 
@@ -113,11 +116,21 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
         @Bind(R.id.dealImage)
         SimpleDraweeView dealImageView;
 
+        @Bind(R.id.circleStatusImage)
+        ImageView circleStatusImage;
+
+        @Bind(R.id.likeImage)
+        ImageView likeImage;
+
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
+
+        @OnClick(R.id.likeImage)
+        public void likeClick(View view){
+            int position = Integer.parseInt(view.getTag().toString());
+
+        }
     }
-
-
 }

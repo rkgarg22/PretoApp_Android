@@ -18,6 +18,7 @@ import API.ServiceGenerator;
 import APIEntity.FilterObject;
 import APIEntity.GetResturantListEntity;
 import APIEntity.Login_Entity;
+import APIResponse.CommonStringResponse;
 import APIResponse.GetResturantListResponse;
 import APIResponse.LoginResponse;
 import APIResponse.ResturantObject;
@@ -62,7 +63,7 @@ public class ResturantListByCategoryActivity extends AppCompatActivity {
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         resturantRecyclerView.setLayoutManager(mLinearLayoutManager);
 
-        adapter = new ResturantAdapter(this,resturantObjectArrayList);
+        adapter = new ResturantAdapter(this, resturantObjectArrayList);
         resturantRecyclerView.setAdapter(adapter);
         getResturantList(tag);
     }
@@ -120,13 +121,49 @@ public class ResturantListByCategoryActivity extends AppCompatActivity {
                     GetResturantListResponse listResponse = (GetResturantListResponse) response.body();
                     progressBar.setVisibility(View.GONE);
                     if (listResponse.getSuccess().equals("1")) {
-                        for(ResturantObject object : listResponse.getResturantObjectList()){
+                        for (ResturantObject object : listResponse.getResturantObjectList()) {
                             resturantObjectArrayList.add(object);
                         }
                         adapter.notifyDataSetChanged();
                     } else {
                         progressBar.setVisibility(View.GONE);
                         AppCommon.getInstance(ResturantListByCategoryActivity.this).showDialog(ResturantListByCategoryActivity.this, listResponse.getError());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call call, Throwable t) {
+                    AppCommon.getInstance(ResturantListByCategoryActivity.this).clearNonTouchableFlags(ResturantListByCategoryActivity.this);
+                    progressBar.setVisibility(View.GONE);
+                    AppCommon.showDialog(ResturantListByCategoryActivity.this, getString(R.string.serverError));
+                }
+            });
+        } else {
+            AppCommon.getInstance(ResturantListByCategoryActivity.this).clearNonTouchableFlags(ResturantListByCategoryActivity.this);
+            progressBar.setVisibility(View.GONE);
+            AppCommon.showDialog(this, this.getResources().getString(R.string.networkTitle));
+        }
+    }
+
+    public void markLike(int position) {
+        AppCommon.getInstance(this).setNonTouchableFlags(this);
+        if (AppCommon.getInstance(this).isConnectingToInternet(this)) {
+            final ResturantObject object = resturantObjectArrayList.get(position);
+            PretoAppService pretoAppService = ServiceGenerator.createService(PretoAppService.class);
+            call = pretoAppService.markLike(AppCommon.getInstance(this).getUserId(), object.getRestID());
+            call.enqueue(new Callback<CommonStringResponse>() {
+                @Override
+                public void onResponse(Call call, Response response) {
+                    CommonStringResponse commonStringResponse = (CommonStringResponse) response.body();
+                    progressBar.setVisibility(View.GONE);
+                    if (commonStringResponse.getSuccess().equals("1")) {
+                        int likeCount = Integer.parseInt(object.getLikesCount());
+                        likeCount = likeCount + 1;
+                        object.setLikesCount(Integer.toString(likeCount));
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        progressBar.setVisibility(View.GONE);
+                        AppCommon.getInstance(ResturantListByCategoryActivity.this).showDialog(ResturantListByCategoryActivity.this, commonStringResponse.getError());
                     }
                 }
 

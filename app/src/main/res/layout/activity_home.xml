@@ -58,7 +58,7 @@
                 android:layout_marginRight="2dp"
                 android:layout_toLeftOf="@+id/verticalDotsBtn"
                 android:background="@android:color/transparent"
-                android:src="@drawable/like" />
+                android:src="@drawable/fav_icon" />
 
             <TextView
                 android:layout_width="180dp"

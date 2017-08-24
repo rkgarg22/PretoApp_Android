@@ -148,6 +148,7 @@
             android:orientation="vertical">
 
             <ImageView
+                android:id="@+id/likeImage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -162,11 +163,12 @@
                 android:textColor="@color/color_blue"
                 android:textSize="15sp" />
 
-            <TextView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+            <ImageView
+                android:id="@+id/circleStatusImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/green_circle" />
+                android:background="@drawable/green_white_brdr" />
 
             <CustomControl.LatoBoldTextView
                 android:id="@+id/currentStatus"

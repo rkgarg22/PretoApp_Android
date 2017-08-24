@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class CommonStringResponse {
     @SerializedName("success")
-    int success;
+    String success;
 
     @SerializedName("result")
     String result;
@@ -12,11 +12,11 @@ public class CommonStringResponse {
     @SerializedName("error")
     String error;
 
-    public int getSuccess() {
+    public String getSuccess() {
         return success;
     }
 
-    public void setSuccess(int success) {
+    public void setSuccess(String success) {
         this.success = success;
     }
 
