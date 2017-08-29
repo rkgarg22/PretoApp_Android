@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import CustomControl.GPSTracker;
+import CustomControl.LatoBoldEditText;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -19,7 +20,12 @@ public class HomeActivity extends AppCompatActivity {
 
     @Bind(R.id.searchLayout)
     RelativeLayout searchlayout;
+
+    @Bind(R.id.searchEditText)
+    LatoBoldEditText searchEditText;
+
     GPSTracker gpsTracker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,17 +62,31 @@ public class HomeActivity extends AppCompatActivity {
 
     @OnClick({R.id.breakfastCategory, R.id.lunchCategory, R.id.dinnerCategory, R.id.preorderCategory, R.id.snacksCategory, R.id.otherCategory, R.id.nearYouCategory})
     public void categoryClick(View view) {
-
-        int tag= Integer.parseInt(view.getTag().toString());
+        int tag = Integer.parseInt(view.getTag().toString());
         Intent resturantIntent = new Intent(this, ResturantListByCategoryActivity.class);
-        resturantIntent.putExtra("categorySelect",tag);
+        resturantIntent.putExtra("categorySelect", tag);
+        resturantIntent.putExtra("searchText", "");
         startActivity(resturantIntent);
     }
 
     @OnClick(R.id.filterBtnClick)
-    public void filterBtnClick(View view){
-        Intent filterIntent = new Intent(this,FilterActivity.class);
+    public void filterBtnClick(View view) {
+        Intent filterIntent = new Intent(this, FilterActivity.class);
+        filterIntent.putExtra("isComingFromHome",true);
         startActivity(filterIntent);
+    }
+
+    @OnClick(R.id.searchActionPerformed)
+    public void searchActionPerformed(View view) {
+        String searchText = searchEditText.getText().toString().trim();
+        if (searchText.equals("")) {
+            searchEditText.setError(getResources().getString(R.string.search_text_enter));
+            return;
+        }
+        Intent resturantIntent = new Intent(this, ResturantListByCategoryActivity.class);
+        resturantIntent.putExtra("categorySelect", 0);
+        resturantIntent.putExtra("searchText", searchText);
+        startActivity(resturantIntent);
     }
 
     @Override
@@ -76,7 +96,7 @@ public class HomeActivity extends AppCompatActivity {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED &&
                         grantResults[1] == PackageManager.PERMISSION_GRANTED) {
                     Log.i("locationPermission", "Result OK");
-                    gpsTracker = new GPSTracker( this);
+                    gpsTracker = new GPSTracker(this);
                 }
         }
 

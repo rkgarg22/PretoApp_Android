@@ -9,15 +9,24 @@
     android:gravity="center"
     tools:context="com.elisa.pretoapp.LanguageSelectActivity">
 
-
     <ImageView
-
         android:id="@+id/logoView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/titleLayout"
         android:layout_centerHorizontal="true"
         android:src="@drawable/logo_portrait" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/logoView"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="90dp"
+        android:gravity="center"
+        android:textSize="18sp"
+        android:visibility="gone" />
 
     <LinearLayout
         android:id="@+id/facebookBtnLayout"

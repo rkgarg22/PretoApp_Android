@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PretoApp</string>
+    <string name="app_name">Preto</string>
 
     <string name="select_language_title">LANGUAGE</string>
     <string name="english_btn_text">English</string>
@@ -114,4 +114,39 @@
     <string name="closed">Closed</string>
     <string name="no_fixed_hour">No fixed\nhours</string>
 
+
+    //Detail Screen
+    <string name="information">INFORMATION</string>
+    <string name="menu">MENU</string>
+    <string name="add_to_favorites">ADD TO FAVORITES</string>
+    <string name="instagram">INSTAGRAM</string>
+    <string name="type_of_food_detail">Type of food:</string>
+    <string name="category_detail">Category:</string>
+    <string name="Opens_on_detail">Opens on:</string>
+    <string name="average_cost_detail">Average cost:</string>
+    <string name="desription_detail">Description</string>
+    <string name="history_detail">History</string>
+    <string name="payment_method_detail">Payments methods</string>
+    <string name="others_detail">Others</string>
+    <string name="website_detail">Website</string>
+    <string name="menu_detail">Menu</string>
+
+    <string name="delivery_detail">Delivery</string>
+    <string name="commnets_detail">Comments</string>
+    <string name="call_detail">Call</string>
+    <string name="registered_since">Registered since:</string>
+
+    <string name="mark_favourite_successfully">Restaurant mark favourite successfully</string>
+    <string name="mark_unfavourite_successfully">Restaurant mark unfavourite successfully</string>
+
+    <string name="facebook_app_id">965470806887221</string>
+    <string name="title_activity_map_for_distance">Map</string>
+
+    <string name="list">LIST</string>
+    <string name="map">MAP</string>
+    <string name="cancel">Cancel</string>
+    <string name="to_open_with">To open with</string>
+    <string name="waze">WAZE</string>
+    <string name="google_maps">GOOGLE MAPS</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

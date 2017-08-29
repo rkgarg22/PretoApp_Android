@@ -2,32 +2,26 @@ package Adapter;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.graphics.Palette;
 import android.support.v7.widget.RecyclerView;
-import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 
+import com.elisa.pretoapp.FavouriteListActivity;
+import com.elisa.pretoapp.MapActivityForDistance;
 import com.elisa.pretoapp.R;
+import com.elisa.pretoapp.ResturantDetailActivity;
 import com.elisa.pretoapp.ResturantListByCategoryActivity;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.google.gson.Gson;
 
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 import APIResponse.ResturantObject;
@@ -37,9 +31,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import infrastructure.AppCommon;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 
 public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.ViewHolder> {
@@ -47,7 +38,7 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
     ArrayList<ResturantObject> resturantObjectArrayList;
     int offset;
 
-    public ResturantAdapter(Activity context, ArrayList<ResturantObject> resturantObjectArrayList ) {
+    public ResturantAdapter(Activity context, ArrayList<ResturantObject> resturantObjectArrayList) {
         this.context = context;
         this.offset = 1;
         this.resturantObjectArrayList = resturantObjectArrayList;
@@ -66,22 +57,41 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
         holder.resturantAddress.setText(object.getAddress());
         holder.typeOFFood.setText(object.getTypeOfFood().get(0));
 
-        String priceStr = context.getResources().getString(R.string.from)+ " $"+object.getPriceFrom()+ " - "+context.getResources().getString(R.string.to)+" $"+ object.getPriceTo();
+        String priceStr = context.getResources().getString(R.string.from) + " $" + object.getPriceFrom() + " - " + context.getResources().getString(R.string.to) + " $" + object.getPriceTo();
         holder.priceRange.setText(priceStr);
         holder.likeCountTextView.setText(object.getLikesCount());
-        holder.distanceTextView.setText(object.getDistance()+" km");
+        holder.distanceTextView.setText(object.getDistance() + " km");
         holder.dealImageView.setImageURI(Uri.parse(object.getImages()));
-        if(object.getColor().equals("0")){
+        if (object.getColor().equals("0")) {
             //red
+            holder.openStatusTextView.setBackgroundResource(R.drawable.red_circle);
             holder.currentStatus.setText(context.getResources().getString(R.string.closed));
-        }else if(object.getColor().equals("1")){
+        } else if (object.getColor().equals("1")) {
             //green
+            holder.openStatusTextView.setBackgroundResource(R.drawable.green_circle);
             holder.currentStatus.setText(context.getResources().getString(R.string.open));
-        }else{
+        } else {
             //grey
+            holder.openStatusTextView.setBackgroundResource(R.drawable.grey_circle);
             holder.currentStatus.setText(context.getResources().getString(R.string.no_fixed_hour));
         }
+
+        if(object.getIsLiked().equals("1")){
+            holder.likeImage.setSelected(true);
+        }else{
+            holder.likeImage.setSelected(false);
+        }
+
         holder.likeImage.setTag(Integer.toString(position));
+        holder.rowLayout.setTag(Integer.toString(position));
+        holder.distanceLayout.setTag(Integer.toString(position));
+
+        if (position == ((offset * 20) - 1)) {
+            if (context instanceof ResturantListByCategoryActivity) {
+                offset = offset + 1;
+                ((ResturantListByCategoryActivity) context).getResturantList(offset);
+            }
+        }
     }
 
 
@@ -116,11 +126,17 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
         @Bind(R.id.dealImage)
         SimpleDraweeView dealImageView;
 
-        @Bind(R.id.circleStatusImage)
-        ImageView circleStatusImage;
-
         @Bind(R.id.likeImage)
         ImageView likeImage;
+
+        @Bind(R.id.rowLayout)
+        LinearLayout rowLayout;
+
+        @Bind(R.id.distanceLayout)
+        LinearLayout distanceLayout;
+
+        @Bind(R.id.openStatusTextView)
+        TextView openStatusTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -128,9 +144,37 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
         }
 
         @OnClick(R.id.likeImage)
-        public void likeClick(View view){
+        public void likeClick(View view) {
             int position = Integer.parseInt(view.getTag().toString());
+            ((ResturantListByCategoryActivity) context).markLike(position);
+        }
 
+        @OnClick(R.id.rowLayout)
+        public void rowLayoutClick(View view) {
+            int position = Integer.parseInt(view.getTag().toString());
+            ResturantObject object = resturantObjectArrayList.get(position);
+            Intent resturantDetailIntent = new Intent(context, ResturantDetailActivity.class);
+            resturantDetailIntent.putExtra("restID", object.getRestID());
+            if (context instanceof ResturantListByCategoryActivity) {
+                ((ResturantListByCategoryActivity) context).startActivityForResult(resturantDetailIntent, AppCommon.INTENT_FOR_RESTURANT_DETAIL);
+            } else if (context instanceof FavouriteListActivity) {
+                ((FavouriteListActivity) context).startActivityForResult(resturantDetailIntent, AppCommon.INTENT_FOR_RESTURANT_DETAIL);
+            }
+        }
+
+        @OnClick(R.id.distanceLayout)
+        public void distanceClick(View view) {
+            int position = Integer.parseInt(view.getTag().toString());
+            ResturantObject object = resturantObjectArrayList.get(position);
+            Gson gson = new Gson();
+            String objectStr = gson.toJson(object);
+            Intent mapIntent = new Intent(context, MapActivityForDistance.class);
+            mapIntent.putExtra("object", objectStr);
+            if (context instanceof ResturantListByCategoryActivity) {
+                ((ResturantListByCategoryActivity) context).startActivityForResult(mapIntent, AppCommon.INTENT_FOR_MAP_DISTANCE);
+            } else if (context instanceof FavouriteListActivity) {
+                ((FavouriteListActivity) context).startActivityForResult(mapIntent, AppCommon.INTENT_FOR_MAP_DISTANCE);
+            }
         }
     }
 }

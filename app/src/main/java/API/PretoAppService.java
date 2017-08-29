@@ -5,6 +5,7 @@ import APIEntity.GetResturantListEntity;
 import APIEntity.Login_Entity;
 import APIEntity.UserInformation_Entity;
 import APIResponse.CommonStringResponse;
+import APIResponse.GetResturantDetailResponse;
 import APIResponse.GetResturantListResponse;
 import APIResponse.LoginResponse;
 import APIResponse.RegistrationResponse;
@@ -34,6 +35,29 @@ public interface PretoAppService {
 
     @GET("markLike.php")
     Call<CommonStringResponse> markLike(
+            @Query("userID") String userID,
+            @Query("restID") String restID
+    );
+
+    @GET("getFavouriteRestuarantList.php")
+    Call<GetResturantListResponse> getFavouriteResturantList(
+            @Query("userID") String userID,
+            @Query("language") String language,
+            @Query("lattitude") String lattitude,
+            @Query("longitude") String longitude
+    );
+
+    @GET("getRestuarantDetail.php")
+    Call<GetResturantDetailResponse> getResturantDetail(
+            @Query("userID") String userID,
+            @Query("restID") String restID,
+            @Query("language") String language,
+            @Query("lattitude") String lattitude,
+            @Query("longitude") String longitude
+    );
+
+    @GET("markFavourite.php")
+    Call<CommonStringResponse> markFavourite(
             @Query("userID") String userID,
             @Query("restID") String restID
     );

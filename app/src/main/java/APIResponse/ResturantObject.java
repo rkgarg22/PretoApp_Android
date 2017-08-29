@@ -2,6 +2,7 @@ package APIResponse;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 
@@ -80,6 +81,15 @@ public class ResturantObject {
 
     @SerializedName("color")
     String color;
+
+    @SerializedName("web_url")
+    String webUrl;
+
+    @SerializedName("instagram_account")
+    String instagramAccount;
+
+    @SerializedName("operatingHours")
+    ArrayList<OperatingHour> operatingHourArrayList;
 
     public String getRestID() {
         return restID;
@@ -279,5 +289,29 @@ public class ResturantObject {
 
     public void setColor(String color) {
         this.color = color;
+    }
+
+    public String getWebUrl() {
+        return webUrl;
+    }
+
+    public void setWebUrl(String webUrl) {
+        this.webUrl = webUrl;
+    }
+
+    public String getInstagramAccount() {
+        return instagramAccount;
+    }
+
+    public void setInstagramAccount(String instagramAccount) {
+        this.instagramAccount = instagramAccount;
+    }
+
+    public ArrayList<OperatingHour> getOperatingHourArrayList() {
+        return operatingHourArrayList;
+    }
+
+    public void setOperatingHourArrayList(ArrayList<OperatingHour> operatingHourArrayList) {
+        this.operatingHourArrayList = operatingHourArrayList;
     }
 }

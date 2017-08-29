@@ -12,5 +12,5 @@
     <string name="registerSuccessfully">Account successfully created</string>
 
     <string name="accept_terms_and_conditon">Please accept terms &amp; conditions</string>
-
+    <string name="search_text_enter">Enter search text</string>
 </resources>

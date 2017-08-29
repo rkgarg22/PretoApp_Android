@@ -31,8 +31,12 @@ public class AppCommon {
 
     public static AppCommon mInstance = null;
     static Context mContext;
-    public String favIconStatus = null;
+
     public static final int LOCATION_PERMISSION_REQUEST_CODE = 1100;
+    public static final int INTENT_FOR_MAP_DISTANCE = 1000;
+    public static final int INTENT_FOR_RESTURANT_DETAIL = 1001;
+    public static final int RESTURANT_LIST_INTENT =1002;
+    public static final int FILTER_INTENT = 1003;
 
     public static AppCommon getInstance(Context _Context) {
         if (mInstance == null) {
@@ -92,19 +96,6 @@ public class AppCommon {
         mEditor.commit();
     }
 
-    public void setUserId(String userID) {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
-        mEditor.putString(MYPerference.USER_ID, userID);
-        mEditor.apply();
-    }
-
-    public String getUserId() {
-        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.USER_ID, "");
-    }
-
-
     public void setUserLatitude(double latitude) {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
@@ -116,7 +107,7 @@ public class AppCommon {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor mEditor = mSharedPreferences.edit();
         mEditor.putFloat(MYPerference.USER_LONGITUDE, (float) longitude);
-
+        mEditor.commit();
     }
 
 

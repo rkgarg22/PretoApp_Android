@@ -29,33 +29,35 @@
                 android:src="@drawable/blue_back_button" />
 
             <ImageButton
-                android:id="@+id/searchBtnClick"
-                android:layout_width="wrap_content"
+                android:id="@+id/filterBtnClick"
+                android:layout_width="30dp"
                 android:layout_height="match_parent"
-                android:layout_toRightOf="@+id/backButtonClick"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/backButtonClick"
                 android:background="@android:color/transparent"
-                android:src="@drawable/search" />
+                android:src="@drawable/filter" />
 
             <ImageButton
-                android:id="@+id/verticalDotsBtn"
+                android:id="@+id/homeBtn"
                 android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/vertical_dot" />
+                android:src="@drawable/home_btn"
+                android:tint="@color/color_blue" />
 
             <ImageButton
-                android:id="@+id/favouritesBtnClick"
+                android:id="@+id/searchBtnClick"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="2dp"
-                android:layout_toLeftOf="@+id/verticalDotsBtn"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/homeBtn"
                 android:background="@android:color/transparent"
-                android:src="@drawable/fav_icon" />
+                android:src="@drawable/search" />
 
             <CustomControl.LatoBoldTextView
                 android:id="@+id/headerTextView"
@@ -70,6 +72,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/imageLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1">
@@ -88,34 +91,226 @@
 
         </RelativeLayout>
 
-        <android.support.v4.widget.SwipeRefreshLayout
-            android:id="@+id/swipeContainer"
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/white">
+
+            <CustomControl.LatoBoldButton
+                android:id="@+id/listButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/color_blue"
+                android:gravity="center"
+                android:text="@string/list"
+                android:textColor="@android:color/white" />
+
+            <CustomControl.LatoBoldButton
+                android:id="@+id/mapButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:background="@color/color_blue"
+                android:gravity="center"
+                android:text="@string/map"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="3">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/resturantRecyclerView"
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipeContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/resturantRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none" />
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+            <LinearLayout
+                android:id="@+id/mapFragmentLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scrollbars="none" />
-        </android.support.v4.widget.SwipeRefreshLayout>
+                android:visibility="gone">
 
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/adLayout"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="@android:color/holo_green_dark">
+            android:background="@android:color/holo_green_dark"
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <CustomControl.MyriadProRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Junglebox"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
         </LinearLayout>
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/searchLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/searchLayoutBackgroundBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <CustomControl.LatoBoldEditText
+                android:id="@+id/searchEditText"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:textColor="@color/color_blue" />
+
+            <ImageButton
+                android:id="@+id/searchActionPerformed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/search" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/markerClickLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_above="@+id/cancelButton"
+            android:background="@android:color/white"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <CustomControl.LatoBoldTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/to_open_with"
+                android:textColor="@color/color_blue"
+                android:textSize="15sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/waze" />
+
+                <CustomControl.LatoBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/waze"
+                    android:textColor="@color/color_blue"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:background="@color/color_blue" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/google_map" />
+
+                <CustomControl.LatoBoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="@string/google_maps"
+                    android:textColor="@color/color_blue"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <CustomControl.LatoBoldButton
+            android:id="@+id/cancelButton"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_blue"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+
+    </RelativeLayout>
 
     <ProgressBar
         android:id="@+id/progressbar"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_centerInParent="true"
-        android:visibility="gone"
-        android:indeterminate="false" />
+        android:indeterminate="false"
+        android:visibility="gone" />
 </RelativeLayout>

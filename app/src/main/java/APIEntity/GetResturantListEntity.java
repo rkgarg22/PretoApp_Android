@@ -24,7 +24,10 @@ public class GetResturantListEntity {
     @SerializedName("filters")
     FilterObject filterObj;
 
-    public GetResturantListEntity(String userID, String catID, String language, String offset, String latitude, String longitude, FilterObject filterObj) {
+    @SerializedName("searchText")
+    String searchText;
+
+    public GetResturantListEntity(String userID, String catID, String language, String offset, String latitude, String longitude, FilterObject filterObj, String searchText) {
         this.userID = userID;
         this.catID = catID;
         this.language = language;
@@ -32,6 +35,7 @@ public class GetResturantListEntity {
         this.latitude = latitude;
         this.longitude = longitude;
         this.filterObj = filterObj;
+        this.searchText = searchText;
     }
 
     public String getUserID() {
@@ -88,5 +92,13 @@ public class GetResturantListEntity {
 
     public void setFilterObj(FilterObject filterObj) {
         this.filterObj = filterObj;
+    }
+
+    public String getSearchText() {
+        return searchText;
+    }
+
+    public void setSearchText(String searchText) {
+        this.searchText = searchText;
     }
 }
