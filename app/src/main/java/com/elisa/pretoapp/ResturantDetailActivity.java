@@ -1,8 +1,13 @@
 package com.elisa.pretoapp;
 
+import android.*;
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -102,6 +107,7 @@ public class ResturantDetailActivity extends AppCompatActivity {
     Call call;
     String restID;
     ResturantObject resturantObject;
+    private static final int REQUESTCODE_CALL_PERMISSION = 130;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -156,15 +162,15 @@ public class ResturantDetailActivity extends AppCompatActivity {
         OpeningHoursAdapter adapter = new OpeningHoursAdapter(this, resturantObject.getOperatingHourArrayList());
         openingHoursRecyclerView.setAdapter(adapter);
 
-        if(resturantObject.getIsLiked().equals("1")){
+        if (resturantObject.getIsLiked().equals("1")) {
             likeImageView.setSelected(true);
-        }else{
+        } else {
             likeImageView.setSelected(false);
         }
 
-        if(resturantObject.getIsFavourite().equals("1")){
+        if (resturantObject.getIsFavourite().equals("1")) {
             favImageView.setSelected(true);
-        }else{
+        } else {
             favImageView.setSelected(false);
         }
     }
@@ -195,6 +201,40 @@ public class ResturantDetailActivity extends AppCompatActivity {
     @OnClick(R.id.likeLayout)
     public void likeLayoutClick() {
         markLike();
+    }
+
+    @OnClick(R.id.callLayout)
+    public void callLayoutClick() {
+        requestPermission();
+    }
+
+    @OnClick(R.id.instagramLayout)
+    public void instagramClick() {
+        if (resturantObject.getInstagramAccount() != null) {
+            Uri uri = Uri.parse(resturantObject.getInstagramAccount());
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            startActivity(intent);
+        }
+    }
+
+    private void requestPermission() {
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                    new String[]{android.Manifest.permission.CALL_PHONE},
+                    REQUESTCODE_CALL_PERMISSION);
+        } else {
+            fireCallIntent(resturantObject.getPhoneNumber());
+        }
+    }
+
+    private void fireCallIntent(String mDealPhoneNo) {
+        if (mDealPhoneNo != null) {
+            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + mDealPhoneNo));
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            startActivity(intent);
+        }
     }
 
     private void getResturantDetail() {
@@ -340,6 +380,16 @@ public class ResturantDetailActivity extends AppCompatActivity {
                 setResult(RESULT_OK, i);
                 this.finish();
             }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case REQUESTCODE_CALL_PERMISSION:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    fireCallIntent(resturantObject.getPhoneNumber());
+                }
         }
     }
 }

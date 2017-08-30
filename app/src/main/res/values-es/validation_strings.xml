@@ -1,0 +1,16 @@
+<resources>
+    <string name="enterEmailText">Ingrese su dirección de correo electrónico.</string>
+    <string name="enterPassword">Introducir la contraseña.</string>
+    <string name="enterValidEmailText">Dirección de E-Mail incorrecta</string>
+    <string name="enterValidPasswordText">Enter more than 6 characters.</string>
+    <string name="enterName">Introduzca su nombre</string>
+
+
+    <string name="serverError">Server error!</string>
+    <string name="networkTitle">Internet connection is required.</string>
+    <string name="loginSuccessfully">Login Successfully!</string>
+    <string name="registerSuccessfully">Account successfully created</string>
+
+    <string name="accept_terms_and_conditon">Acepto la política de privacidad</string>
+    <string name="search_text_enter">Enter search text</string>
+</resources>

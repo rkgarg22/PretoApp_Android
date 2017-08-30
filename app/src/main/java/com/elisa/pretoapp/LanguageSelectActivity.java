@@ -1,12 +1,16 @@
 package com.elisa.pretoapp;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.Locale;
+
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import infrastructure.AppCommon;
 
 public class LanguageSelectActivity extends AppCompatActivity {
 
@@ -17,8 +21,33 @@ public class LanguageSelectActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.spanishLanguageBtn, R.id.englishLanguageBtn})
+    @OnClick(R.id.spanishLanguageBtn)
     public void spanishBtnClick(View view){
+        String languageToLoad  = "es"; // your language
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+        AppCommon.getInstance(this).setLanguage(languageToLoad);
+
+        Intent loginOptionScreen = new Intent(this,LoginOptionActivity.class);
+        startActivity(loginOptionScreen);
+        this.finish();
+    }
+
+    @OnClick(R.id.englishLanguageBtn)
+    public void englighBtnClick(View view){
+
+        String languageToLoad  = "en"; // your language
+        Locale locale = new Locale(languageToLoad);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+        AppCommon.getInstance(this).setLanguage(languageToLoad);
         Intent loginOptionScreen = new Intent(this,LoginOptionActivity.class);
         startActivity(loginOptionScreen);
         this.finish();

@@ -1,0 +1,152 @@
+<resources>
+    <string name="app_name">Preto</string>
+
+    <string name="select_language_title">IDIOMA</string>
+    <string name="english_btn_text">English</string>
+    <string name="spanish_btn_text">Español</string>
+
+    //-------Login Option screen
+    <string name="continue_with_facebook">Continuar con\nFacebook</string>
+    <string name="continue_with_email">Continuar con\ncorreo</string>
+
+
+    //------Registration Screen
+    <string name="name">Nombre</string>
+    <string name="email">Correo</string>
+    <string name="password">Contraseña</string>
+    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="acceptance_text">Al crear una cuenta, usted se compromete\na las condiciones del servicio de PRETO\npolítica de privacidad y de contenindo.</string>
+    <string name="accept">ACEPTO</string>
+    <string name="register">REGISTRATE</string>
+    <string name="already_account">¿Ya tienes una cuenta? Inicia sesión</string>
+
+    //Login Screen
+    <string name="login">INICIAR SESIÓN</string>
+
+    //PrivacyPolicy
+    <string name="privacy_policy_title">POLÍTICA DE PRIVACIDAD</string>
+    <string name="terms_and_conditions_title">TÉRMINOS Y CONDICIONES</string>
+
+    //Home Screen
+
+    <string name="breakfast">DESAYUNO</string>
+    <string name="lunch">ALMUERZO</string>
+    <string name="dinner">CENA</string>
+    <string name="preorder">POR ENCARGO</string>
+    <string name="snacks">ANTOJOS</string>
+    <string name="other">INSUMOS</string>
+    <string name="near_you">CERCA DE TÍ</string>
+
+
+    // Setting Screem
+
+    <string name="privacy_policy">POLÍTICA DE DATOS</string>
+    <string name="terms_and_conditions">TÉRMINOS Y CONDICIONES</string>
+    <string name="ayuda">AYUDA</string>
+    <string name="contact_us">CONTÁCTENOS</string>
+    <string name="select_language">CAMBIAR IDIOMA</string>
+    <string name="logout">CERRAR SESIÓN</string>
+
+    //Ayuda Screen
+    <string name="ayuda_title">AYUDA</string>
+    <string name="video">CÓMO FUNCIONA</string>
+    <string name="faq">FAQ</string>
+
+    //Contact Us
+    <string name="contact_us_title">CONTACTO</string>
+    <string name="first_name">NOMBRE:</string>
+    <string name="phone">TELÉFONO:</string>
+    <string name="mail">CORREO:</string>
+    <string name="Affair">ASUNTO:</string>
+    <string name="message">MENSAJE:</string>
+    <string name="send_btn">ENVIAR</string>
+
+    // FAQ
+    <string name="faq_title">FAQ</string>
+
+    //Favorite List
+    <string name="favorite_list_title">FAVORITOS</string>
+
+    //Filter
+    <string name="filter_title">FILTROS AVANZADOS</string>
+    <string name="openNow">Abierto ahora</string>
+    <string name="average_cost_title">Rango precio</string>
+    <string name="from">Desde</string>
+    <string name="to">Hasta</string>
+
+    <string name="category">Categoría</string>
+    <string name="breakfast_cat">Desayuno</string>
+    <string name="lunch_cat">Almuerzo</string>
+    <string name="dinner_cat">Cena</string>
+    <string name="snacks_cat">Antojos</string>
+    <string name="preorder_cat">Encargos</string>
+    <string name="supplies_cat">Insumos</string>
+
+    <string name="type_of_food">Tipo comida</string>
+    <string name="meat">Carnes</string>
+    <string name="signature_cuisine">De autor</string>
+    <string name="sea_food">Pescados y Mariscos</string>
+    <string name="healthy">Saludable</string>
+    <string name="vegetarian">Vegetariana</string>
+    <string name="hamburguers">Hamburguesas</string>
+    <string name="fusion">Fusión</string>
+    <string name="typical">Típica</string>
+    <string name="fast_food">Rápida</string>
+    <string name="peruvian">Peruana</string>
+    <string name="international">Internacional</string>
+    <string name="mediterranean">Mediterranean</string>
+
+    <string name="arrange_by_number_of_likes">Número de Likes</string>
+    <string name="delivery">Domicilio</string>
+    <string name="togo">Para llevar</string>
+    <string name="payment_method">Forma de pago</string>
+    <string name="cash">Efectivo</string>
+    <string name="debit_card">T.débito</string>
+    <string name="credit_card">T.crédito</string>
+    <string name="sodexo">Sodexo</string>
+    <string name="big_pass">Big pass</string>
+
+    <string name="ok">ACEPTAR</string>
+
+    <string name="Average_cost">Rango de precio:</string>
+
+    <string name="open">Abierto</string>
+    <string name="closed">Cerrado</string>
+    <string name="no_fixed_hour">Sin horario\nfijo</string>
+
+
+    //Detail Screen
+    <string name="information">INFORMACIÓN</string>
+    <string name="menu">MENÚ</string>
+    <string name="add_to_favorites">AGREGAR A FAVORITOS</string>
+    <string name="instagram">INSTAGRAM</string>
+    <string name="type_of_food_detail">Tipo de comida:</string>
+    <string name="category_detail">Categoria:</string>
+    <string name="Opens_on_detail">Horario:</string>
+    <string name="average_cost_detail">Rango precio:</string>
+    <string name="desription_detail">Descripción</string>
+    <string name="history_detail">Historia</string>
+    <string name="payment_method_detail">Forma de pago</string>
+    <string name="others_detail">Otros</string>
+    <string name="website_detail">Sitio web</string>
+    <string name="menu_detail">Menú</string>
+
+    <string name="delivery_detail">Domicilios</string>
+    <string name="commnets_detail">Comentarios</string>
+    <string name="call_detail">Liamar al sitio</string>
+    <string name="registered_since">Fecha registro:</string>
+
+    <string name="mark_favourite_successfully">Restaurant mark favourite successfully</string>
+    <string name="mark_unfavourite_successfully">Restaurant mark unfavourite successfully</string>
+
+    <string name="facebook_app_id">965470806887221</string>
+    <string name="title_activity_map_for_distance">Map</string>
+
+    <string name="list">LISTA</string>
+    <string name="map">MAPA</string>
+    <string name="cancel">Cancelar</string>
+    <string name="to_open_with">Abrir con</string>
+    <string name="waze">WAZE</string>
+    <string name="google_maps">GOOGLE MAPS</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
