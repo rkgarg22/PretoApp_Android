@@ -87,6 +87,9 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
     @Bind(R.id.mapFragmentLayout)
     LinearLayout mapFragmentLayout;
 
+    @Bind(R.id.bannerImage)
+            ImageView bannerImageView;
+
     ResturantAdapter adapter;
     Call call;
     boolean isSwipeRefresh = false;
@@ -147,34 +150,42 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
             case 11:
                 categoryIconImage.setImageResource(R.drawable.breakfast);
                 headerTextView.setText(getResources().getString(R.string.breakfast));
+                bannerImageView.setImageResource(R.drawable.breakfast_banner);
                 break;
             case 13:
                 categoryIconImage.setImageResource(R.drawable.lunch);
                 headerTextView.setText(getResources().getString(R.string.lunch));
+                bannerImageView.setImageResource(R.drawable.lunch_banner);
                 break;
             case 15:
                 categoryIconImage.setImageResource(R.drawable.dinner);
                 headerTextView.setText(getResources().getString(R.string.dinner));
+                bannerImageView.setImageResource(R.drawable.dinner_banner);
                 break;
             case 19:
                 categoryIconImage.setImageResource(R.drawable.custom_made);
                 headerTextView.setText(getResources().getString(R.string.preorder));
+                bannerImageView.setImageResource(R.drawable.pre_order_banner);
                 break;
             case 17:
                 categoryIconImage.setImageResource(R.drawable.cravings);
                 headerTextView.setText(getResources().getString(R.string.snacks));
+                bannerImageView.setImageResource(R.drawable.snacks_banner);
                 break;
             case 21:
                 categoryIconImage.setImageResource(R.drawable.supplies);
                 headerTextView.setText(getResources().getString(R.string.other));
+                bannerImageView.setImageResource(R.drawable.breakfast_banner);
                 break;
             case 23:
                 categoryIconImage.setImageResource(R.drawable.near_you);
                 headerTextView.setText(getResources().getString(R.string.near_you));
+              //  bannerImageView.setImageResource(R.drawable.near_you_banner);
                 break;
             default:
                 categoryIconImage.setImageResource(R.drawable.search);
                 headerTextView.setText(getIntent().getExtras().getString("searchText"));
+               // bannerImageView.setImageResource(R.drawable.search_banner);
                 break;
         }
     }

@@ -83,8 +83,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:backgroundTint="@android:color/darker_gray"
-                        android:buttonTint="@android:color/darker_gray" />
+                        android:backgroundTint="@color/color_blue"
+                        android:buttonTint="@color/color_blue" />
 
                     <CustomControl.LatoLightTextView
                         android:layout_width="wrap_content"
@@ -237,8 +237,8 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:tag="11"
-                                    android:backgroundTint="@android:color/darker_gray"
-                                    android:buttonTint="@android:color/darker_gray" />
+                                    android:backgroundTint="@color/color_blue"
+                                    android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
                                     android:layout_width="80dp"
@@ -262,8 +262,8 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:tag="13"
-                                    android:backgroundTint="@android:color/darker_gray"
-                                    android:buttonTint="@android:color/darker_gray" />
+                                    android:backgroundTint="@color/color_blue"
+                                    android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
                                     android:layout_width="65dp"
@@ -297,8 +297,8 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:tag="15"
-                                    android:backgroundTint="@android:color/darker_gray"
-                                    android:buttonTint="@android:color/darker_gray" />
+                                    android:backgroundTint="@color/color_blue"
+                                    android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
                                     android:layout_width="80dp"
@@ -322,8 +322,8 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:tag="17"
-                                    android:backgroundTint="@android:color/darker_gray"
-                                    android:buttonTint="@android:color/darker_gray" />
+                                    android:backgroundTint="@color/color_blue"
+                                    android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
                                     android:id="@+id/textView3"
@@ -356,8 +356,8 @@
                                     android:layout_alignParentRight="true"
                                     android:tag="19"
                                     android:layout_centerVertical="true"
-                                    android:backgroundTint="@android:color/darker_gray"
-                                    android:buttonTint="@android:color/darker_gray" />
+                                    android:backgroundTint="@color/color_blue"
+                                    android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
                                     android:id="@+id/textView4"
@@ -382,8 +382,8 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:tag="21"
-                                    android:backgroundTint="@android:color/darker_gray"
-                                    android:buttonTint="@android:color/darker_gray" />
+                                    android:backgroundTint="@color/color_blue"
+                                    android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
                                     android:layout_width="65dp"
@@ -426,8 +426,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:backgroundTint="@android:color/darker_gray"
-                        android:buttonTint="@android:color/darker_gray" />
+                        android:backgroundTint="@color/color_blue"
+                        android:buttonTint="@color/color_blue" />
                 </RelativeLayout>
 
                 <LinearLayout
@@ -455,8 +455,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:tag="@string/meat"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="80dp"
@@ -482,8 +482,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:tag="@string/signature_cuisine"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="wrap_content"
@@ -517,8 +517,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:tag="@string/sea_food"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="80dp"
@@ -543,8 +543,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:tag="@string/healthy"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="wrap_content"
@@ -578,8 +578,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:tag="@string/vegetarian"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="80dp"
@@ -605,8 +605,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:tag="@string/hamburguers"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="wrap_content"
@@ -640,8 +640,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:tag="@string/fusion"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="80dp"
@@ -666,8 +666,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:tag="@string/typical"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="wrap_content"
@@ -701,8 +701,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:tag="@string/fast_food"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="80dp"
@@ -729,8 +729,8 @@
                                 android:layout_centerVertical="true"
 
                                 android:tag="@string/peruvian"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="wrap_content"
@@ -764,8 +764,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:tag="@string/international"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="wrap_content"
@@ -790,8 +790,8 @@
                                 android:layout_alignParentRight="true"
                                 android:layout_centerVertical="true"
                                 android:tag="@string/mediterranean"
-                                android:backgroundTint="@android:color/darker_gray"
-                                android:buttonTint="@android:color/darker_gray" />
+                                android:backgroundTint="@color/color_blue"
+                                android:buttonTint="@color/color_blue" />
 
                             <CustomControl.LatoLightTextView
                                 android:layout_width="wrap_content"
@@ -835,8 +835,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:backgroundTint="@android:color/darker_gray"
-                        android:buttonTint="@android:color/darker_gray" />
+                        android:backgroundTint="@color/color_blue"
+                        android:buttonTint="@color/color_blue" />
                 </RelativeLayout>
 
                 <TextView
@@ -863,8 +863,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:backgroundTint="@android:color/darker_gray"
-                        android:buttonTint="@android:color/darker_gray" />
+                        android:backgroundTint="@color/color_blue"
+                        android:buttonTint="@color/color_blue" />
                 </RelativeLayout>
 
                 <TextView
@@ -891,8 +891,8 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:backgroundTint="@android:color/darker_gray"
-                        android:buttonTint="@android:color/darker_gray" />
+                        android:backgroundTint="@color/color_blue"
+                        android:buttonTint="@color/color_blue" />
                 </RelativeLayout>
 
                 <TextView
@@ -941,8 +941,8 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:tag="@string/cash"
-                                    android:backgroundTint="@android:color/darker_gray"
-                                    android:buttonTint="@android:color/darker_gray" />
+                                    android:backgroundTint="@color/color_blue"
+                                    android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
                                     android:layout_width="80dp"
@@ -966,8 +966,8 @@
                                     android:layout_alignParentRight="true"
                                     android:tag="@string/sodexo"
                                     android:layout_centerVertical="true"
-                                    android:backgroundTint="@android:color/darker_gray"
-                                    android:buttonTint="@android:color/darker_gray" />
+                                    android:backgroundTint="@color/color_blue"
+                                    android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
                                     android:layout_width="65dp"
@@ -1001,8 +1001,8 @@
                                     android:layout_alignParentRight="true"
                                     android:tag="@string/debit_card"
                                     android:layout_centerVertical="true"
-                                    android:backgroundTint="@android:color/darker_gray"
-                                    android:buttonTint="@android:color/darker_gray" />
+                                    android:backgroundTint="@color/color_blue"
+                                    android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
                                     android:layout_width="80dp"
@@ -1026,8 +1026,8 @@
                                     android:layout_alignParentRight="true"
                                     android:tag="@string/big_pass"
                                     android:layout_centerVertical="true"
-                                    android:backgroundTint="@android:color/darker_gray"
-                                    android:buttonTint="@android:color/darker_gray" />
+                                    android:backgroundTint="@color/color_blue"
+                                    android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
                                     android:layout_width="65dp"
@@ -1059,8 +1059,8 @@
                                     android:layout_alignParentRight="true"
                                     android:layout_centerVertical="true"
                                     android:tag="@string/credit_card"
-                                    android:backgroundTint="@android:color/darker_gray"
-                                    android:buttonTint="@android:color/darker_gray" />
+                                    android:backgroundTint="@color/color_blue"
+                                    android:buttonTint="@color/color_blue"/>
 
                                 <CustomControl.LatoLightTextView
                                     android:layout_width="80dp"

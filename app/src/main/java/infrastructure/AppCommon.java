@@ -37,6 +37,7 @@ public class AppCommon {
     public static final int INTENT_FOR_RESTURANT_DETAIL = 1001;
     public static final int RESTURANT_LIST_INTENT =1002;
     public static final int FILTER_INTENT = 1003;
+    public static final int LANGUAGE_SELECT_INTENT = 1004;
 
     public static AppCommon getInstance(Context _Context) {
         if (mInstance == null) {
@@ -247,6 +248,13 @@ public class AppCommon {
                         Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(
                 activity.getCurrentFocus().getWindowToken(), 0);
+    }
+
+    public void clearSharedPreference() {
+        SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, mContext.MODE_PRIVATE);
+        SharedPreferences.Editor mEditor = mSharedPreferences.edit();
+        mEditor.clear();
+        mEditor.commit();
     }
 
 

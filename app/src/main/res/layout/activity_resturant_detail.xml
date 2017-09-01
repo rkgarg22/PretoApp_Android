@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -21,8 +22,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
+                android:tint="@android:color/white"
                 android:background="@android:color/transparent"
-                android:src="@drawable/back_button" />
+                android:src="@drawable/blue_back_button" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -72,11 +74,20 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <com.facebook.drawee.view.SimpleDraweeView
-                    android:id="@+id/dealImage"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:background="@drawable/login_bg" />
+                    android:gravity="center"
+                    android:background="@drawable/gradient_color">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/dealImage"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        fresco:roundAsCircle="true"
+                        fresco:roundingBorderWidth="5dp"
+                        fresco:roundingBorderColor="@android:color/white" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -94,8 +105,8 @@
                         <CustomControl.LatoBoldTextView
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
-                            android:text="@string/information"
                             android:gravity="center"
+                            android:text="@string/information"
                             android:textColor="@color/color_blue"
                             android:textSize="10sp" />
 
@@ -117,8 +128,8 @@
                         <CustomControl.LatoBoldTextView
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
-                            android:text="@string/menu"
                             android:gravity="center"
+                            android:text="@string/menu"
                             android:textColor="@color/color_blue"
                             android:textSize="10sp" />
 
@@ -224,8 +235,8 @@
                         android:id="@+id/typeOFFood"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/color_blue"
-                        android:layout_marginLeft="10dp" />
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/color_blue" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -246,8 +257,8 @@
                         android:id="@+id/category"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/color_blue"
-                        android:layout_marginLeft="10dp" />
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/color_blue" />
                 </LinearLayout>
 
                 <RelativeLayout
@@ -273,8 +284,8 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="20dp"
-                        android:textColor="@color/color_blue"
-                        android:layout_toRightOf="@+id/address" />
+                        android:layout_toRightOf="@+id/address"
+                        android:textColor="@color/color_blue" />
 
                     <LinearLayout
                         android:id="@+id/mapClick"
@@ -361,8 +372,8 @@
                         android:id="@+id/averageCost"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/color_blue"
-                        android:layout_marginLeft="10dp" />
+                        android:layout_marginLeft="10dp"
+                        android:textColor="@color/color_blue" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -381,9 +392,9 @@
 
                     <CustomControl.LatoLightTextView
                         android:id="@+id/description"
-                        android:textColor="@color/color_blue"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_blue" />
                 </LinearLayout>
 
 
@@ -403,9 +414,9 @@
 
                     <CustomControl.LatoLightTextView
                         android:id="@+id/history"
-                        android:textColor="@color/color_blue"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_blue" />
                 </LinearLayout>
 
 
@@ -425,9 +436,9 @@
 
                     <CustomControl.LatoLightTextView
                         android:id="@+id/paymentMethodTextView"
-                        android:textColor="@color/color_blue"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_blue" />
                 </LinearLayout>
 
 
@@ -448,8 +459,8 @@
                     <CustomControl.LatoLightTextView
                         android:id="@+id/otherTextView"
                         android:layout_width="wrap_content"
-                        android:textColor="@color/color_blue"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_blue" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -468,9 +479,9 @@
 
                     <CustomControl.LatoLightTextView
                         android:id="@+id/websiteTextView"
-                        android:textColor="@color/color_blue"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_blue" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -489,9 +500,9 @@
 
                     <CustomControl.LatoLightTextView
                         android:id="@+id/menuTextView"
-                        android:textColor="@color/color_blue"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/color_blue" />
                 </LinearLayout>
 
             </LinearLayout>

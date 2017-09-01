@@ -7,169 +7,6 @@
     android:orientation="vertical"
     tools:context="com.elisa.pretoapp.LanguageSelectActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:id="@+id/titleLayout"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@android:color/white">
-
-
-            <ImageButton
-                android:id="@+id/backButtonClick"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/blue_back_button" />
-
-            <ImageButton
-                android:id="@+id/filterBtnClick"
-                android:layout_width="30dp"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
-                android:layout_toRightOf="@+id/backButtonClick"
-                android:background="@android:color/transparent"
-                android:src="@drawable/filter" />
-
-            <ImageButton
-                android:id="@+id/homeBtn"
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:background="@android:color/transparent"
-                android:src="@drawable/home_btn"
-                android:tint="@color/color_blue" />
-
-            <ImageButton
-                android:id="@+id/searchBtnClick"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@+id/homeBtn"
-                android:background="@android:color/transparent"
-                android:src="@drawable/search" />
-
-            <CustomControl.LatoBoldTextView
-                android:id="@+id/headerTextView"
-                android:layout_width="180dp"
-                android:layout_height="30dp"
-                android:layout_centerInParent="true"
-                android:background="@drawable/shape_rounded_corner_blue"
-                android:gravity="center"
-                android:text="IT, Park Chandigarh"
-                android:textColor="@color/color_blue" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/imageLayout"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/cat_gradient" />
-
-            <ImageView
-                android:id="@+id/categoryIconImage"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:src="@drawable/lunch" />
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/buttonLayout"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:background="@android:color/white">
-
-            <CustomControl.LatoBoldButton
-                android:id="@+id/listButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@color/color_blue"
-                android:gravity="center"
-                android:text="@string/list"
-                android:textColor="@android:color/white" />
-
-            <CustomControl.LatoBoldButton
-                android:id="@+id/mapButton"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="2dp"
-                android:layout_weight="1"
-                android:background="@color/color_blue"
-                android:gravity="center"
-                android:text="@string/map"
-                android:textColor="@android:color/white" />
-
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="3">
-
-            <android.support.v4.widget.SwipeRefreshLayout
-                android:id="@+id/swipeContainer"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/resturantRecyclerView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scrollbars="none" />
-            </android.support.v4.widget.SwipeRefreshLayout>
-
-            <LinearLayout
-                android:id="@+id/mapFragmentLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:visibility="gone">
-
-                <fragment
-                    android:id="@+id/map"
-                    android:name="com.google.android.gms.maps.SupportMapFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@+id/adLayout"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@android:color/holo_green_dark"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <CustomControl.MyriadProRegularTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Junglebox"
-                android:textColor="@android:color/white"
-                android:textSize="25sp" />
-        </LinearLayout>
-
-    </LinearLayout>
-
     <RelativeLayout
         android:id="@+id/searchLayout"
         android:layout_width="match_parent"
@@ -313,4 +150,174 @@
         android:layout_centerInParent="true"
         android:indeterminate="false"
         android:visibility="gone" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <RelativeLayout
+            android:id="@+id/titleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@android:color/white">
+
+
+            <ImageButton
+                android:id="@+id/backButtonClick"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/blue_back_button" />
+
+            <ImageButton
+                android:id="@+id/filterBtnClick"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@+id/backButtonClick"
+                android:background="@android:color/transparent"
+                android:src="@drawable/filter" />
+
+            <ImageButton
+                android:id="@+id/homeBtn"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/home_btn"
+                android:tint="@color/color_blue" />
+
+            <ImageButton
+                android:id="@+id/searchBtnClick"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/homeBtn"
+                android:background="@android:color/transparent"
+                android:src="@drawable/search" />
+
+            <CustomControl.LatoBoldTextView
+                android:id="@+id/headerTextView"
+                android:layout_width="180dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/shape_rounded_corner_blue"
+                android:gravity="center"
+                android:text="IT, Park Chandigarh"
+                android:textColor="@color/color_blue" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/imageLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/bannerImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/cat_gradient" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:background="#88021995"
+                android:layout_height="match_parent"/>
+
+            <ImageView
+                android:id="@+id/categoryIconImage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:src="@drawable/lunch" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/buttonLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/white">
+
+            <CustomControl.LatoBoldButton
+                android:id="@+id/listButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/color_blue"
+                android:gravity="center"
+                android:text="@string/list"
+                android:textColor="@android:color/white" />
+
+            <CustomControl.LatoBoldButton
+                android:id="@+id/mapButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:background="@color/color_blue"
+                android:gravity="center"
+                android:text="@string/map"
+                android:textColor="@android:color/white" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3">
+
+            <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/swipeContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/resturantRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none" />
+            </android.support.v4.widget.SwipeRefreshLayout>
+
+            <LinearLayout
+                android:id="@+id/mapFragmentLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <fragment
+                    android:id="@+id/map"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/adLayout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@android:color/holo_green_dark"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <CustomControl.MyriadProRegularTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Junglebox"
+                android:textColor="@android:color/white"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+    </LinearLayout>
 </RelativeLayout>

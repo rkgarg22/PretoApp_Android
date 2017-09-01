@@ -149,4 +149,6 @@
     <string name="waze">WAZE</string>
     <string name="google_maps">GOOGLE MAPS</string>
     <string name="title_activity_maps">Map</string>
+
+    <string name="logout_popup">Are you sure you want to logout?</string>
 </resources>

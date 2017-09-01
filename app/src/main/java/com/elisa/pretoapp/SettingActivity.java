@@ -1,6 +1,8 @@
 package com.elisa.pretoapp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.view.View;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import infrastructure.AppCommon;
 
 public class SettingActivity extends AppCompatActivity {
 
@@ -49,12 +52,42 @@ public class SettingActivity extends AppCompatActivity {
     @OnClick(R.id.changeLanguageLayout)
     public void changeLanguageClick(View view) {
         Intent languageIntent = new Intent(this, LanguageSelectActivity.class);
+        languageIntent.putExtra("isComingFromSetting", true);
         startActivity(languageIntent);
     }
 
     @OnClick(R.id.backButtonClick)
     public void backButtonClick(View view) {
         this.finish();
+    }
+
+    @OnClick(R.id.signOutLayout)
+    public void signOutLayoutClick(View view) {
+        showLogoutDialog(getResources().getString(R.string.logout_popup));
+    }
+
+    public void showLogoutDialog(String title) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setCancelable(true);
+        builder.setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        });
+        builder.setPositiveButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                AppCommon.getInstance(SettingActivity.this).clearSharedPreference();
+                Intent loginIntent = new Intent(SettingActivity.this, LoginOptionActivity.class);
+                loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(loginIntent);
+                SettingActivity.this.finish();
+            }
+        });
+        builder.show();
     }
 
     @Override
