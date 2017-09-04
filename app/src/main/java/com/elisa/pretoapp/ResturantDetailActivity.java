@@ -211,9 +211,12 @@ public class ResturantDetailActivity extends AppCompatActivity {
     @OnClick(R.id.instagramLayout)
     public void instagramClick() {
         if (resturantObject.getInstagramAccount() != null) {
-            Uri uri = Uri.parse(resturantObject.getInstagramAccount());
-            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-            startActivity(intent);
+            Intent webViewIntent = new Intent(this,WebViewActivity.class);
+            webViewIntent.putExtra("url",resturantObject.getInstagramAccount());
+            startActivity(webViewIntent);
+//            Uri uri = Uri.parse(resturantObject.getInstagramAccount());
+//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+//            startActivity(intent);
         }
     }
 

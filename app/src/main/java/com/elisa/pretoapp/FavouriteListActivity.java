@@ -64,6 +64,8 @@ public class FavouriteListActivity extends GenericMapActivity {
         setContentView(R.layout.activity_favourite_list);
         ButterKnife.bind(this);
 
+        markerClickLayout = (RelativeLayout) findViewById(R.id.markerClickLayout);
+
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         favoritesRecyclerView.setLayoutManager(mLinearLayoutManager);
         adapter = new ResturantAdapter(this, resturantObjectArrayList);
@@ -103,6 +105,11 @@ public class FavouriteListActivity extends GenericMapActivity {
         adLayout.setVisibility(View.GONE);
         swipeContainer.setVisibility(View.GONE);
         mapFragmentLayout.setVisibility(View.VISIBLE);
+    }
+
+    @OnClick(R.id.cancelButton)
+    public void cancelButtonClick(View view) {
+        markerClickLayout.setVisibility(View.GONE);
     }
 
     private void getFavouriteResturantList() {
@@ -171,5 +178,15 @@ public class FavouriteListActivity extends GenericMapActivity {
                 this.finish();
             }
         }
+    }
+
+    @OnClick(R.id.googleMapClick)
+    public void googleMapClick(View view){
+        googleMapClick();
+    }
+
+    @OnClick(R.id.wazeClick)
+    public void wazeClick(View view){
+        wazeClick();
     }
 }

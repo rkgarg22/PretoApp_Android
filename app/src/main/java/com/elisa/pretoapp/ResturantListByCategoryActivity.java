@@ -150,32 +150,32 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
             case 11:
                 categoryIconImage.setImageResource(R.drawable.breakfast);
                 headerTextView.setText(getResources().getString(R.string.breakfast));
-                bannerImageView.setImageResource(R.drawable.breakfast_banner);
+                bannerImageView.setBackgroundResource(R.drawable.breakfast_banner);
                 break;
             case 13:
                 categoryIconImage.setImageResource(R.drawable.lunch);
                 headerTextView.setText(getResources().getString(R.string.lunch));
-                bannerImageView.setImageResource(R.drawable.lunch_banner);
+                bannerImageView.setBackgroundResource(R.drawable.lunch_banner);
                 break;
             case 15:
                 categoryIconImage.setImageResource(R.drawable.dinner);
                 headerTextView.setText(getResources().getString(R.string.dinner));
-                bannerImageView.setImageResource(R.drawable.dinner_banner);
+                bannerImageView.setBackgroundResource(R.drawable.dinner_banner);
                 break;
             case 19:
                 categoryIconImage.setImageResource(R.drawable.custom_made);
                 headerTextView.setText(getResources().getString(R.string.preorder));
-                bannerImageView.setImageResource(R.drawable.pre_order_banner);
+                bannerImageView.setBackgroundResource(R.drawable.pre_order_banner);
                 break;
             case 17:
                 categoryIconImage.setImageResource(R.drawable.cravings);
                 headerTextView.setText(getResources().getString(R.string.snacks));
-                bannerImageView.setImageResource(R.drawable.snacks_banner);
+                bannerImageView.setBackgroundResource(R.drawable.snacks_banner);
                 break;
             case 21:
                 categoryIconImage.setImageResource(R.drawable.supplies);
                 headerTextView.setText(getResources().getString(R.string.other));
-                bannerImageView.setImageResource(R.drawable.breakfast_banner);
+                bannerImageView.setBackgroundResource(R.drawable.breakfast_banner);
                 break;
             case 23:
                 categoryIconImage.setImageResource(R.drawable.near_you);
@@ -390,5 +390,15 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
+    }
+
+    @OnClick(R.id.googleMapClick)
+    public void googleMapClick(View view){
+        googleMapClick();
+    }
+
+    @OnClick(R.id.wazeClick)
+    public void wazeClick(View view){
+        wazeClick();
     }
 }

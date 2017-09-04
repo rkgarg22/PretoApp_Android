@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -53,6 +54,7 @@ public class GenericMapActivity extends AppCompatActivity implements OnMapReadyC
     public boolean isMapActive = false;
 
     public RelativeLayout markerClickLayout;
+    public int selectedIndex = 0;
 
     public void setMapView() {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -89,7 +91,7 @@ public class GenericMapActivity extends AppCompatActivity implements OnMapReadyC
                         .icon(icon)
                         .alpha(1.0f));
                 mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerLat, 10.0f));
-                markersOrderNumbers.put(marker, resturantObject.getRestID());
+                markersOrderNumbers.put(marker, Integer.toString(i));
             }
         }
     }
@@ -98,7 +100,25 @@ public class GenericMapActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     public boolean onMarkerClick(Marker marker) {
         markerClickLayout.setVisibility(View.VISIBLE);
+        selectedIndex = Integer.parseInt(markersOrderNumbers.get(marker));
         return true;
+    }
+
+
+    public void googleMapClick() {
+        ResturantObject object = resturantObjectArrayList.get(selectedIndex);
+        String url = "http://maps.google.com/maps?daddr=" + object.getLattitude() + "," + object.getLongitude();
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse(url));
+        startActivity(intent);
+    }
+
+    public void wazeClick() {
+        ResturantObject object = resturantObjectArrayList.get(selectedIndex);
+        String uri = "geo:" + object.getLattitude() + "," + object.getLongitude();
+        //String uri = "waze://?ll=" + object.getLattitude() + "," + object.getLongitude() + "&navigate=yes";
+        startActivity(new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse(uri)));
     }
 }
 
