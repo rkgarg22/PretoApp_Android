@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -22,9 +22,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="20dp"
-                android:tint="@android:color/white"
                 android:background="@android:color/transparent"
-                android:src="@drawable/blue_back_button" />
+                android:src="@drawable/blue_back_button"
+                android:tint="@android:color/white" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -77,16 +77,25 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
-                    android:gravity="center"
-                    android:background="@drawable/gradient_color">
+                    android:background="@drawable/gradient_color"
+                    android:gravity="center">
 
-                    <com.facebook.drawee.view.SimpleDraweeView
-                        android:id="@+id/dealImage"
-                        android:layout_width="140dp"
-                        android:layout_height="140dp"
-                        fresco:roundAsCircle="true"
-                        fresco:roundingBorderWidth="5dp"
-                        fresco:roundingBorderColor="@android:color/white" />
+                    <LinearLayout
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:background="@drawable/cyan_circle_border"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="3dp">
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/dealImage"
+                            android:layout_width="140dp"
+                            android:layout_height="140dp"
+                            fresco:roundAsCircle="true"
+                            fresco:roundingBorderColor="@android:color/white"
+                            fresco:roundingBorderWidth="5dp" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
@@ -331,11 +340,20 @@
                         android:gravity="center">
 
                         <TextView
+                            android:id="@+id/circleTextView"
                             android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:background="@drawable/green_circle" />
+                            android:layout_height="25dp" />
                     </LinearLayout>
                 </RelativeLayout>
+
+                <CustomControl.LatoLightTextView
+                    android:id="@+id/timingStatusTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:visibility="gone"
+                    android:text="@string/no_fixed_hour"
+                    android:textColor="@color/color_blue" />
 
                 <LinearLayout
                     android:id="@+id/timingView"
@@ -556,7 +574,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="12sp" />
 
-                <ImageButton
+                <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"

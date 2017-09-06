@@ -6,14 +6,18 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import CustomControl.GPSTracker;
 import CustomControl.LatoBoldEditText;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnEditorAction;
 import infrastructure.AppCommon;
 
 public class HomeActivity extends AppCompatActivity {
@@ -23,6 +27,9 @@ public class HomeActivity extends AppCompatActivity {
 
     @Bind(R.id.searchEditText)
     LatoBoldEditText searchEditText;
+
+    @Bind(R.id.addressEditText)
+    LatoBoldEditText addressEditText;
 
     GPSTracker gpsTracker;
 
@@ -36,6 +43,7 @@ public class HomeActivity extends AppCompatActivity {
         if (!gpsTracker.canGetLocation()) {
             gpsTracker.showSettingsAlert();
         }
+
     }
 
     @OnClick(R.id.searchBtnClick)
@@ -66,26 +74,47 @@ public class HomeActivity extends AppCompatActivity {
         Intent resturantIntent = new Intent(this, ResturantListByCategoryActivity.class);
         resturantIntent.putExtra("categorySelect", tag);
         resturantIntent.putExtra("searchText", "");
+        resturantIntent.putExtra("addressText", "");
         startActivity(resturantIntent);
     }
 
     @OnClick(R.id.filterBtnClick)
     public void filterBtnClick(View view) {
         Intent filterIntent = new Intent(this, FilterActivity.class);
-        filterIntent.putExtra("isComingFromHome",true);
+        filterIntent.putExtra("isComingFromHome", true);
         startActivity(filterIntent);
     }
 
     @OnClick(R.id.searchActionPerformed)
     public void searchActionPerformed(View view) {
+        performSearch();
+    }
+
+    public void performSearch() {
         String searchText = searchEditText.getText().toString().trim();
         if (searchText.equals("")) {
             searchEditText.setError(getResources().getString(R.string.search_text_enter));
             return;
         }
+        searchEditText.setText("");
         Intent resturantIntent = new Intent(this, ResturantListByCategoryActivity.class);
         resturantIntent.putExtra("categorySelect", 0);
         resturantIntent.putExtra("searchText", searchText);
+        resturantIntent.putExtra("addressText", "");
+        startActivity(resturantIntent);
+    }
+
+    public void performAddressSearch() {
+        String addressText = addressEditText.getText().toString().trim();
+        if (addressText.equals("")) {
+            addressEditText.setError(getResources().getString(R.string.search_text_enter));
+            return;
+        }
+        addressEditText.setText("");
+        Intent resturantIntent = new Intent(this, ResturantListByCategoryActivity.class);
+        resturantIntent.putExtra("categorySelect", 0);
+        resturantIntent.putExtra("searchText", "");
+        resturantIntent.putExtra("addressText", addressText);
         startActivity(resturantIntent);
     }
 
@@ -101,4 +130,30 @@ public class HomeActivity extends AppCompatActivity {
         }
 
     }
+
+    @OnClick(R.id.adLayout)
+    public void adLayoutClick(View view) {
+        Intent webViewIntent = new Intent(this, WebViewActivity.class);
+        webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
+        startActivity(webViewIntent);
+    }
+
+    @OnEditorAction(R.id.searchEditText)
+    public boolean onSearchClick(TextView textView, int i, KeyEvent keyEvent) {
+        if (i == EditorInfo.IME_ACTION_SEARCH) {
+            performSearch();
+            return true;
+        }
+        return false;
+    }
+
+    @OnEditorAction(R.id.addressEditText)
+    public boolean onAddressClick(TextView textView, int i, KeyEvent keyEvent) {
+        if (i == EditorInfo.IME_ACTION_DONE) {
+            performAddressSearch();
+            return true;
+        }
+        return false;
+    }
+
 }

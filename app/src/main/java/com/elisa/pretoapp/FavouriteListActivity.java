@@ -189,4 +189,11 @@ public class FavouriteListActivity extends GenericMapActivity {
     public void wazeClick(View view){
         wazeClick();
     }
+
+    @OnClick(R.id.adLayout)
+    public void adLayoutClick(View view){
+        Intent webViewIntent = new Intent(this,WebViewActivity.class);
+        webViewIntent.putExtra("url",getResources().getString(R.string.jungle_box_link));
+        startActivity(webViewIntent);
+    }
 }

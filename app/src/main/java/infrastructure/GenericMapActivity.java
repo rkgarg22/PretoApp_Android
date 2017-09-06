@@ -45,7 +45,7 @@ import java.util.regex.Pattern;
 import APIResponse.ResturantObject;
 
 
-public class GenericMapActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class GenericMapActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     public GoogleMap mMap;
     public LatLng currentUserLatLon;
@@ -67,7 +67,7 @@ public class GenericMapActivity extends AppCompatActivity implements OnMapReadyC
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.clear();
-        mMap.setOnMarkerClickListener(this);
+        mMap.setOnInfoWindowClickListener(this);
         markersOrderNumbers.clear();
         if (AppCommon.getInstance(this).getUserLatitude() != 0.0f && AppCommon.getInstance(this).getUserLongitude() != 0.0f) {
             BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.person_icon);
@@ -96,15 +96,6 @@ public class GenericMapActivity extends AppCompatActivity implements OnMapReadyC
         }
     }
 
-
-    @Override
-    public boolean onMarkerClick(Marker marker) {
-        markerClickLayout.setVisibility(View.VISIBLE);
-        selectedIndex = Integer.parseInt(markersOrderNumbers.get(marker));
-        return true;
-    }
-
-
     public void googleMapClick() {
         ResturantObject object = resturantObjectArrayList.get(selectedIndex);
         String url = "http://maps.google.com/maps?daddr=" + object.getLattitude() + "," + object.getLongitude();
@@ -119,6 +110,12 @@ public class GenericMapActivity extends AppCompatActivity implements OnMapReadyC
         //String uri = "waze://?ll=" + object.getLattitude() + "," + object.getLongitude() + "&navigate=yes";
         startActivity(new Intent(android.content.Intent.ACTION_VIEW,
                 Uri.parse(uri)));
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        markerClickLayout.setVisibility(View.VISIBLE);
+        selectedIndex = Integer.parseInt(markersOrderNumbers.get(marker));
     }
 }
 

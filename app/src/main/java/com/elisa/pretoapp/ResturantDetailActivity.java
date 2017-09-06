@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
@@ -65,9 +66,6 @@ public class ResturantDetailActivity extends AppCompatActivity {
     @Bind(R.id.distance)
     LatoLightTextView distanceTextView;
 
-    @Bind(R.id.timingView)
-    LinearLayout timingViewLayout;
-
     @Bind(R.id.openingHoursRecyclerView)
     RecyclerView openingHoursRecyclerView;
 
@@ -103,6 +101,15 @@ public class ResturantDetailActivity extends AppCompatActivity {
 
     @Bind(R.id.favImage)
     ImageView favImageView;
+
+    @Bind(R.id.circleTextView)
+    TextView circleTextView;
+
+    @Bind(R.id.timingView)
+    LinearLayout timingView;
+
+    @Bind(R.id.timingStatusTextView)
+    LatoLightTextView timingStatusTextView;
 
     Call call;
     String restID;
@@ -173,6 +180,23 @@ public class ResturantDetailActivity extends AppCompatActivity {
         } else {
             favImageView.setSelected(false);
         }
+
+        if (resturantObject.getColor().equals("0")) {
+            //red
+            circleTextView.setBackgroundResource(R.drawable.red_circle);
+            timingView.setVisibility(View.VISIBLE);
+            timingStatusTextView.setVisibility(View.GONE);
+        } else if (resturantObject.getColor().equals("1")) {
+            //green
+            circleTextView.setBackgroundResource(R.drawable.green_circle);
+            timingView.setVisibility(View.VISIBLE);
+            timingStatusTextView.setVisibility(View.GONE);
+        } else {
+            //grey
+            circleTextView.setBackgroundResource(R.drawable.grey_circle);
+            timingView.setVisibility(View.GONE);
+            timingStatusTextView.setVisibility(View.VISIBLE);
+        }
     }
 
     public String getTypeOFFood(ArrayList<String> typeOFFood) {
@@ -211,13 +235,23 @@ public class ResturantDetailActivity extends AppCompatActivity {
     @OnClick(R.id.instagramLayout)
     public void instagramClick() {
         if (resturantObject.getInstagramAccount() != null) {
-            Intent webViewIntent = new Intent(this,WebViewActivity.class);
-            webViewIntent.putExtra("url",resturantObject.getInstagramAccount());
+            Intent webViewIntent = new Intent(this, WebViewActivity.class);
+            webViewIntent.putExtra("url", resturantObject.getInstagramAccount());
             startActivity(webViewIntent);
 //            Uri uri = Uri.parse(resturantObject.getInstagramAccount());
 //            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 //            startActivity(intent);
         }
+    }
+
+    @OnClick(R.id.commentsLayout)
+    public void commentClick(View view) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_EMAIL, "");
+        intent.putExtra(Intent.EXTRA_SUBJECT, resturantObject.getRestName());
+        intent.putExtra(Intent.EXTRA_TEXT, "");
+        startActivity(Intent.createChooser(intent, "Send Email"));
     }
 
     private void requestPermission() {

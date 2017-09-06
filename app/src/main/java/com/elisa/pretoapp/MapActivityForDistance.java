@@ -2,11 +2,13 @@ package com.elisa.pretoapp;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -47,11 +49,14 @@ import butterknife.OnClick;
 import infrastructure.AppCommon;
 import infrastructure.DirectionsJSONParser;
 
-public class MapActivityForDistance extends FragmentActivity implements OnMapReadyCallback {
+public class MapActivityForDistance extends FragmentActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
 
     @Bind(R.id.headerTextView)
     LatoBoldTextView headerTextView;
+
+    @Bind(R.id.markerClickLayout)
+    RelativeLayout markerClickLayout;
 
     private GoogleMap mMap;
     LatLng markerLat;
@@ -106,6 +111,7 @@ public class MapActivityForDistance extends FragmentActivity implements OnMapRea
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        mMap.setOnInfoWindowClickListener(this);
         // Add a marker in Sydney and move the camera
         if (AppCommon.getInstance(this).getUserLatitude() != 0.0f && AppCommon.getInstance(this).getUserLongitude() != 0.0f) {
             BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.person_icon);
@@ -135,6 +141,26 @@ public class MapActivityForDistance extends FragmentActivity implements OnMapRea
             DownloadTask downloadTask = new DownloadTask();
             downloadTask.execute(url);
         }
+    }
+
+    @Override
+    public void onInfoWindowClick(Marker marker) {
+        markerClickLayout.setVisibility(View.VISIBLE);
+    }
+
+    public void googleMapClick() {
+
+        String url = "http://maps.google.com/maps?daddr=" + resturantObject.getLattitude() + "," + resturantObject.getLongitude();
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse(url));
+        startActivity(intent);
+    }
+
+    public void wazeClick() {
+        String uri = "geo:" + resturantObject.getLattitude() + "," + resturantObject.getLongitude();
+        //String uri = "waze://?ll=" + object.getLattitude() + "," + object.getLongitude() + "&navigate=yes";
+        startActivity(new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse(uri)));
     }
 
 
@@ -283,5 +309,20 @@ public class MapActivityForDistance extends FragmentActivity implements OnMapRea
             urlConnection.disconnect();
         }
         return data;
+    }
+
+    @OnClick(R.id.googleMapClick)
+    public void googleMapClick(View view) {
+        googleMapClick();
+    }
+
+    @OnClick(R.id.wazeClick)
+    public void wazeClick(View view) {
+        wazeClick();
+    }
+
+    @OnClick(R.id.cancelButton)
+    public void cancelButtonClick(View view) {
+        markerClickLayout.setVisibility(View.GONE);
     }
 }

@@ -204,16 +204,11 @@
         android:id="@+id/adLayout"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@android:color/holo_green_dark"
+        android:background="@color/color_cyan"
         android:gravity="center"
         android:orientation="vertical">
 
-        <CustomControl.MyriadProRegularTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Junglebox"
-            android:textColor="@android:color/white"
-            android:textSize="25sp" />
+
     </LinearLayout>
 
 </LinearLayout>

@@ -8,7 +8,9 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -45,6 +47,7 @@ import CustomControl.LatoBoldEditText;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnEditorAction;
 import infrastructure.AppCommon;
 import infrastructure.GenericMapActivity;
 import retrofit2.Call;
@@ -88,13 +91,14 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
     LinearLayout mapFragmentLayout;
 
     @Bind(R.id.bannerImage)
-            ImageView bannerImageView;
+    ImageView bannerImageView;
 
     ResturantAdapter adapter;
     Call call;
     boolean isSwipeRefresh = false;
     String searchText = "";
     String catID = "";
+    String addressText = "";
     FilterObject filterObject;
     Gson gson;
 
@@ -106,19 +110,20 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
 
         markerClickLayout = (RelativeLayout) findViewById(R.id.markerClickLayout);
         final int categoryID = getIntent().getExtras().getInt("categorySelect");
-        gson= new Gson();
-        if(categoryID==1){
-            filterObject = gson.fromJson(getIntent().getExtras().getString("filterObject"),FilterObject.class);
-        }else{
+        gson = new Gson();
+        if (categoryID == 1) {
+            filterObject = gson.fromJson(getIntent().getExtras().getString("filterObject"), FilterObject.class);
+        } else {
             filterObject = new FilterObject();
         }
 
-        if(categoryID==0 || categoryID ==1){
+        if (categoryID == 0 || categoryID == 1) {
             catID = "";
-        }else{
+        } else {
             catID = Integer.toString(categoryID);
         }
         searchText = getIntent().getExtras().getString("searchText");
+        addressText = getIntent().getExtras().getString("addressText");
 
         setImage(categoryID);
         progressBar.setVisibility(View.VISIBLE);
@@ -180,12 +185,15 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
             case 23:
                 categoryIconImage.setImageResource(R.drawable.near_you);
                 headerTextView.setText(getResources().getString(R.string.near_you));
-              //  bannerImageView.setImageResource(R.drawable.near_you_banner);
+                //  bannerImageView.setImageResource(R.drawable.near_you_banner);
                 break;
             default:
                 categoryIconImage.setImageResource(R.drawable.search);
                 headerTextView.setText(getIntent().getExtras().getString("searchText"));
-               // bannerImageView.setImageResource(R.drawable.search_banner);
+                if (searchText.equals("")) {
+                    headerTextView.setText(addressText);
+                }
+                // bannerImageView.setImageResource(R.drawable.search_banner);
                 break;
         }
     }
@@ -240,15 +248,19 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
     }
 
     @OnClick(R.id.filterBtnClick)
-    public void filterClick(){
+    public void filterClick() {
         Intent filterIntent = new Intent(this, FilterActivity.class);
-        filterIntent.putExtra("isComingFromHome",false);
-        startActivityForResult(filterIntent,AppCommon.FILTER_INTENT);
+        filterIntent.putExtra("isComingFromHome", false);
+        startActivityForResult(filterIntent, AppCommon.FILTER_INTENT);
     }
 
 
     @OnClick(R.id.searchActionPerformed)
     public void searchActionPerformed(View view) {
+        searchPerform();
+    }
+
+    public void searchPerform() {
         searchText = searchEditText.getText().toString().trim();
         hideKeyBoard();
         searchlayout.setVisibility(View.GONE);
@@ -262,13 +274,22 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
         }
     }
 
+    @OnEditorAction(R.id.searchEditText)
+    public boolean onSearchClick(TextView textView, int i, KeyEvent keyEvent) {
+        if (i == EditorInfo.IME_ACTION_SEARCH) {
+            searchPerform();
+            return true;
+        }
+        return false;
+    }
+
     public void getResturantList(int offset) {
         AppCommon.getInstance(this).setNonTouchableFlags(this);
         if (AppCommon.getInstance(this).isConnectingToInternet(this)) {
             GetResturantListEntity listEntity = new GetResturantListEntity(AppCommon.getInstance(this).getUserID(),
                     catID,
                     AppCommon.getInstance(this).getSelectedLanguage(), Integer.toString(offset), Float.toString(AppCommon.getInstance(this).getUserLatitude()),
-                    Float.toString(AppCommon.getInstance(this).getUserLongitude()), filterObject, searchText);
+                    Float.toString(AppCommon.getInstance(this).getUserLongitude()), filterObject, searchText, addressText);
             PretoAppService pretoAppService = ServiceGenerator.createService(PretoAppService.class);
             call = pretoAppService.getResturantList(listEntity);
             call.enqueue(new Callback<GetResturantListResponse>() {
@@ -373,9 +394,9 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
             if (resultCode == Activity.RESULT_OK) {
                 this.finish();
             }
-        }else if(requestCode == AppCommon.FILTER_INTENT){
-            if(resultCode == Activity.RESULT_OK){
-                filterObject = gson.fromJson(data.getExtras().getString("filterObject"),FilterObject.class);
+        } else if (requestCode == AppCommon.FILTER_INTENT) {
+            if (resultCode == Activity.RESULT_OK) {
+                filterObject = gson.fromJson(data.getExtras().getString("filterObject"), FilterObject.class);
                 resturantObjectArrayList.clear();
                 adapter.notifyDataSetChanged();
                 progressBar.setVisibility(View.VISIBLE);
@@ -393,12 +414,19 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
     }
 
     @OnClick(R.id.googleMapClick)
-    public void googleMapClick(View view){
+    public void googleMapClick(View view) {
         googleMapClick();
     }
 
     @OnClick(R.id.wazeClick)
-    public void wazeClick(View view){
+    public void wazeClick(View view) {
         wazeClick();
+    }
+
+    @OnClick(R.id.adLayout)
+    public void adLayoutClick(View view) {
+        Intent webViewIntent = new Intent(this, WebViewActivity.class);
+        webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
+        startActivity(webViewIntent);
     }
 }

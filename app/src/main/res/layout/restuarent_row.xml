@@ -110,9 +110,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
-                android:text="Type of food"
+                android:text="@string/type_of_food"
                 android:textColor="@color/color_blue"
-                android:textSize="18sp"
+                android:textSize="15sp"
                 android:id="@+id/textView" />
 
             <CustomControl.LatoBoldTextView
@@ -123,7 +123,7 @@
                 android:text="Breakfast"
                 android:singleLine="true"
                 android:textColor="@color/color_blue"
-                android:textSize="15sp" />
+                android:textSize="13sp" />
 
             <CustomControl.LatoLightTextView
                 android:layout_width="wrap_content"
@@ -131,7 +131,7 @@
                 android:layout_marginTop="3dp"
                 android:text="@string/Average_cost"
                 android:textColor="@color/color_blue"
-                android:textSize="18sp" />
+                android:textSize="15sp" />
 
             <CustomControl.LatoBoldTextView
                 android:id="@+id/priceRange"
@@ -141,7 +141,7 @@
                 android:text="$20"
                 android:singleLine="true"
                 android:textColor="@color/color_blue"
-                android:textSize="15sp" />
+                android:textSize="13sp" />
 
         </LinearLayout>
 
@@ -187,8 +187,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="Open"
+                android:gravity="center"
                 android:textColor="@color/color_blue"
-                android:textSize="15sp" />
+                android:textSize="13sp" />
         </LinearLayout>
 
 

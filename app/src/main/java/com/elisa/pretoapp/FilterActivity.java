@@ -232,6 +232,7 @@ public class FilterActivity extends AppCompatActivity {
             Intent resturantIntent = new Intent(this, ResturantListByCategoryActivity.class);
             resturantIntent.putExtra("categorySelect", 1);
             resturantIntent.putExtra("searchText", "");
+            resturantIntent.putExtra("addressText","");
             resturantIntent.putExtra("filterObject", objStr);
             startActivityForResult(resturantIntent, AppCommon.RESTURANT_LIST_INTENT);
         } else {

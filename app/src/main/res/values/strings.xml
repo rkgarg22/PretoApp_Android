@@ -151,4 +151,6 @@
     <string name="title_activity_maps">Map</string>
 
     <string name="logout_popup">Are you sure you want to logout?</string>
+
+    <string name="jungle_box_link">http://www.junglebox.com.co/</string>
 </resources>
