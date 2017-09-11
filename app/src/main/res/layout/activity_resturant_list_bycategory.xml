@@ -7,7 +7,6 @@
     android:orientation="vertical"
     tools:context="com.elisa.pretoapp.LanguageSelectActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -52,25 +51,32 @@
                 android:src="@drawable/home_btn"
                 android:tint="@color/color_blue" />
 
-            <ImageButton
+            <RelativeLayout
                 android:id="@+id/searchBtnClick"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="10dp"
-                android:layout_toLeftOf="@+id/homeBtn"
-                android:background="@android:color/transparent"
-                android:src="@drawable/search" />
-
-            <CustomControl.LatoBoldTextView
-                android:id="@+id/headerTextView"
                 android:layout_width="180dp"
-                android:layout_height="30dp"
+                android:layout_height="35dp"
                 android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
                 android:background="@drawable/shape_rounded_corner_blue"
-                android:gravity="center"
-                android:text="IT, Park Chandigarh"
-                android:textColor="@color/color_blue" />
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/search" />
+
+                <CustomControl.LatoBoldTextView
+                    android:id="@+id/headerTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingLeft="30dp"
+                    android:text="IT, Park Chandigarh"
+                    android:textColor="@color/color_blue" />
+            </RelativeLayout>
 
         </RelativeLayout>
 
@@ -89,16 +95,16 @@
                 android:id="@+id/transparentBanner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="#88021995" />
+                android:background="#88021995"
+                android:orientation="vertical" />
 
             <ImageView
                 android:id="@+id/categoryIconImage"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:visibility="gone"
                 android:layout_centerInParent="true"
-                android:src="@drawable/lunch" />
+                android:src="@drawable/lunch"
+                android:visibility="gone" />
 
         </RelativeLayout>
 
@@ -204,8 +210,8 @@
                 android:id="@+id/searchEditText"
                 android:layout_width="200dp"
                 android:layout_height="50dp"
-                android:singleLine="true"
                 android:imeOptions="actionSearch"
+                android:singleLine="true"
                 android:textColor="@color/color_blue" />
 
             <ImageButton
@@ -328,6 +334,4 @@
         android:layout_centerInParent="true"
         android:indeterminate="false"
         android:visibility="gone" />
-
-
 </RelativeLayout>

@@ -4,15 +4,10 @@
 
     To get one, follow this link, follow the directions and press "Create" at the end:
 
-    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=DB:74:D3:EF:9A:C9:99:FD:F1:05:D4:8E:2D:D1:A3:F8:89:F2:B0:4A%3Bcom.elisa.pretoapp
+    https://console.developers.google.com/flows/enableapi?apiid=maps_android_backend&keyType=CLIENT_SIDE_ANDROID&r=22:F8:5F:32:E8:E7:CB:AB:0F:66:24:D0:31:25:7C:10:8B:66:00:95%3Bcom.elisa.pretoapp
 
-    You can also add your credentials to an existing key, using these values:
-
-    Package name:
-    DB:74:D3:EF:9A:C9:99:FD:F1:05:D4:8E:2D:D1:A3:F8:89:F2:B0:4A
-
-    SHA-1 certificate fingerprint:
-    DB:74:D3:EF:9A:C9:99:FD:F1:05:D4:8E:2D:D1:A3:F8:89:F2:B0:4A
+    You can also add your credentials to an existing key, using this line:
+    22:F8:5F:32:E8:E7:CB:AB:0F:66:24:D0:31:25:7C:10:8B:66:00:95;com.elisa.pretoapp
 
     Alternatively, follow the directions here:
     https://developers.google.com/maps/documentation/android/start#get-key
@@ -21,6 +16,6 @@
     string in this file.
     -->
     <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">
-        AIzaSyDoNbu7biUr2Smkv_Bn2p7hMDIQ-wacKAM
+        AIzaSyATks9XJs-z_iWHmgI9tMilMDaZKAYptI8
     </string>
 </resources>

@@ -1,11 +1,14 @@
 package com.elisa.pretoapp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.facebook.AccessToken;
@@ -28,10 +31,17 @@ import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Random;
 
+import API.PretoAppService;
+import API.ServiceGenerator;
+import APIEntity.UserInformation_Entity;
+import APIResponse.RegistrationResponse;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import infrastructure.AppCommon;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginOptionActivity extends AppCompatActivity {
 
@@ -40,7 +50,10 @@ public class LoginOptionActivity extends AppCompatActivity {
     @Bind(R.id.login_button)
     LoginButton loginButton;
 
+    @Bind(R.id.progressbar)
+    ProgressBar progressBar;
 
+    Call call;
     String firstName, lastNamw, email, gender, password, imageUrl;
     String facebookId = "";
     CallbackManager callbackManager;
@@ -117,9 +130,8 @@ public class LoginOptionActivity extends AppCompatActivity {
                         lastNamw = object.getString("last_name");
                         password = getRandomPassword();
                         imageUrl = "https://graph.facebook.com/" + facebookId + "/picture?type=normal";
-                        //progressBar.setVisibility(View.VISIBLE);
-                        //callSignUpWebService(firstName, lastNamw, email, password, facebookId, "", imageUrl, "login/register", "facebook", String.valueOf(lat),String.valueOf(lon), AppCommon.getInstance(NewLoginActivity.this).getdeviceToken(), "android");
-                        //AppCommon.getInstance(LoginOptionActivity.this).setRegistrationType("socialMedia");
+                        progressBar.setVisibility(View.VISIBLE);
+                        callSignUpWebService();
                     } else {
                         AppCommon.getInstance(LoginOptionActivity.this).showDialog(LoginOptionActivity.this, "Your email can't be fetched \n" + "from facebook, Please use sign up");
                     }
@@ -147,6 +159,72 @@ public class LoginOptionActivity extends AppCompatActivity {
             result[i] = charset[randomCharIndex];
         }
         return new String(result);
+    }
+
+    private void callSignUpWebService() {
+        AppCommon.getInstance(this).setNonTouchableFlags(this);
+        if (AppCommon.getInstance(this).isConnectingToInternet(this)) {
+            progressBar.setVisibility(View.VISIBLE);
+            UserInformation_Entity mUserInformation_entity = new UserInformation_Entity(firstName, email, password, facebookId, imageUrl, "", "android");
+            PretoAppService pretoService = ServiceGenerator.createService(PretoAppService.class);
+            call = pretoService.userRegistration(mUserInformation_entity);
+            call.enqueue(new Callback() {
+                @Override
+                public void onResponse(Call call, Response response) {
+                    AppCommon.getInstance(LoginOptionActivity.this).clearNonTouchableFlags(LoginOptionActivity.this);
+                    RegistrationResponse registrationResponse = (RegistrationResponse) response.body();
+                    progressBar.setVisibility(View.GONE);
+                    if (registrationResponse.getSuccess().equals("1")) {
+                        showSuccessfulDialog(getResources().getString(R.string.registerSuccessfully));
+                        AppCommon.getInstance(LoginOptionActivity.this).setIsUserLogIn(true);
+                        AppCommon.getInstance(LoginOptionActivity.this).setUserID(registrationResponse.getUserEntity().getUserID());
+                        AppCommon.getInstance(LoginOptionActivity.this).setName(registrationResponse.getUserEntity().getName());
+                        AppCommon.getInstance(LoginOptionActivity.this).setUserEmail(registrationResponse.getUserEntity().getEmailAddress());
+                        AppCommon.getInstance(LoginOptionActivity.this).setProfilePicUrl(registrationResponse.getUserEntity().getImageUrl());
+                    } else {
+                        progressBar.setVisibility(View.GONE);
+                        AppCommon.showDialog(LoginOptionActivity.this, registrationResponse.getError());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call call, Throwable t) {
+                    AppCommon.getInstance(LoginOptionActivity.this).clearNonTouchableFlags(LoginOptionActivity.this);
+                    progressBar.setVisibility(View.GONE);
+                    AppCommon.showDialog(LoginOptionActivity.this, getString(R.string.serverError));
+                }
+            });
+        } else {
+            AppCommon.getInstance(LoginOptionActivity.this).clearNonTouchableFlags(LoginOptionActivity.this);
+            progressBar.setVisibility(View.GONE);
+            AppCommon.showDialog(this, this.getResources().getString(R.string.networkTitle));
+        }
+    }
+
+    public void showSuccessfulDialog(String title) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setCancelable(false);
+        builder.setNegativeButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                Intent intent = new Intent(LoginOptionActivity.this, HomeActivity.class);
+                startActivity(intent);
+                Intent backIntent = new Intent();
+                setResult(RESULT_OK, backIntent);
+                LoginOptionActivity.this.finish();
+            }
+        });
+        builder.show();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        if (call != null) {
+            call.cancel();
+        }
     }
 
 }

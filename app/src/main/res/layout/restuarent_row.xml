@@ -163,8 +163,8 @@
                 android:id="@+id/likeCount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:text="1506"
+                android:layout_marginTop="2dp"
+                android:text=""
                 android:textColor="@color/color_blue"
                 android:textSize="15sp" />
 
@@ -172,6 +172,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:background="@drawable/circle_blue"
+                android:layout_marginTop="5dp"
                 android:gravity="center">
 
                 <TextView
@@ -185,7 +186,7 @@
                 android:id="@+id/currentStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="2dp"
                 android:text="Open"
                 android:gravity="center"
                 android:textColor="@color/color_blue"
