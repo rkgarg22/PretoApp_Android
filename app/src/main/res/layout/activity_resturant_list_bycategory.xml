@@ -86,14 +86,17 @@
                 android:layout_height="match_parent" />
 
             <LinearLayout
+                android:id="@+id/transparentBanner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:background="#88021995" />
 
             <ImageView
                 android:id="@+id/categoryIconImage"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:visibility="gone"
                 android:layout_centerInParent="true"
                 android:src="@drawable/lunch" />
 

@@ -5,6 +5,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.Image;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -111,6 +112,21 @@ public class ResturantDetailActivity extends AppCompatActivity {
     @Bind(R.id.timingStatusTextView)
     LatoLightTextView timingStatusTextView;
 
+    @Bind(R.id.infoImageView)
+    ImageView infoImageView;
+
+    @Bind(R.id.menuImageView)
+    ImageView menuImageView;
+
+    @Bind(R.id.infoContentLayout)
+    LinearLayout infoContentLayout;
+
+    @Bind(R.id.menuContentLayout)
+    LinearLayout menuContentLayout;
+
+    @Bind(R.id.deliveryPopUp)
+    LinearLayout deliveryPopUp;
+
     Call call;
     String restID;
     ResturantObject resturantObject;
@@ -123,6 +139,8 @@ public class ResturantDetailActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         restID = getIntent().getExtras().getString("restID");
 
+        infoImageView.setSelected(true);
+        menuImageView.setSelected(false);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         openingHoursRecyclerView.setLayoutManager(mLinearLayoutManager);
         getResturantDetail();
@@ -196,6 +214,7 @@ public class ResturantDetailActivity extends AppCompatActivity {
             circleTextView.setBackgroundResource(R.drawable.grey_circle);
             timingView.setVisibility(View.GONE);
             timingStatusTextView.setVisibility(View.VISIBLE);
+            deliveryPopUp.setVisibility(View.VISIBLE);
         }
     }
 
@@ -238,9 +257,6 @@ public class ResturantDetailActivity extends AppCompatActivity {
             Intent webViewIntent = new Intent(this, WebViewActivity.class);
             webViewIntent.putExtra("url", resturantObject.getInstagramAccount());
             startActivity(webViewIntent);
-//            Uri uri = Uri.parse(resturantObject.getInstagramAccount());
-//            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-//            startActivity(intent);
         }
     }
 
@@ -252,6 +268,33 @@ public class ResturantDetailActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_SUBJECT, resturantObject.getRestName());
         intent.putExtra(Intent.EXTRA_TEXT, "");
         startActivity(Intent.createChooser(intent, "Send Email"));
+    }
+
+    @OnClick(R.id.deliveryLayout)
+    public void deliveryClick() {
+        deliveryPopUp.setVisibility(View.VISIBLE);
+    }
+
+    @OnClick(R.id.crossImageView)
+    public void crossImageViewClick() {
+        deliveryPopUp.setVisibility(View.GONE);
+    }
+
+    @OnClick(R.id.infoLayout)
+    public void infoLayout(View view) {
+        infoImageView.setSelected(true);
+        menuImageView.setSelected(false);
+
+        infoContentLayout.setVisibility(View.VISIBLE);
+        menuContentLayout.setVisibility(View.GONE);
+    }
+
+    @OnClick(R.id.menuLayout)
+    public void menuLayout(View view) {
+        menuImageView.setSelected(true);
+        infoImageView.setSelected(false);
+        infoContentLayout.setVisibility(View.GONE);
+        menuContentLayout.setVisibility(View.VISIBLE);
     }
 
     private void requestPermission() {

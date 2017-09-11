@@ -420,14 +420,13 @@
                         android:text="@string/type_of_food"
                         android:textColor="@color/color_blue" />
 
-                    <CheckBox
-                        android:id="@+id/typeOfFoodCheckBox"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
-                        android:backgroundTint="@color/color_blue"
-                        android:buttonTint="@color/color_blue" />
+                        android:tint="@color/color_blue"
+                        android:src="@drawable/down_arrow" />
                 </RelativeLayout>
 
                 <LinearLayout

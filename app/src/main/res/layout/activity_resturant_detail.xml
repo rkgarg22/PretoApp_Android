@@ -6,9 +6,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <ProgressBar
+        android:id="@+id/progressbar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:indeterminate="false"
+        android:visibility="gone" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -84,8 +94,8 @@
                         android:layout_width="150dp"
                         android:layout_height="150dp"
                         android:background="@drawable/cyan_circle_border"
-                        android:orientation="vertical"
                         android:gravity="center"
+                        android:orientation="vertical"
                         android:padding="3dp">
 
                         <com.facebook.drawee.view.SimpleDraweeView
@@ -105,6 +115,7 @@
                     android:orientation="horizontal">
 
                     <LinearLayout
+                        android:id="@+id/infoLayout"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -120,14 +131,16 @@
                             android:textSize="10sp" />
 
                         <ImageView
+                            android:id="@+id/infoImageView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:src="@drawable/info_active" />
+                            android:src="@drawable/info_btn" />
 
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/menuLayout"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -143,10 +156,11 @@
                             android:textSize="10sp" />
 
                         <ImageView
+                            android:id="@+id/menuImageView"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
-                            android:src="@drawable/menu" />
+                            android:src="@drawable/menu_btn" />
 
                     </LinearLayout>
 
@@ -227,288 +241,297 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <CustomControl.LatoHeavyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/type_of_food_detail"
-                        android:textColor="@color/color_blue" />
-
-                    <CustomControl.LatoLightTextView
-                        android:id="@+id/typeOFFood"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/color_blue" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <CustomControl.LatoHeavyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/category_detail"
-                        android:textColor="@color/color_blue" />
-
-                    <CustomControl.LatoLightTextView
-                        android:id="@+id/category"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:textColor="@color/color_blue" />
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <CustomControl.LatoHeavyTextView
-                        android:id="@+id/address"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:text="@string/category_detail"
-                        android:textColor="@color/color_blue" />
-
-                    <CustomControl.LatoLightTextView
-                        android:id="@+id/distance"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:layout_toRightOf="@+id/address"
-                        android:textColor="@color/color_blue" />
-
-                    <LinearLayout
-                        android:id="@+id/mapClick"
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/circle_blue"
-                        android:gravity="center">
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:src="@drawable/small_food_icon" />
-                    </LinearLayout>
-
-
-                </RelativeLayout>
-
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
-
-                    <CustomControl.LatoHeavyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
-                        android:layout_centerVertical="true"
-                        android:text="@string/Opens_on_detail"
-                        android:textColor="@color/color_blue" />
-
-                    <LinearLayout
-                        android:layout_width="35dp"
-                        android:layout_height="35dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginLeft="10dp"
-                        android:background="@drawable/circle_blue"
-                        android:gravity="center">
-
-                        <TextView
-                            android:id="@+id/circleTextView"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp" />
-                    </LinearLayout>
-                </RelativeLayout>
-
-                <CustomControl.LatoLightTextView
-                    android:id="@+id/timingStatusTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:visibility="gone"
-                    android:text="@string/no_fixed_hour"
-                    android:textColor="@color/color_blue" />
-
-                <LinearLayout
-                    android:id="@+id/timingView"
+                    android:id="@+id/infoContentLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/openingHoursRecyclerView"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
-                        android:scrollbars="none" />
+                        android:orientation="horizontal">
 
-                </LinearLayout>
+                        <CustomControl.LatoHeavyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/type_of_food_detail"
+                            android:textColor="@color/color_blue" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="horizontal">
+                        <CustomControl.LatoLightTextView
+                            android:id="@+id/typeOFFood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/color_blue" />
+                    </LinearLayout>
 
-                    <CustomControl.LatoHeavyTextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/average_cost_detail"
-                        android:textColor="@color/color_blue" />
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <CustomControl.LatoHeavyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/category_detail"
+                            android:textColor="@color/color_blue" />
+
+                        <CustomControl.LatoLightTextView
+                            android:id="@+id/category"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/color_blue" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <CustomControl.LatoHeavyTextView
+                            android:id="@+id/address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/category_detail"
+                            android:textColor="@color/color_blue" />
+
+                        <CustomControl.LatoLightTextView
+                            android:id="@+id/distance"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_toRightOf="@+id/address"
+                            android:textColor="@color/color_blue" />
+
+                        <LinearLayout
+                            android:id="@+id/mapClick"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/circle_blue"
+                            android:gravity="center">
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:src="@drawable/small_food_icon" />
+                        </LinearLayout>
+
+
+                    </RelativeLayout>
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <CustomControl.LatoHeavyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:text="@string/Opens_on_detail"
+                            android:textColor="@color/color_blue" />
+
+                        <LinearLayout
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginLeft="10dp"
+                            android:background="@drawable/circle_blue"
+                            android:gravity="center">
+
+                            <TextView
+                                android:id="@+id/circleTextView"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp" />
+                        </LinearLayout>
+                    </RelativeLayout>
 
                     <CustomControl.LatoLightTextView
-                        android:id="@+id/averageCost"
+                        android:id="@+id/timingStatusTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
-                        android:textColor="@color/color_blue" />
+                        android:text="@string/no_fixed_hour"
+                        android:textColor="@color/color_blue"
+                        android:visibility="gone" />
+
+                    <LinearLayout
+                        android:id="@+id/timingView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/openingHoursRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="10dp"
+                            android:scrollbars="none" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <CustomControl.LatoHeavyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/average_cost_detail"
+                            android:textColor="@color/color_blue" />
+
+                        <CustomControl.LatoLightTextView
+                            android:id="@+id/averageCost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:textColor="@color/color_blue" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <CustomControl.LatoHeavyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/desription_detail"
+                            android:textColor="@color/color_blue" />
+
+                        <CustomControl.LatoLightTextView
+                            android:id="@+id/description"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/color_blue" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <CustomControl.LatoHeavyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/history_detail"
+                            android:textColor="@color/color_blue" />
+
+                        <CustomControl.LatoLightTextView
+                            android:id="@+id/history"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/color_blue" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <CustomControl.LatoHeavyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/payment_method_detail"
+                            android:textColor="@color/color_blue" />
+
+                        <CustomControl.LatoLightTextView
+                            android:id="@+id/paymentMethodTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/color_blue" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <CustomControl.LatoHeavyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/others_detail"
+                            android:textColor="@color/color_blue" />
+
+                        <CustomControl.LatoLightTextView
+                            android:id="@+id/otherTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/color_blue" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical">
+
+                        <CustomControl.LatoHeavyTextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/website_detail"
+                            android:textColor="@color/color_blue" />
+
+                        <CustomControl.LatoLightTextView
+                            android:id="@+id/websiteTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/color_blue" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/menuContentLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <CustomControl.LatoHeavyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/desription_detail"
-                        android:textColor="@color/color_blue" />
-
-                    <CustomControl.LatoLightTextView
-                        android:id="@+id/description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/color_blue" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <CustomControl.LatoHeavyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/history_detail"
-                        android:textColor="@color/color_blue" />
-
-                    <CustomControl.LatoLightTextView
-                        android:id="@+id/history"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/color_blue" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <CustomControl.LatoHeavyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/payment_method_detail"
-                        android:textColor="@color/color_blue" />
-
-                    <CustomControl.LatoLightTextView
-                        android:id="@+id/paymentMethodTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/color_blue" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <CustomControl.LatoHeavyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/others_detail"
-                        android:textColor="@color/color_blue" />
-
-                    <CustomControl.LatoLightTextView
-                        android:id="@+id/otherTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/color_blue" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
-
-                    <CustomControl.LatoHeavyTextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/website_detail"
-                        android:textColor="@color/color_blue" />
-
-                    <CustomControl.LatoLightTextView
-                        android:id="@+id/websiteTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/color_blue" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginTop="10dp"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
                     <CustomControl.LatoHeavyTextView
                         android:layout_width="wrap_content"
@@ -548,7 +571,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="12sp" />
 
-                <ImageButton
+                <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
@@ -600,7 +623,7 @@
                     android:textColor="@android:color/white"
                     android:textSize="12sp" />
 
-                <ImageButton
+                <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="5dp"
@@ -614,12 +637,74 @@
 
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progressbar"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_centerInParent="true"
-        android:indeterminate="false"
-        android:visibility="gone" />
+    <LinearLayout
+        android:id="@+id/deliveryPopUp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:clickable="true"
+        android:visibility="gone"
+        android:orientation="vertical">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/shape_rounded_corner"
+            android:orientation="vertical">
+
+            <CustomControl.LatoBoldTextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/shape_round_upper_blue"
+                android:gravity="center"
+                android:text="@string/we_recommend"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/cyan_circle_border">
+
+                <RelativeLayout
+                    android:layout_width="80dp"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/solid_circle_blue"
+                    android:layout_height="80dp"></RelativeLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/call" />
+
+            </RelativeLayout>
+
+            <CustomControl.LatoMediumTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:text="@string/recommend_text"
+                android:textColor="@color/color_blue"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:id="@+id/crossImageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:src="@drawable/cross_icon" />
+
+        </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

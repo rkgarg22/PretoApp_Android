@@ -54,9 +54,6 @@ public class FilterActivity extends AppCompatActivity {
     @Bind(R.id.suppliesCheckBox)
     CheckBox suppliesCheckBox;
 
-    @Bind(R.id.typeOfFoodCheckBox)
-    CheckBox typeOfFoodCheckBox;
-
     @Bind(R.id.meatCheckBox)
     CheckBox meatCheckBox;
 

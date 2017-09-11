@@ -103,7 +103,8 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:text="@string/breakfast"
-                    android:textColor="@android:color/white" />
+                    android:textColor="@android:color/white"
+                    android:id="@+id/latoBoldTextView" />
             </LinearLayout>
 
             <LinearLayout
@@ -161,7 +162,8 @@
                 android:id="@+id/preorderCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/lunchCategory"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="60dp"
                 android:layout_below="@+id/lunchCategory"
                 android:layout_marginTop="15dp"
                 android:gravity="center"
@@ -211,7 +213,8 @@
                 android:id="@+id/otherCategory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/lunchCategory"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="70dp"
                 android:layout_below="@+id/preorderCategory"
                 android:layout_marginTop="15dp"
                 android:gravity="center"

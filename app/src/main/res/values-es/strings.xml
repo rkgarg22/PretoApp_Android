@@ -151,4 +151,6 @@
     <string name="title_activity_maps">Map</string>
 
     <string name="logout_popup">¿Seguro que quieres cerrar la sesión?</string>
+    <string name="we_recommend">Te recomendamos</string>
+    <string name="recommend_text">Este sitio recomienda llamar a confirmar la disponibilidad de productos.</string>
 </resources>

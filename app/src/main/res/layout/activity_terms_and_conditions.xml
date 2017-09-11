@@ -42,7 +42,7 @@
         <CustomControl.MyriadProRegularTextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Dummy"
+            android:text="@string/terms_condition"
             android:textColor="@color/color_blue" />
     </ScrollView>
 

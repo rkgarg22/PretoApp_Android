@@ -3,7 +3,7 @@
 
     <string name="select_language_title">LANGUAGE</string>
     <string name="english_btn_text">English</string>
-    <string name="spanish_btn_text">Spanish</string>
+    <string name="spanish_btn_text">Español</string>
 
     //-------Login Option screen
     <string name="continue_with_facebook">Register using\nfacebook</string>
@@ -153,4 +153,6 @@
     <string name="logout_popup">Are you sure you want to logout?</string>
 
     <string name="jungle_box_link">http://www.junglebox.com.co/</string>
+    <string name="we_recommend">We recommend</string>
+    <string name="recommend_text">We recommend that you call to confirm the availability of the offered products.</string>
 </resources>

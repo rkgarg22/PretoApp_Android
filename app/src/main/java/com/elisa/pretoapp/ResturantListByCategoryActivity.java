@@ -27,6 +27,7 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.vision.text.Line;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -89,6 +90,9 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
 
     @Bind(R.id.mapFragmentLayout)
     LinearLayout mapFragmentLayout;
+
+    @Bind(R.id.transparentBanner)
+    LinearLayout transparentBanner;
 
     @Bind(R.id.bannerImage)
     ImageView bannerImageView;
@@ -185,7 +189,8 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
             case 23:
                 categoryIconImage.setImageResource(R.drawable.near_you);
                 headerTextView.setText(getResources().getString(R.string.near_you));
-                //  bannerImageView.setImageResource(R.drawable.near_you_banner);
+                bannerImageView.setBackgroundResource(R.drawable.nearby_banner);
+                transparentBanner.setVisibility(View.GONE);
                 break;
             default:
                 categoryIconImage.setImageResource(R.drawable.search);
@@ -193,7 +198,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
                 if (searchText.equals("")) {
                     headerTextView.setText(addressText);
                 }
-                // bannerImageView.setImageResource(R.drawable.search_banner);
+                bannerImageView.setBackgroundResource(R.drawable.search_banner);
                 break;
         }
     }
