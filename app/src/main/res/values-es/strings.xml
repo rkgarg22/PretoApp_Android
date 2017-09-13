@@ -133,7 +133,7 @@
 
     <string name="delivery_detail">Domicilios</string>
     <string name="commnets_detail">Comentarios</string>
-    <string name="call_detail">Liamar al sitio</string>
+    <string name="call_detail">Llamar al sitio</string>
     <string name="registered_since">Fecha registro:</string>
 
     <string name="mark_favourite_successfully">Restaurant mark favourite successfully</string>
@@ -153,4 +153,7 @@
     <string name="logout_popup">¿Seguro que quieres cerrar la sesión?</string>
     <string name="we_recommend">Te recomendamos</string>
     <string name="recommend_text">Este sitio recomienda llamar a confirmar la disponibilidad de productos.</string>
+
+
+    <string name="location_place_holder_text">Ingresar una ubicación</string>
 </resources>

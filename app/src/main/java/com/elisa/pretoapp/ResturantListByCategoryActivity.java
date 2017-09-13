@@ -184,7 +184,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
             case 21:
                 categoryIconImage.setImageResource(R.drawable.supplies);
                 headerTextView.setText(getResources().getString(R.string.other));
-                bannerImageView.setBackgroundResource(R.drawable.breakfast_banner);
+                bannerImageView.setBackgroundResource(R.drawable.snacks_banner);
                 break;
             case 23:
                 categoryIconImage.setImageResource(R.drawable.near_you);

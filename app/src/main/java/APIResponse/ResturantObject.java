@@ -91,6 +91,13 @@ public class ResturantObject {
     @SerializedName("operatingHours")
     ArrayList<OperatingHour> operatingHourArrayList;
 
+    @SerializedName("servicePhone")
+    String servicePhone;
+
+    @SerializedName("serviceStatus")
+    String serviceStatus;
+
+
     public String getRestID() {
         return restID;
     }
@@ -313,5 +320,21 @@ public class ResturantObject {
 
     public void setOperatingHourArrayList(ArrayList<OperatingHour> operatingHourArrayList) {
         this.operatingHourArrayList = operatingHourArrayList;
+    }
+
+    public String getServicePhone() {
+        return servicePhone;
+    }
+
+    public void setServicePhone(String servicePhone) {
+        this.servicePhone = servicePhone;
+    }
+
+    public String getServiceStatus() {
+        return serviceStatus;
+    }
+
+    public void setServiceStatus(String serviceStatus) {
+        this.serviceStatus = serviceStatus;
     }
 }

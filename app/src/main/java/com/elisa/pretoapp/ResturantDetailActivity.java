@@ -127,6 +127,9 @@ public class ResturantDetailActivity extends AppCompatActivity {
     @Bind(R.id.deliveryPopUp)
     LinearLayout deliveryPopUp;
 
+    @Bind(R.id.deliveryLayout)
+    LinearLayout deliveryLayout;
+
     Call call;
     String restID;
     ResturantObject resturantObject;
@@ -216,6 +219,12 @@ public class ResturantDetailActivity extends AppCompatActivity {
             timingStatusTextView.setVisibility(View.VISIBLE);
             deliveryPopUp.setVisibility(View.VISIBLE);
         }
+
+        if (resturantObject.getServiceStatus().equals("no")) {
+            deliveryLayout.setVisibility(View.GONE);
+        } else {
+            deliveryLayout.setVisibility(View.VISIBLE);
+        }
     }
 
     public String getTypeOFFood(ArrayList<String> typeOFFood) {
@@ -248,7 +257,7 @@ public class ResturantDetailActivity extends AppCompatActivity {
 
     @OnClick(R.id.callLayout)
     public void callLayoutClick() {
-        requestPermission();
+        requestPermission(resturantObject.getPhoneNumber());
     }
 
     @OnClick(R.id.instagramLayout)
@@ -264,7 +273,7 @@ public class ResturantDetailActivity extends AppCompatActivity {
     public void commentClick(View view) {
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_EMAIL, "");
+        intent.putExtra(Intent.EXTRA_EMAIL, "contacto@preto.co");
         intent.putExtra(Intent.EXTRA_SUBJECT, resturantObject.getRestName());
         intent.putExtra(Intent.EXTRA_TEXT, "");
         startActivity(Intent.createChooser(intent, "Send Email"));
@@ -272,7 +281,9 @@ public class ResturantDetailActivity extends AppCompatActivity {
 
     @OnClick(R.id.deliveryLayout)
     public void deliveryClick() {
-        deliveryPopUp.setVisibility(View.VISIBLE);
+        if (!resturantObject.getServicePhone().equals("")) {
+            requestPermission(resturantObject.getServicePhone());
+        }
     }
 
     @OnClick(R.id.crossImageView)
@@ -297,13 +308,13 @@ public class ResturantDetailActivity extends AppCompatActivity {
         menuContentLayout.setVisibility(View.VISIBLE);
     }
 
-    private void requestPermission() {
+    private void requestPermission(String phoneNumber) {
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,
                     new String[]{android.Manifest.permission.CALL_PHONE},
                     REQUESTCODE_CALL_PERMISSION);
         } else {
-            fireCallIntent(resturantObject.getPhoneNumber());
+            fireCallIntent(phoneNumber);
         }
     }
 

@@ -18,6 +18,7 @@ import API.PretoAppService;
 import API.ServiceGenerator;
 import APIEntity.FilterObject;
 import APIEntity.GetResturantListEntity;
+import APIResponse.CommonStringResponse;
 import APIResponse.GetResturantListResponse;
 import APIResponse.ResturantObject;
 import Adapter.ResturantAdapter;
@@ -152,6 +153,50 @@ public class FavouriteListActivity extends GenericMapActivity {
             });
         } else {
             swipeContainer.setRefreshing(false);
+            AppCommon.getInstance(FavouriteListActivity.this).clearNonTouchableFlags(FavouriteListActivity.this);
+            progressBar.setVisibility(View.GONE);
+            AppCommon.showDialog(this, this.getResources().getString(R.string.networkTitle));
+        }
+    }
+
+    public void markLike(int position) {
+        progressBar.setVisibility(View.VISIBLE);
+        AppCommon.getInstance(this).setNonTouchableFlags(this);
+        if (AppCommon.getInstance(this).isConnectingToInternet(this)) {
+            final ResturantObject object = resturantObjectArrayList.get(position);
+            PretoAppService pretoAppService = ServiceGenerator.createService(PretoAppService.class);
+            call = pretoAppService.markLike(AppCommon.getInstance(this).getUserID(), object.getRestID());
+            call.enqueue(new Callback<CommonStringResponse>() {
+                @Override
+                public void onResponse(Call call, Response response) {
+                    AppCommon.getInstance(FavouriteListActivity.this).clearNonTouchableFlags(FavouriteListActivity.this);
+                    CommonStringResponse commonStringResponse = (CommonStringResponse) response.body();
+                    progressBar.setVisibility(View.GONE);
+                    if (commonStringResponse.getSuccess().equals("1")) {
+                        int likeCount = Integer.parseInt(object.getLikesCount());
+                        if (object.getIsLiked().equals("1")) {
+                            object.setIsLiked("0");
+                            likeCount = likeCount - 1;
+                        } else {
+                            object.setIsLiked("1");
+                            likeCount = likeCount + 1;
+                        }
+                        object.setLikesCount(Integer.toString(likeCount));
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        progressBar.setVisibility(View.GONE);
+                        AppCommon.getInstance(FavouriteListActivity.this).showDialog(FavouriteListActivity.this, commonStringResponse.getError());
+                    }
+                }
+
+                @Override
+                public void onFailure(Call call, Throwable t) {
+                    AppCommon.getInstance(FavouriteListActivity.this).clearNonTouchableFlags(FavouriteListActivity.this);
+                    progressBar.setVisibility(View.GONE);
+                    AppCommon.showDialog(FavouriteListActivity.this, getString(R.string.serverError));
+                }
+            });
+        } else {
             AppCommon.getInstance(FavouriteListActivity.this).clearNonTouchableFlags(FavouriteListActivity.this);
             progressBar.setVisibility(View.GONE);
             AppCommon.showDialog(this, this.getResources().getString(R.string.networkTitle));

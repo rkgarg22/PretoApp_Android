@@ -1098,7 +1098,7 @@
         <CustomControl.LatoBoldButton
             android:id="@+id/acceptBtn"
             android:layout_width="120dp"
-            android:text="OK"
+            android:text="@string/ok"
             android:background="@drawable/shape_rounded_corner"
             android:layout_height="40dp" />
 

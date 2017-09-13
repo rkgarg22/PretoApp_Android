@@ -90,10 +90,10 @@ public class GenericMapActivity extends AppCompatActivity implements OnMapReadyC
                         .title(resturantObject.getRestName() + "\n" + resturantObject.getAddress())
                         .icon(icon)
                         .alpha(1.0f));
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerLat, 10.0f));
                 markersOrderNumbers.put(marker, Integer.toString(i));
             }
         }
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentUserLatLon, 10.0f));
     }
 
     public void googleMapClick() {

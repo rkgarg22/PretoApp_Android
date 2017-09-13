@@ -155,4 +155,6 @@
     <string name="jungle_box_link">http://www.junglebox.com.co/</string>
     <string name="we_recommend">We recommend</string>
     <string name="recommend_text">We recommend that you call to confirm the availability of the offered products.</string>
+
+    <string name="location_place_holder_text">Enter your location</string>
 </resources>

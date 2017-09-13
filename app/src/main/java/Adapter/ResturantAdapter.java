@@ -146,7 +146,11 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
         @OnClick(R.id.likeImage)
         public void likeClick(View view) {
             int position = Integer.parseInt(view.getTag().toString());
-            ((ResturantListByCategoryActivity) context).markLike(position);
+            if (context instanceof ResturantListByCategoryActivity) {
+                ((ResturantListByCategoryActivity) context).markLike(position);
+            }else if (context instanceof FavouriteListActivity) {
+                ((FavouriteListActivity) context).markLike(position);
+            }
         }
 
         @OnClick(R.id.rowLayout)

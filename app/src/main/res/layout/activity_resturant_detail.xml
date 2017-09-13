@@ -613,6 +613,7 @@
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/commentsLayout"
                 android:gravity="center"
+                android:visibility="gone"
                 android:orientation="vertical"
                 android:padding="3dp">
 
