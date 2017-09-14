@@ -14,7 +14,7 @@
     <string name="name">Nombre</string>
     <string name="email">Correo</string>
     <string name="password">Contraseña</string>
-    <string name="confirm_password">Confirmar contraseña</string>
+    <string name="confirm_email">Confirmar Correo</string>
     <string name="acceptance_text">Al crear una cuenta, usted se compromete\na las condiciones del servicio de PRETO\npolítica de privacidad y de contenindo.</string>
     <string name="accept">ACEPTO</string>
     <string name="register">REGISTRATE</string>

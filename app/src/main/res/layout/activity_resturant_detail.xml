@@ -29,9 +29,9 @@
 
             <ImageButton
                 android:id="@+id/backButtonClick"
-                android:layout_width="wrap_content"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/blue_back_button"
                 android:tint="@android:color/white" />

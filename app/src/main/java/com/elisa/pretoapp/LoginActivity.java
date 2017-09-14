@@ -62,17 +62,18 @@ public class LoginActivity extends AppCompatActivity {
         } else if (!AppCommon.getInstance(this).isValidEmail(mEmailString)) {
             emailEditText.setError(getResources().getString(R.string.enterValidEmailText));
             validate = false;
-        } else if (mPasswordString.isEmpty()) {
-            passwordEditText.setError(getResources().getString(R.string.enterPassword));
-            validate = false;
         }
+//        else if (mPasswordString.isEmpty()) {
+//            passwordEditText.setError(getResources().getString(R.string.enterPassword));
+//            validate = false;
+//        }
         return validate;
     }
 
     private void callLoginWebservice() {
         AppCommon.getInstance(this).setNonTouchableFlags(this);
         if (AppCommon.getInstance(this).isConnectingToInternet(this)) {
-            final Login_Entity loginEntity = new Login_Entity(mEmailString, mPasswordString, "", "android");
+            final Login_Entity loginEntity = new Login_Entity(mEmailString, "", "android");
             PretoAppService pretoAppService = ServiceGenerator.createService(PretoAppService.class);
             call = pretoAppService.userLogin(loginEntity);
             call.enqueue(new Callback<LoginResponse>() {

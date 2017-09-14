@@ -165,7 +165,7 @@ public class LoginOptionActivity extends AppCompatActivity {
         AppCommon.getInstance(this).setNonTouchableFlags(this);
         if (AppCommon.getInstance(this).isConnectingToInternet(this)) {
             progressBar.setVisibility(View.VISIBLE);
-            UserInformation_Entity mUserInformation_entity = new UserInformation_Entity(firstName, email, password, facebookId, imageUrl, "", "android");
+            UserInformation_Entity mUserInformation_entity = new UserInformation_Entity(firstName, email, facebookId, imageUrl, "", "android");
             PretoAppService pretoService = ServiceGenerator.createService(PretoAppService.class);
             call = pretoService.userRegistration(mUserInformation_entity);
             call.enqueue(new Callback() {

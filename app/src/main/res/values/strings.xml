@@ -14,7 +14,7 @@
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="confirm_password">Confirm Password</string>
+    <string name="confirm_email">Confirm Email</string>
     <string name="acceptance_text">When creating an account you agree to Preto\'s\nTerms and Conditions and its privacy policies.</string>
     <string name="accept">ACCEPT</string>
     <string name="register">REGISTER</string>

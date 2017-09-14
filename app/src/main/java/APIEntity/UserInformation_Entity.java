@@ -12,9 +12,6 @@ public class UserInformation_Entity {
     @SerializedName("emailID")
     String emailID;
 
-    @SerializedName("password")
-    String password;
-
     @SerializedName("facebookID")
     String facebookID;
 
@@ -41,14 +38,6 @@ public class UserInformation_Entity {
 
     public void setEmailID(String emailID) {
         this.emailID = emailID;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public String getFacebookID() {
@@ -83,10 +72,9 @@ public class UserInformation_Entity {
         this.deviceType = deviceType;
     }
 
-    public UserInformation_Entity(String name, String emailID, String password, String facebookID, String profilePicUrl, String firebaseTokenId, String deviceType) {
+    public UserInformation_Entity(String name, String emailID, String facebookID, String profilePicUrl, String firebaseTokenId, String deviceType) {
         this.name = name;
         this.emailID = emailID;
-        this.password = password;
         this.facebookID = facebookID;
         this.profilePicUrl = profilePicUrl;
         this.firebaseTokenId = firebaseTokenId;

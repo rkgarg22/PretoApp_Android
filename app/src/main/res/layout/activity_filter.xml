@@ -15,9 +15,9 @@
 
         <ImageButton
             android:id="@+id/backButtonClick"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
             android:src="@drawable/back_button" />
 
@@ -94,7 +94,7 @@
                         android:layout_toLeftOf="@+id/openNowCheckBox"
                         android:text="@string/openNow"
                         android:textColor="@color/color_blue"
-                        android:textSize="16sp" />
+                        android:textSize="15sp" />
                 </RelativeLayout>
 
                 <TextView
@@ -153,7 +153,7 @@
                                 android:layout_toLeftOf="@+id/fromEditText"
                                 android:gravity="center_vertical"
                                 android:text="@string/from"
-                                android:textSize="16sp" />
+                                android:textSize="15sp" />
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -183,7 +183,7 @@
                                 android:gravity="center_vertical"
                                 android:textColor="@color/color_blue"
                                 android:text="@string/to"
-                                android:textSize="16sp" />
+                                android:textSize="15sp" />
                         </RelativeLayout>
 
 
@@ -243,11 +243,13 @@
                                 <CustomControl.LatoLightTextView
                                     android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_toLeftOf="@+id/breakfastCheckBox"
                                     android:textColor="@color/color_blue"
                                     android:text="@string/breakfast_cat"
-                                    android:textSize="16sp" />
+                                    android:textSize="15sp"
+                                    android:layout_alignBaseline="@+id/breakfastCheckBox"
+                                    android:layout_alignBottom="@+id/breakfastCheckBox"
+                                    android:layout_toStartOf="@+id/breakfastCheckBox"
+                                    android:id="@+id/latoLightTextView" />
                             </RelativeLayout>
 
                             <RelativeLayout
@@ -266,13 +268,13 @@
                                     android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
-                                    android:layout_width="65dp"
+                                    android:layout_width="70dp"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:layout_toLeftOf="@+id/LunchCheckBox"
                                     android:textColor="@color/color_blue"
                                     android:text="@string/lunch_cat"
-                                    android:textSize="16sp" />
+                                    android:textSize="15sp" />
                             </RelativeLayout>
 
 
@@ -303,11 +305,12 @@
                                 <CustomControl.LatoLightTextView
                                     android:layout_width="80dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_centerVertical="true"
-                                    android:layout_toLeftOf="@+id/dinnerCheckBox"
                                     android:textColor="@color/color_blue"
                                     android:text="@string/dinner_cat"
-                                    android:textSize="16sp" />
+                                    android:textSize="15sp"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toStartOf="@+id/dinnerCheckBox"
+                                    android:id="@+id/latoLightTextView2" />
                             </RelativeLayout>
 
                             <RelativeLayout
@@ -327,13 +330,13 @@
 
                                 <CustomControl.LatoLightTextView
                                     android:id="@+id/textView3"
-                                    android:layout_width="65dp"
+                                    android:layout_width="70dp"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:layout_toStartOf="@+id/snacksCheckBox"
                                     android:textColor="@color/color_blue"
                                     android:text="@string/snacks_cat"
-                                    android:textSize="16sp" />
+                                    android:textSize="15sp" />
                             </RelativeLayout>
                         </LinearLayout>
 
@@ -367,7 +370,7 @@
                                     android:layout_toStartOf="@+id/preorderCheckBox"
                                     android:textColor="@color/color_blue"
                                     android:text="@string/preorder_cat"
-                                    android:textSize="16sp" />
+                                    android:textSize="15sp" />
                             </RelativeLayout>
 
                             <RelativeLayout
@@ -386,13 +389,13 @@
                                     android:buttonTint="@color/color_blue" />
 
                                 <CustomControl.LatoLightTextView
-                                    android:layout_width="65dp"
+                                    android:layout_width="70dp"
                                     android:layout_height="wrap_content"
                                     android:layout_centerVertical="true"
                                     android:layout_toLeftOf="@+id/suppliesCheckBox"
                                     android:textColor="@color/color_blue"
                                     android:text="@string/supplies_cat"
-                                    android:textSize="16sp" />
+                                    android:textSize="15sp" />
                             </RelativeLayout>
                         </LinearLayout>
 
@@ -462,7 +465,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical|right"
                                 android:text="@string/meat"
-                                android:textSize="16sp"
+                                android:textSize="15sp"
                                 android:textColor="@color/color_blue"
                                 android:layout_centerVertical="true"
                                 android:layout_toStartOf="@+id/meatCheckBox"
@@ -492,7 +495,7 @@
                                 android:textColor="@color/color_blue"
                                 android:layout_toLeftOf="@+id/signatureCheckBox"
                                 android:text="@string/signature_cuisine"
-                                android:textSize="16sp" />
+                                android:textSize="15sp" />
                         </RelativeLayout>
 
 
@@ -524,7 +527,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical|right"
                                 android:text="@string/sea_food"
-                                android:textSize="16sp"
+                                android:textSize="15sp"
                                 android:textColor="@color/color_blue"
                                 android:layout_centerVertical="true"
                                 android:layout_toStartOf="@+id/seaFoodCheckBox" />
@@ -553,7 +556,7 @@
                                 android:layout_toLeftOf="@+id/healthyCheckBox"
                                 android:text="@string/healthy"
                                 android:textColor="@color/color_blue"
-                                android:textSize="16sp" />
+                                android:textSize="15sp" />
                         </RelativeLayout>
 
 
@@ -585,11 +588,10 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical|right"
                                 android:text="@string/vegetarian"
-                                android:textSize="16sp"
+                                android:textSize="15sp"
                                 android:layout_centerVertical="true"
                                 android:textColor="@color/color_blue"
-                                android:layout_toStartOf="@+id/vegetarianCheckBox"
-                                />
+                                android:layout_toStartOf="@+id/vegetarianCheckBox" />
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -615,7 +617,7 @@
                                 android:textColor="@color/color_blue"
                                 android:layout_toLeftOf="@+id/hamburguersCheckBox"
                                 android:text="@string/hamburguers"
-                                android:textSize="16sp" />
+                                android:textSize="15sp" />
                         </RelativeLayout>
 
 
@@ -647,7 +649,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical|right"
                                 android:text="@string/fusion"
-                                android:textSize="16sp"
+                                android:textSize="15sp"
                                 android:textColor="@color/color_blue"
                                 android:layout_centerVertical="true"
                                 android:layout_toStartOf="@+id/fusionCheckBox" />
@@ -676,7 +678,7 @@
                                 android:layout_toLeftOf="@+id/typicalCheckBox"
                                 android:text="@string/typical"
                                 android:textColor="@color/color_blue"
-                                android:textSize="16sp" />
+                                android:textSize="15sp" />
                         </RelativeLayout>
 
 
@@ -708,7 +710,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical|right"
                                 android:text="@string/fast_food"
-                                android:textSize="16sp"
+                                android:textSize="15sp"
                                 android:textColor="@color/color_blue"
                                 android:layout_centerVertical="true"
                                 android:layout_toStartOf="@+id/fastFoodCheckBox"
@@ -739,7 +741,7 @@
                                 android:layout_toLeftOf="@+id/peruvianCheckBox"
                                 android:text="@string/peruvian"
                                 android:textColor="@color/color_blue"
-                                android:textSize="16sp" />
+                                android:textSize="15sp" />
                         </RelativeLayout>
 
 
@@ -771,7 +773,7 @@
                                 android:layout_height="wrap_content"
                                 android:gravity="center_vertical|right"
                                 android:text="@string/international"
-                                android:textSize="16sp"
+                                android:textSize="15sp"
                                 android:textColor="@color/color_blue"
                                 android:layout_centerVertical="true"
                                 android:layout_toStartOf="@+id/internationalCheckBox" />
@@ -800,7 +802,7 @@
                                 android:textColor="@color/color_blue"
                                 android:layout_toLeftOf="@+id/mediterraneanCheckBox"
                                 android:text="@string/mediterranean"
-                                android:textSize="16sp" />
+                                android:textSize="15sp" />
                         </RelativeLayout>
 
 
@@ -950,7 +952,7 @@
                                     android:layout_toLeftOf="@+id/cashCheckBox"
                                     android:text="@string/cash"
                                     android:textColor="@color/color_blue"
-                                    android:textSize="16sp" />
+                                    android:textSize="15sp" />
                             </RelativeLayout>
 
                             <RelativeLayout
@@ -975,7 +977,7 @@
                                     android:layout_toLeftOf="@+id/sodexoCheckBox"
                                     android:text="@string/sodexo"
                                     android:textColor="@color/color_blue"
-                                    android:textSize="16sp" />
+                                    android:textSize="15sp" />
                             </RelativeLayout>
 
 
@@ -1010,7 +1012,7 @@
                                     android:layout_toLeftOf="@+id/debitCardCheckBox"
                                     android:text="@string/debit_card"
                                     android:textColor="@color/color_blue"
-                                    android:textSize="16sp" />
+                                    android:textSize="15sp" />
                             </RelativeLayout>
 
                             <RelativeLayout
@@ -1035,7 +1037,7 @@
                                     android:layout_toStartOf="@+id/bigPassCheckBox"
                                     android:text="@string/big_pass"
                                     android:textColor="@color/color_blue"
-                                    android:textSize="16sp" />
+                                    android:textSize="15sp" />
                             </RelativeLayout>
                         </LinearLayout>
 
@@ -1068,7 +1070,7 @@
                                     android:layout_toStartOf="@+id/creditCardCheckBox"
                                     android:text="@string/credit_card"
                                     android:textColor="@color/color_blue"
-                                    android:textSize="16sp" />
+                                    android:textSize="15sp" />
                             </RelativeLayout>
 
                             <RelativeLayout

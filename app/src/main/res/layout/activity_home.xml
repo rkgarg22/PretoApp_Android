@@ -36,7 +36,7 @@
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="10dp"
                 android:layout_toRightOf="@+id/searchBtnClick"
                 android:background="@android:color/transparent"
                 android:src="@drawable/filter" />

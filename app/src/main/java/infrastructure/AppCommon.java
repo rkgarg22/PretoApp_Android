@@ -180,7 +180,7 @@ public class AppCommon {
 
     public String getSelectedLanguage() {
         SharedPreferences mSharedPreferences = mContext.getSharedPreferences(MYPerference.mPREFS_NAME, Context.MODE_PRIVATE);
-        return mSharedPreferences.getString(MYPerference.LANGUGAGE_SELECTION, "en");
+        return mSharedPreferences.getString(MYPerference.LANGUGAGE_SELECTION, "es");
     }
 
     public String getBase64ImageString(Bitmap photo) {

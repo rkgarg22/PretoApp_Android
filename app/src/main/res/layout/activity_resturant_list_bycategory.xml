@@ -23,10 +23,10 @@
 
             <ImageButton
                 android:id="@+id/backButtonClick"
-                android:layout_width="wrap_content"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/blue_back_button" />
 
@@ -35,7 +35,7 @@
                 android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@+id/backButtonClick"
                 android:background="@android:color/transparent"
                 android:src="@drawable/filter" />

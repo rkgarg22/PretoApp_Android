@@ -271,9 +271,10 @@ public class ResturantDetailActivity extends AppCompatActivity {
 
     @OnClick(R.id.commentsLayout)
     public void commentClick(View view) {
+        String[] recipients={"contacto@preto.co"};
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_EMAIL, "contacto@preto.co");
+        intent.putExtra(Intent.EXTRA_EMAIL, recipients);
         intent.putExtra(Intent.EXTRA_SUBJECT, resturantObject.getRestName());
         intent.putExtra(Intent.EXTRA_TEXT, "");
         startActivity(Intent.createChooser(intent, "Send Email"));
@@ -436,11 +437,11 @@ public class ResturantDetailActivity extends AppCompatActivity {
                         if (resturantObject.getIsFavourite().equals("1")) {
                             resturantObject.setIsFavourite("0");
                             favImageView.setSelected(false);
-                            AppCommon.getInstance(ResturantDetailActivity.this).showDialog(ResturantDetailActivity.this, getResources().getString(R.string.mark_unfavourite_successfully));
+                           // AppCommon.getInstance(ResturantDetailActivity.this).showDialog(ResturantDetailActivity.this, getResources().getString(R.string.mark_unfavourite_successfully));
                         } else {
                             resturantObject.setIsFavourite("1");
                             favImageView.setSelected(true);
-                            AppCommon.getInstance(ResturantDetailActivity.this).showDialog(ResturantDetailActivity.this, getResources().getString(R.string.mark_favourite_successfully));
+                            //AppCommon.getInstance(ResturantDetailActivity.this).showDialog(ResturantDetailActivity.this, getResources().getString(R.string.mark_favourite_successfully));
                         }
                     } else {
                         progressBar.setVisibility(View.GONE);

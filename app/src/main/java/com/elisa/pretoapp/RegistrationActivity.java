@@ -37,8 +37,8 @@ public class RegistrationActivity extends AppCompatActivity {
     @Bind(R.id.passwordEditText)
     LatoHeavyEditText passwordEditText;
 
-    @Bind(R.id.confirmPasswordEditText)
-    LatoHeavyEditText confirmPasswordEditText;
+    @Bind(R.id.confirmEmailEditText)
+    LatoHeavyEditText confirmEmailEditText;
 
     @Bind(R.id.progressbar)
     ProgressBar progressBar;
@@ -49,7 +49,7 @@ public class RegistrationActivity extends AppCompatActivity {
     String name;
     String email;
     String password;
-    String confirmPassword;
+    String confirmEmail;
     Call call;
 
     @Override
@@ -78,7 +78,7 @@ public class RegistrationActivity extends AppCompatActivity {
         name = nameEditText.getText().toString().trim();
         email = emailEditText.getText().toString().trim();
         password = passwordEditText.getText().toString().trim();
-        confirmPassword = confirmPasswordEditText.getText().toString().trim();
+        confirmEmail = confirmEmailEditText.getText().toString().trim();
 
         if (name.isEmpty()) {
             nameEditText.setError(getResources().getString(R.string.enterName));
@@ -86,24 +86,30 @@ public class RegistrationActivity extends AppCompatActivity {
         } else if (email.isEmpty()) {
             emailEditText.setError(getResources().getString(R.string.enterEmailText));
             validate = false;
-        } else if (password.isEmpty()) {
-            passwordEditText.setError(getResources().getString(R.string.enterPassword));
-            validate = false;
         } else if (!AppCommon.getInstance(this).isValidEmail(email)) {
             emailEditText.setError(getResources().getString(R.string.enterValidEmailText));
             validate = false;
-        } else if(!acceptCheckBox.isChecked()){
+        } else if (!email.equals(confirmEmail)) {
+            confirmEmailEditText.setError(getResources().getString(R.string.email_not_confimed));
+            validate = false;
+        } else if (!acceptCheckBox.isChecked()) {
             AppCommon.showDialog(this, this.getResources().getString(R.string.accept_terms_and_conditon));
             validate = false;
         }
         return validate;
     }
 
+    @OnClick(R.id.privacyPolicyText)
+    public void privacyPolicyClick() {
+        Intent privacyPolicyIntent = new Intent(this, PrivacyPolicy.class);
+        startActivity(privacyPolicyIntent);
+    }
+
     private void callSignUpWebService() {
         AppCommon.getInstance(this).setNonTouchableFlags(this);
         if (AppCommon.getInstance(this).isConnectingToInternet(this)) {
             progressBar.setVisibility(View.VISIBLE);
-            UserInformation_Entity mUserInformation_entity = new UserInformation_Entity(name, email, password, "", "", "", "android");
+            UserInformation_Entity mUserInformation_entity = new UserInformation_Entity(name, email, "", "", "", "android");
             PretoAppService pretoService = ServiceGenerator.createService(PretoAppService.class);
             call = pretoService.userRegistration(mUserInformation_entity);
             call.enqueue(new Callback() {
@@ -168,8 +174,8 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == LOGIN_INTENT){
-            if(resultCode == Activity.RESULT_OK){
+        if (requestCode == LOGIN_INTENT) {
+            if (resultCode == Activity.RESULT_OK) {
                 Intent i = new Intent();
                 setResult(RESULT_OK, i);
                 RegistrationActivity.this.finish();

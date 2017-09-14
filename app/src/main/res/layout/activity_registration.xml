@@ -66,25 +66,27 @@
                 android:background="@drawable/shape_rounded_corner"
                 android:gravity="center"
                 android:inputType="textPassword"
+                android:visibility="gone"
                 android:hint="@string/password"
                 android:singleLine="true"
                 android:textColor="@color/color_blue"
                 android:textColorHint="@color/color_blue" />
 
             <CustomControl.LatoHeavyEditText
-                android:id="@+id/confirmPasswordEditText"
+                android:id="@+id/confirmEmailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_rounded_corner"
                 android:gravity="center"
                 android:inputType="textPassword"
-                android:hint="@string/confirm_password"
+                android:hint="@string/confirm_email"
                 android:singleLine="true"
                 android:textColor="@color/color_blue"
                 android:textColorHint="@color/color_blue" />
 
             <CustomControl.LatoBoldTextView
+                android:id="@+id/privacyPolicyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
