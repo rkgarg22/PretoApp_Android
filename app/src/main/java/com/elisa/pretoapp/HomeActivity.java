@@ -97,6 +97,7 @@ public class HomeActivity extends AppCompatActivity {
             return;
         }
         searchEditText.setText("");
+        searchlayout.setVisibility(View.GONE);
         Intent resturantIntent = new Intent(this, ResturantListByCategoryActivity.class);
         resturantIntent.putExtra("categorySelect", 0);
         resturantIntent.putExtra("searchText", searchText);

@@ -79,7 +79,6 @@
                 android:layout_marginTop="20dp"
                 android:background="@drawable/shape_rounded_corner"
                 android:gravity="center"
-                android:inputType="textPassword"
                 android:hint="@string/confirm_email"
                 android:singleLine="true"
                 android:textColor="@color/color_blue"

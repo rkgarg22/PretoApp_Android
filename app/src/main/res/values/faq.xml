@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="faq_text"></string>
+    <string name="faq_text"><b>Why do some places show a pop up message indicating that I should call to confirm the availability of products?</b>
+\nOur App includes offers from entrepreneurs who don´t necessarily have a physical store or shop, or who offer their products sporadically. For these types of offers, it is recommended that you call prior to your visit to confirm the availability of products at the time you are planning to go.
+
+\n\n<b>Why don’t some businesses have information on opening hours?</b>
+This happens when the businesses offer their products sporadically, which means that they don´t always have products available to offer, or when their products are sold only by pre order.  In this case it is recommended that you call to confirm the availability of products or to place an order.
+
+\n\n<b>How can I rate a business I visited or leave my comments about it in the App?</b>
+
+\n\nAs a user you can rate a business in two ways:
+
+\n\n1. Use the option “Like” whenever you have a positive opinion about a business and you want to recommend it to other users.
+
+\n\n2. Send a comment, either positive or negative about your experience.  You can do this by going directly to the profile of the business you visited and using the option “Comments”.  These comments will not be visible to other users in the App, but they will be received by our team who will then send it to the business so that they can see the feedback they are receiving and implement corrective actions, in case it is necessary.
+
+\n\n<b>How frequently is the information in the App updated?</b>
+\nEvery day we are searching for new places, businesses and people who want to offer their products through the app, in order to maintain a wide offer with new options for our users.  Every time you have connection to the network, the app is automatically updated with the most recent information.
+
+
+\n\nAlso, each of the places, businesses or people you see in the App are responsible for providing and updating the information that is being displayed.  Therefore, this information is only updated whenever they request to make changes.
+
+\n\n<b>I am interested in offering my products through the App.  What should I do?</b>
+\nIf you offer any product or service that is related to the preparation, serving, selling or enjoying of food, you have a place in our App.
+\nIf you are interested in being part of Preto, you can contact us through the App, using the option “Contact”, or send an email to contacto@preto.co or comercial@preto.co, including your name and contact information, and one of our team members will contact you to provide all the details.
+
+\n\n<b>How are the search results listed in the App?</b>
+\nThe results will be listed according to the distance from your location or the location you indicated, starting from the nearest to the farthest, no matter the number of places found in the search.
+\nUsing the advanced filters option you will be able to change the order, arranging them according to the number of “Likes”, starting with the one that has the most.
+
+\n\n<b>How can I find the best rated places in the city?</b>
+\nUsing the Advanced Filters option, you can define your search criteria and also arrange the results according to the number of Likes, starting with the one that has the most.  In this case, you will be able to see the information for all the city.
+
+\n\n<b>Do I have to pay anything to use Preto App?</b>
+\nNo, downloading and using all functions in the App is free.
+
+\n\n<b>What will I find in the “Supplies” option?</b>
+\nHere you will find a variety of ingredients used in cooking and food preparation, as well as other complementary products which are related to the preparation, serving, selling and enjoying of food.
+
+\n\n<b>Can I order a delivery through the App?</b>
+\nThe App provides information about the businesses that are registered.  You will be able to identify which ones have delivery service (you can also filter them) and make a call through the App to place an order directly with the business.
+
+\n\n<b>I found information that is not updated.  Can I report it?</b>
+\nYou can report this situation using the “Contact” option in the App, or going to our web page: www.preto.co and using the link “Contacto”, or sending an email to contacto@preto.co. Please be sure to provide complete information so we can identify which business you are reporting.
+
+\n\nRemember that the information you send will not be updated immediately, since it needs to go through a verification process.
+
+\n\n<b>How can I get in contact with you?</b>
+\nYou can contact us if you have any comments, opinions, requests or complaints through the following means:
+\nUsing the option “Contact” available in the App
+\nUsing the link “Contacto” on our Web page: www.preto.co
+\nWrite an emal to contacto@preto.co
+\nCalling the telephone number you can find on our web page.
+
+\nPlease be sure to provide information on how we can get in touch with you, as follow up for your requests.
+</string>
 
 </resources>
