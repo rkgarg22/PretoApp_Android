@@ -75,6 +75,7 @@
                 android:padding="15dp">
 
                 <CustomControl.LatoBoldEditText
+                    android:id="@+id/nameEditText"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/shape_rounded_corner"
@@ -86,6 +87,7 @@
                     android:textColorHint="@color/color_blue" />
 
                 <CustomControl.LatoBoldEditText
+                    android:id="@+id/phoneNumberEditText"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="15dp"
@@ -98,6 +100,7 @@
                     android:textColorHint="@color/color_blue" />
 
                 <CustomControl.LatoBoldEditText
+                    android:id="@+id/emailEditText"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="15dp"
@@ -110,6 +113,7 @@
                     android:textColorHint="@color/color_blue" />
 
                 <CustomControl.LatoBoldEditText
+                    android:id="@+id/subjectEditText"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="15dp"
@@ -122,6 +126,7 @@
                     android:textColorHint="@color/color_blue" />
 
                 <CustomControl.LatoBoldEditText
+                    android:id="@+id/messageEditText"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:layout_marginTop="15dp"
@@ -133,6 +138,7 @@
                     android:textColorHint="@color/color_blue" />
 
                 <CustomControl.LatoBoldButton
+                    android:id="@+id/sendBtnClick"
                     android:layout_width="100dp"
                     android:layout_height="40dp"
                     android:layout_marginTop="10dp"

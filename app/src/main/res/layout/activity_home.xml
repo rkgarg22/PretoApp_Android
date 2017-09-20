@@ -67,202 +67,208 @@
                 android:layout_centerInParent="true"
                 android:background="@drawable/shape_rounded_corner_blue"
                 android:gravity="center"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:textSize="15sp"
                 android:hint="@string/location_place_holder_text"
                 android:imeOptions="actionDone"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
                 android:singleLine="true"
-                android:textColor="@color/color_blue" />
+                android:textColor="@color/color_blue"
+                android:textSize="15sp" />
 
         </RelativeLayout>
 
-        <RelativeLayout
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@drawable/home_screen_bg">
+            android:layout_height="match_parent">
 
-            <LinearLayout
-                android:id="@+id/breakfastCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:tag="11">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/home_screen_bg">
 
-                <ImageView
+                <LinearLayout
+                    android:id="@+id/breakfastCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/breakfast" />
-
-                <CustomControl.LatoBoldTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="70dp"
+                    android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="@string/breakfast"
-                    android:textColor="@android:color/white"
-                    android:id="@+id/latoBoldTextView" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:tag="11">
 
-            <LinearLayout
-                android:id="@+id/lunchCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="70dp"
-                android:layout_marginTop="20dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:tag="13">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/breakfast" />
 
-                <ImageView
+                    <CustomControl.LatoBoldTextView
+                        android:id="@+id/latoBoldTextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/breakfast"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lunchCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/lunch" />
-
-                <CustomControl.LatoBoldTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="70dp"
+                    android:layout_marginTop="20dp"
                     android:gravity="center"
-                    android:text="@string/lunch"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:tag="13">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/lunch" />
+
+                    <CustomControl.LatoBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/lunch"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
 
 
-            <LinearLayout
-                android:id="@+id/dinnerCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/breakfastCategory"
-                android:layout_below="@+id/breakfastCategory"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:tag="15">
-
-                <ImageView
+                <LinearLayout
+                    android:id="@+id/dinnerCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/dinner" />
-
-                <CustomControl.LatoBoldTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_alignLeft="@+id/breakfastCategory"
+                    android:layout_below="@+id/breakfastCategory"
+                    android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:text="@string/dinner"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:tag="15">
 
-            <LinearLayout
-                android:id="@+id/preorderCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="60dp"
-                android:layout_below="@+id/lunchCategory"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:tag="19">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/dinner" />
 
-                <ImageView
+                    <CustomControl.LatoBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/dinner"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/preorderCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/custom_made" />
-
-                <CustomControl.LatoBoldTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/lunchCategory"
+                    android:layout_marginRight="60dp"
+                    android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:text="@string/preorder"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:tag="19">
 
-            <LinearLayout
-                android:id="@+id/snacksCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/dinnerCategory"
-                android:layout_below="@+id/dinnerCategory"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:tag="17">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/custom_made" />
 
-                <ImageView
+                    <CustomControl.LatoBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/preorder"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/snacksCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/cravings" />
-
-                <CustomControl.LatoBoldTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_alignLeft="@+id/dinnerCategory"
+                    android:layout_below="@+id/dinnerCategory"
+                    android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:text="@string/snacks"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:tag="17">
 
-            <LinearLayout
-                android:id="@+id/otherCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="70dp"
-                android:layout_below="@+id/preorderCategory"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:tag="21">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/cravings" />
 
-                <ImageView
+                    <CustomControl.LatoBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/snacks"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/otherCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/supplies" />
-
-                <CustomControl.LatoBoldTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@+id/preorderCategory"
+                    android:layout_marginRight="70dp"
+                    android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:text="@string/other"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:tag="21">
 
-            <LinearLayout
-                android:id="@+id/nearYouCategory"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/snacksCategory"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="15dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:tag="23">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/supplies" />
 
-                <ImageView
+                    <CustomControl.LatoBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/other"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/nearYouCategory"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/near_you" />
-
-                <CustomControl.LatoBoldTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_below="@+id/snacksCategory"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
                     android:gravity="center"
-                    android:text="@string/near_you"
-                    android:textColor="@android:color/white" />
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:tag="23">
 
-        </RelativeLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/near_you" />
 
+                    <CustomControl.LatoBoldTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center"
+                        android:text="@string/near_you"
+                        android:textColor="@android:color/white" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </ScrollView>
 
         <LinearLayout
             android:id="@+id/adLayout"
