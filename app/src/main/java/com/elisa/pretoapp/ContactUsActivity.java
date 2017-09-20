@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import CustomControl.LatoBoldEditText;
 import butterknife.Bind;
@@ -27,6 +28,9 @@ public class ContactUsActivity extends AppCompatActivity {
 
     @Bind(R.id.messageEditText)
     LatoBoldEditText messageEditText;
+
+    @Bind(R.id.progressbar)
+    ProgressBar progressBar;
 
     String name;
     String phoneNumber;
