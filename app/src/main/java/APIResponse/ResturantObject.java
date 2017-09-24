@@ -97,6 +97,8 @@ public class ResturantObject {
     @SerializedName("serviceStatus")
     String serviceStatus;
 
+    public ResturantObject() {
+    }
 
     public String getRestID() {
         return restID;

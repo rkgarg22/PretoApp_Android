@@ -15,9 +15,9 @@
     <string name="accept_terms_and_conditon">Please accept terms &amp; conditions</string>
     <string name="search_text_enter">Enter search text</string>
 
-    <string name="name">Please enter your name</string>
-    <string name="phoneNumber">Please enter your phone number</string>
-    <string name="email">Please enter email address</string>
+    <string name="name_enter">Please enter your name</string>
+    <string name="phoneNumber_enter">Please enter your phone number</string>
+    <string name="email_enter">Please enter email address</string>
     <string name="subject">Please enter subject</string>
-    <string name="message">Please enter message</string>
+    <string name="message_enter">Please enter message</string>
 </resources>

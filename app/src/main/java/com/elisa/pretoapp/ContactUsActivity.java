@@ -67,13 +67,13 @@ public class ContactUsActivity extends AppCompatActivity {
         message = messageEditText.getText().toString().trim();
 
         if (name.length() == 0) {
-            nameEditText.setError(getResources().getString(R.string.name));
+            nameEditText.setError(getResources().getString(R.string.name_enter));
             isDataValid = false;
         } else if (phoneNumber.length() == 0) {
-            phoneNumberEditText.setError(getResources().getString(R.string.phoneNumber));
+            phoneNumberEditText.setError(getResources().getString(R.string.phoneNumber_enter));
             isDataValid = false;
         } else if (email.length() == 0) {
-            emailEditText.setError(getResources().getString(R.string.email));
+            emailEditText.setError(getResources().getString(R.string.email_enter));
             isDataValid = false;
         } else if (!AppCommon.getInstance(this).isValidEmail(email)) {
             emailEditText.setError(getResources().getString(R.string.enterValidEmailText));
@@ -82,7 +82,7 @@ public class ContactUsActivity extends AppCompatActivity {
             subjectEditText.setError(getResources().getString(R.string.subject));
             isDataValid = false;
         } else if (message.length() == 0) {
-            messageEditText.setError(getResources().getString(R.string.message));
+            messageEditText.setError(getResources().getString(R.string.message_enter));
             isDataValid = false;
         }
         return isDataValid;

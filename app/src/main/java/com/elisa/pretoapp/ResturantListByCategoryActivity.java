@@ -45,6 +45,7 @@ import APIResponse.LoginResponse;
 import APIResponse.ResturantObject;
 import Adapter.ResturantAdapter;
 import CustomControl.LatoBoldEditText;
+import Database.DbHelper;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -311,6 +312,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
                         }
                         for (ResturantObject object : listResponse.getResturantObjectList()) {
                             resturantObjectArrayList.add(object);
+                            saveDataToLocalDataBase(object);
                         }
                         adapter.notifyDataSetChanged();
                         onMapReady(mMap);
@@ -322,6 +324,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
 
                 @Override
                 public void onFailure(Call call, Throwable t) {
+                    getDataFromLocalDataBase();
                     swipeContainer.setRefreshing(false);
                     AppCommon.getInstance(ResturantListByCategoryActivity.this).clearNonTouchableFlags(ResturantListByCategoryActivity.this);
                     progressBar.setVisibility(View.GONE);
@@ -329,6 +332,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
                 }
             });
         } else {
+            getDataFromLocalDataBase();
             swipeContainer.setRefreshing(false);
             AppCommon.getInstance(ResturantListByCategoryActivity.this).clearNonTouchableFlags(ResturantListByCategoryActivity.this);
             progressBar.setVisibility(View.GONE);
@@ -433,5 +437,26 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
         Intent webViewIntent = new Intent(this, WebViewActivity.class);
         webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
         startActivity(webViewIntent);
+    }
+
+    public void saveDataToLocalDataBase(ResturantObject object) {
+        DbHelper dbHelper = new DbHelper(this);
+        if (dbHelper.isResturantExist(object.getRestID())) {
+            dbHelper.updateRest(object);
+        } else {
+            dbHelper.insertResturant(object);
+        }
+    }
+
+    public void getDataFromLocalDataBase(){
+        if(resturantObjectArrayList.size()==0){
+            DbHelper dbHelper = new DbHelper(this);
+            ArrayList<ResturantObject> restObjArrayList = dbHelper.getResturantsListForCategory(headerTextView.getText().toString().trim());
+            for (ResturantObject object : restObjArrayList) {
+                resturantObjectArrayList.add(object);
+            }
+            adapter.notifyDataSetChanged();
+            onMapReady(mMap);
+        }
     }
 }
