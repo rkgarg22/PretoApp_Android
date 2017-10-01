@@ -29,6 +29,7 @@ public class GenericMapActivity extends AppCompatActivity implements OnMapReadyC
     public GoogleMap mMap;
     public LatLng currentUserLatLon;
     public Map<Marker, String> markersOrderNumbers = new HashMap<>();
+    public ArrayList<ResturantObject> originalResturantObjectArrayList = new ArrayList<ResturantObject>();
     public ArrayList<ResturantObject> resturantObjectArrayList = new ArrayList<ResturantObject>();
     public boolean isMapActive = false;
 

@@ -91,6 +91,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
     String addressText = "";
     FilterObject filterObject;
     Gson gson;
+    boolean isApplyInternalFilter = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,23 +100,9 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
         ButterKnife.bind(this);
 
         markerClickLayout = (RelativeLayout) findViewById(R.id.markerClickLayout);
-        final int categoryID = getIntent().getExtras().getInt("categorySelect");
-        gson = new Gson();
-        if (categoryID == 1) {
-            filterObject = gson.fromJson(getIntent().getExtras().getString("filterObject"), FilterObject.class);
-        } else {
-            filterObject = new FilterObject();
-        }
 
-        if (categoryID == 0 || categoryID == 1) {
-            catID = "";
-        } else {
-            catID = Integer.toString(categoryID);
-        }
-        searchText = getIntent().getExtras().getString("searchText");
-        addressText = getIntent().getExtras().getString("addressText");
+        getDataFromIntent();
 
-        setImage(categoryID);
         progressBar.setVisibility(View.VISIBLE);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         resturantRecyclerView.setLayoutManager(mLinearLayoutManager);
@@ -133,6 +120,25 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
         });
 
         setMapView();
+    }
+
+    public void getDataFromIntent(){
+        final int categoryID = getIntent().getExtras().getInt("categorySelect");
+        gson = new Gson();
+        if (categoryID == 1) {
+            filterObject = gson.fromJson(getIntent().getExtras().getString("filterObject"), FilterObject.class);
+        } else {
+            filterObject = new FilterObject();
+        }
+
+        if (categoryID == 0 || categoryID == 1) {
+            catID = "";
+        } else {
+            catID = Integer.toString(categoryID);
+        }
+        searchText = getIntent().getExtras().getString("searchText");
+        addressText = getIntent().getExtras().getString("addressText");
+        setImage(categoryID);
     }
 
     public void callApi(int offset) {
@@ -191,7 +197,18 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
 
     @OnClick(R.id.backButtonClick)
     public void backButtonClick(View view) {
-        this.finish();
+        if (isApplyInternalFilter) {
+            isApplyInternalFilter = false;
+            resturantObjectArrayList.clear();
+            getDataFromIntent();
+            for (ResturantObject object : originalResturantObjectArrayList) {
+                resturantObjectArrayList.add(object);
+            }
+            adapter.notifyDataSetChanged();
+            onMapReady(mMap);
+        } else {
+            this.finish();
+        }
     }
 
     @OnClick(R.id.homeBtn)
@@ -255,6 +272,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
         searchText = searchEditText.getText().toString().trim();
         hideKeyBoard();
         searchlayout.setVisibility(View.GONE);
+        saveDefaultResturantList();
         resturantObjectArrayList.clear();
         adapter.notifyDataSetChanged();
         progressBar.setVisibility(View.VISIBLE);
@@ -262,6 +280,15 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
             callApi(0);
         else {
             callApi(1);
+        }
+    }
+
+    public void saveDefaultResturantList() {
+        if (!isApplyInternalFilter) {
+            isApplyInternalFilter = true;
+            for (ResturantObject object : resturantObjectArrayList) {
+                originalResturantObjectArrayList.add(object);
+            }
         }
     }
 
@@ -392,6 +419,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
         } else if (requestCode == AppCommon.FILTER_INTENT) {
             if (resultCode == Activity.RESULT_OK) {
                 filterObject = gson.fromJson(data.getExtras().getString("filterObject"), FilterObject.class);
+                saveDefaultResturantList();
                 resturantObjectArrayList.clear();
                 adapter.notifyDataSetChanged();
                 progressBar.setVisibility(View.VISIBLE);
@@ -434,8 +462,8 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
         }
     }
 
-    public void getDataFromLocalDataBase(){
-        if(resturantObjectArrayList.size()==0){
+    public void getDataFromLocalDataBase() {
+        if (resturantObjectArrayList.size() == 0) {
             DbHelper dbHelper = DbHelper.getInstance(this);
             ArrayList<ResturantObject> restObjArrayList = dbHelper.getResturantsListForCategory(headerTextView.getText().toString().trim());
             for (ResturantObject object : restObjArrayList) {
