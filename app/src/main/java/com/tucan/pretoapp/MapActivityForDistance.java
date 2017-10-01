@@ -212,7 +212,7 @@ public class MapActivityForDistance extends FragmentActivity implements OnMapRea
 
         @Override
         protected void onPostExecute(List<List<HashMap<String, String>>> result) {
-            if (result.size() > 0) {
+            if (result != null && result.size() > 0) {
                 ArrayList points = null;
                 PolylineOptions lineOptions = null;
                 MarkerOptions markerOptions = new MarkerOptions();

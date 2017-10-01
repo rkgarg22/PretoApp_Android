@@ -11,12 +11,15 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import java.util.ArrayList;
+
 import API.PretoAppService;
 import API.ServiceGenerator;
 import APIResponse.CommonStringResponse;
 import APIResponse.GetResturantListResponse;
 import APIResponse.ResturantObject;
 import Adapter.ResturantAdapter;
+import Database.DbHelper;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -129,6 +132,7 @@ public class FavouriteListActivity extends GenericMapActivity {
                         }
                         for (ResturantObject object : listResponse.getResturantObjectList()) {
                             resturantObjectArrayList.add(object);
+                            saveDataToLocalDataBase(object);
                         }
                         adapter.notifyDataSetChanged();
                         onMapReady(mMap);
@@ -140,6 +144,7 @@ public class FavouriteListActivity extends GenericMapActivity {
 
                 @Override
                 public void onFailure(Call call, Throwable t) {
+                    getDataFromLocalDataBase();
                     swipeContainer.setRefreshing(false);
                     AppCommon.getInstance(FavouriteListActivity.this).clearNonTouchableFlags(FavouriteListActivity.this);
                     progressBar.setVisibility(View.GONE);
@@ -147,6 +152,7 @@ public class FavouriteListActivity extends GenericMapActivity {
                 }
             });
         } else {
+            getDataFromLocalDataBase();
             swipeContainer.setRefreshing(false);
             AppCommon.getInstance(FavouriteListActivity.this).clearNonTouchableFlags(FavouriteListActivity.this);
             progressBar.setVisibility(View.GONE);
@@ -235,5 +241,26 @@ public class FavouriteListActivity extends GenericMapActivity {
         Intent webViewIntent = new Intent(this,WebViewActivity.class);
         webViewIntent.putExtra("url",getResources().getString(R.string.jungle_box_link));
         startActivity(webViewIntent);
+    }
+
+    public void saveDataToLocalDataBase(ResturantObject object) {
+        DbHelper dbHelper = DbHelper.getInstance(this);
+        if (dbHelper.isResturantExist(object.getRestID())) {
+            dbHelper.updateRest(object);
+        } else {
+            dbHelper.insertResturant(object);
+        }
+    }
+
+    public void getDataFromLocalDataBase(){
+        if(resturantObjectArrayList.size()==0){
+            DbHelper dbHelper = DbHelper.getInstance(this);
+            ArrayList<ResturantObject> restObjArrayList = dbHelper.getResturantsListForFavourite();
+            for (ResturantObject object : restObjArrayList) {
+                resturantObjectArrayList.add(object);
+            }
+            adapter.notifyDataSetChanged();
+            onMapReady(mMap);
+        }
     }
 }

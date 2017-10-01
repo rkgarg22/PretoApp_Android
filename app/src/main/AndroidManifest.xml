@@ -9,35 +9,67 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.tucan.pretoapp.PretoApplication"
+        android:name=".PretoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.tucan.pretoapp.SplashActivity">
+        <activity
+            android:name=".SplashActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.tucan.pretoapp.LanguageSelectActivity" />
-        <activity android:name="com.tucan.pretoapp.LoginOptionActivity" />
-        <activity android:name="com.tucan.pretoapp.RegistrationActivity" />
-        <activity android:name="com.tucan.pretoapp.LoginActivity" />
-        <activity android:name="com.tucan.pretoapp.PrivacyPolicy" />
-        <activity android:name="com.tucan.pretoapp.TermsAndConditionsActivity" />
-        <activity android:name="com.tucan.pretoapp.HomeActivity" />
-        <activity android:name="com.tucan.pretoapp.SettingActivity" />
-        <activity android:name="com.tucan.pretoapp.AyudaActivity" />
-        <activity android:name="com.tucan.pretoapp.ContactUsActivity" />
-        <activity android:name="com.tucan.pretoapp.FaqActivity" />
-        <activity android:name="com.tucan.pretoapp.FavouriteListActivity" />
-        <activity android:name="com.tucan.pretoapp.ResturantListByCategoryActivity" />
-        <activity android:name="com.tucan.pretoapp.FilterActivity" />
-        <activity android:name="com.tucan.pretoapp.ResturantDetailActivity" />
+        <activity
+            android:name=".LanguageSelectActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginOptionActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RegistrationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PrivacyPolicy"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".TermsAndConditionsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".AyudaActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ContactUsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FaqActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FavouriteListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ResturantListByCategoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FilterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ResturantDetailActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -65,9 +97,12 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name="com.tucan.pretoapp.MapActivityForDistance"
-            android:label="@string/title_activity_map_for_distance" />
-        <activity android:name="com.tucan.pretoapp.WebViewActivity" />
+            android:name=".MapActivityForDistance"
+            android:label="@string/title_activity_map_for_distance"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WebViewActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -43,36 +43,38 @@ public class GenericMapActivity extends AppCompatActivity implements OnMapReadyC
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        mMap.clear();
-        mMap.setOnInfoWindowClickListener(this);
-        markersOrderNumbers.clear();
-        if (AppCommon.getInstance(this).getUserLatitude() != 0.0f && AppCommon.getInstance(this).getUserLongitude() != 0.0f) {
-            BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.person_icon);
-            String currentLat = String.valueOf(AppCommon.getInstance(this).getUserLatitude());
-            String curretnLon = String.valueOf(AppCommon.getInstance(this).getUserLongitude());
-            currentUserLatLon = new LatLng(Double.parseDouble(currentLat), Double.parseDouble(curretnLon));
-            Marker marker = mMap.addMarker(new MarkerOptions()
-                    .position(currentUserLatLon)
-                    .title("")
-                    .icon(icon)
-                    .alpha(1.0f));
-        }
-        BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.small_food_icon);
-        if (resturantObjectArrayList.size() > 0) {
-            for (int i = 0; i < resturantObjectArrayList.size(); i++) {
-                ResturantObject resturantObject = resturantObjectArrayList.get(i);
-                LatLng markerLat = new LatLng(Double.parseDouble(resturantObject.getLattitude()), Double.parseDouble(resturantObject.getLongitude()));
+        if(googleMap!=null) {
+            mMap = googleMap;
+            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            mMap.clear();
+            mMap.setOnInfoWindowClickListener(this);
+            markersOrderNumbers.clear();
+            if (AppCommon.getInstance(this).getUserLatitude() != 0.0f && AppCommon.getInstance(this).getUserLongitude() != 0.0f) {
+                BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.person_icon);
+                String currentLat = String.valueOf(AppCommon.getInstance(this).getUserLatitude());
+                String curretnLon = String.valueOf(AppCommon.getInstance(this).getUserLongitude());
+                currentUserLatLon = new LatLng(Double.parseDouble(currentLat), Double.parseDouble(curretnLon));
                 Marker marker = mMap.addMarker(new MarkerOptions()
-                        .position(markerLat)
-                        .title(resturantObject.getRestName() + "\n" + resturantObject.getAddress())
+                        .position(currentUserLatLon)
+                        .title("")
                         .icon(icon)
                         .alpha(1.0f));
-                markersOrderNumbers.put(marker, Integer.toString(i));
             }
+            BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.small_food_icon);
+            if (resturantObjectArrayList.size() > 0) {
+                for (int i = 0; i < resturantObjectArrayList.size(); i++) {
+                    ResturantObject resturantObject = resturantObjectArrayList.get(i);
+                    LatLng markerLat = new LatLng(Double.parseDouble(resturantObject.getLattitude()), Double.parseDouble(resturantObject.getLongitude()));
+                    Marker marker = mMap.addMarker(new MarkerOptions()
+                            .position(markerLat)
+                            .title(resturantObject.getRestName() + "\n" + resturantObject.getAddress())
+                            .icon(icon)
+                            .alpha(1.0f));
+                    markersOrderNumbers.put(marker, Integer.toString(i));
+                }
+            }
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentUserLatLon, 10.0f));
         }
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentUserLatLon, 10.0f));
     }
 
     public void googleMapClick() {

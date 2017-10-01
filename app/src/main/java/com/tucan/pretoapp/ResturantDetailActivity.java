@@ -31,6 +31,7 @@ import Adapter.OpeningHoursAdapter;
 import CustomControl.LatoBoldTextView;
 import CustomControl.LatoHeavyTextView;
 import CustomControl.LatoLightTextView;
+import Database.DbHelper;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -266,7 +267,7 @@ public class ResturantDetailActivity extends AppCompatActivity {
 
     @OnClick(R.id.commentsLayout)
     public void commentClick(View view) {
-        String[] recipients={"contacto@preto.co"};
+        String[] recipients = {"contacto@preto.co"};
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_EMAIL, recipients);
@@ -394,6 +395,7 @@ public class ResturantDetailActivity extends AppCompatActivity {
                         }
                         resturantObject.setLikesCount(Integer.toString(likeCount));
                         likeCountTextView.setText(resturantObject.getLikesCount());
+                        saveDataToLocalDataBase(resturantObject);
                     } else {
                         progressBar.setVisibility(View.GONE);
                         AppCommon.getInstance(ResturantDetailActivity.this).showDialog(ResturantDetailActivity.this, commonStringResponse.getError());
@@ -428,16 +430,14 @@ public class ResturantDetailActivity extends AppCompatActivity {
                     CommonStringResponse commonStringResponse = (CommonStringResponse) response.body();
                     progressBar.setVisibility(View.GONE);
                     if (commonStringResponse.getSuccess().equals("1")) {
-                        int likeCount = Integer.parseInt(resturantObject.getLikesCount());
                         if (resturantObject.getIsFavourite().equals("1")) {
                             resturantObject.setIsFavourite("0");
                             favImageView.setSelected(false);
-                           // AppCommon.getInstance(ResturantDetailActivity.this).showDialog(ResturantDetailActivity.this, getResources().getString(R.string.mark_unfavourite_successfully));
                         } else {
                             resturantObject.setIsFavourite("1");
                             favImageView.setSelected(true);
-                            //AppCommon.getInstance(ResturantDetailActivity.this).showDialog(ResturantDetailActivity.this, getResources().getString(R.string.mark_favourite_successfully));
                         }
+                        saveDataToLocalDataBase(resturantObject);
                     } else {
                         progressBar.setVisibility(View.GONE);
                         AppCommon.getInstance(ResturantDetailActivity.this).showDialog(ResturantDetailActivity.this, commonStringResponse.getError());
@@ -477,6 +477,15 @@ public class ResturantDetailActivity extends AppCompatActivity {
                 if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     fireCallIntent(resturantObject.getPhoneNumber());
                 }
+        }
+    }
+
+    public void saveDataToLocalDataBase(ResturantObject object) {
+        DbHelper dbHelper = DbHelper.getInstance(this);
+        if (dbHelper.isResturantExist(object.getRestID())) {
+            dbHelper.updateRest(object);
+        } else {
+            dbHelper.insertResturant(object);
         }
     }
 }

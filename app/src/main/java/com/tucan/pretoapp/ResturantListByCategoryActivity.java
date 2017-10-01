@@ -348,6 +348,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
                             likeCount = likeCount + 1;
                         }
                         object.setLikesCount(Integer.toString(likeCount));
+                        saveDataToLocalDataBase(object);
                         adapter.notifyDataSetChanged();
                     } else {
                         progressBar.setVisibility(View.GONE);
@@ -425,7 +426,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
     }
 
     public void saveDataToLocalDataBase(ResturantObject object) {
-        DbHelper dbHelper = new DbHelper(this);
+        DbHelper dbHelper = DbHelper.getInstance(this);
         if (dbHelper.isResturantExist(object.getRestID())) {
             dbHelper.updateRest(object);
         } else {
@@ -435,7 +436,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
 
     public void getDataFromLocalDataBase(){
         if(resturantObjectArrayList.size()==0){
-            DbHelper dbHelper = new DbHelper(this);
+            DbHelper dbHelper = DbHelper.getInstance(this);
             ArrayList<ResturantObject> restObjArrayList = dbHelper.getResturantsListForCategory(headerTextView.getText().toString().trim());
             for (ResturantObject object : restObjArrayList) {
                 resturantObjectArrayList.add(object);

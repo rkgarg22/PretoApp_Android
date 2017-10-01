@@ -220,12 +220,7 @@ public class DbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         try {
             Cursor c = db.query(TABLE_NAME, null, COLUMN_REST_ID + "=?", new String[]{String.valueOf(resID)}, null, null, null);
-
-            if (c == null) {
-                isExist = false;
-            } else {
-                isExist = true;
-            }
+            isExist = c.moveToFirst();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -294,7 +289,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public ArrayList<ResturantObject> getResturantsListForCategory(String category) {
         ArrayList<ResturantObject> resturantObjectArrayList = new ArrayList<ResturantObject>();
         SQLiteDatabase db = this.getReadableDatabase();
-        String sql = "SELECT * FROM " + TABLE_NAME + " where "+ COLUMN_REST_CATEGORY +"LIKE '%" + category + "%' AND "+COLUMN_REST_LANGUAGE+" ='" + AppCommon.getInstance(mContext).getSelectedLanguage() + "'";
+        String sql = "SELECT * FROM " + TABLE_NAME + " where "+ COLUMN_REST_CATEGORY +" LIKE '%" + category + "%' AND "+COLUMN_REST_LANGUAGE+" ='" + AppCommon.getInstance(mContext).getSelectedLanguage() + "'";
         Cursor res = db.rawQuery(sql, null);
         if (res.moveToFirst()) {
             do {
@@ -350,4 +345,66 @@ public class DbHelper extends SQLiteOpenHelper {
         }
         return resturantObjectArrayList;
     }
+
+    public ArrayList<ResturantObject> getResturantsListForFavourite() {
+        ArrayList<ResturantObject> resturantObjectArrayList = new ArrayList<ResturantObject>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        String sql = "SELECT * FROM " + TABLE_NAME + " where "+ COLUMN_REST_IS_FAVOURITES + " = 1";
+        Cursor res = db.rawQuery(sql, null);
+        if (res.moveToFirst()) {
+            do {
+                ResturantObject rest = new ResturantObject();
+                rest.setRestID(res.getString(res.getColumnIndex(COLUMN_ID)));
+                rest.setRestName(res.getString(res.getColumnIndex(COLUMN_REST_NAME)));
+                rest.setDescription(res.getString(res.getColumnIndex(COLUMN_REST_DESCRIPTION)));
+                rest.setIsHomeDeliveryAvailable(res.getString(res.getColumnIndex(COLUMN_REST_IS_HOME_DELIVERY)));
+                rest.setPaymentMethod(res.getString(res.getColumnIndex(COLUMN_REST_PAYMENT_METHOD)));
+                rest.setPhoneNumber(res.getString(res.getColumnIndex(COLUMN_REST_PHONENUMBER)));
+                rest.setAddress(res.getString(res.getColumnIndex(COLUMN_REST_ADDRESS)));
+                rest.setCategory(res.getString(res.getColumnIndex(COLUMN_REST_CATEGORY)));
+                rest.setImages(res.getString(res.getColumnIndex(COLUMN_REST_IMAGES)));
+                rest.setIsFavourite(res.getString(res.getColumnIndex(COLUMN_REST_IS_FAVOURITES)));
+                rest.setLikesCount(res.getString(res.getColumnIndex(COLUMN_REST_LIKES_COUNT)));
+                rest.setMenu(res.getString(res.getColumnIndex(COLUMN_REST_MENU)));
+                rest.setLattitude(res.getString(res.getColumnIndex(COLUMN_REST_LATTITUDE)));
+                rest.setLongitude(res.getString(res.getColumnIndex(COLUMN_REST_LONGITUDE)));
+                rest.setIsActive(res.getString(res.getColumnIndex(COLUMN_REST_ISACTIVE)));
+                rest.setDistance(res.getString(res.getColumnIndex(COLUMN_REST_DISTANCE)));
+                rest.setHistroy(res.getString(res.getColumnIndex(COLUMN_REST_HISTORY)));
+                rest.setPriceFrom(res.getString(res.getColumnIndex(COLUMN_REST_PRICE_FROM)));
+                rest.setPriceTo(res.getString(res.getColumnIndex(COLUMN_REST_PRICE_TO)));
+                rest.setRegistered_date(res.getString(res.getColumnIndex(COLUMN_REST_REGISTERED_DATE)));
+                rest.setFavCount(res.getString(res.getColumnIndex(COLUMN_REST_FAV_COUNT)));
+
+                rest.setIsLiked(res.getString(res.getColumnIndex(COLUMN_REST_IS_LIKED)));
+                rest.setColor(res.getString(res.getColumnIndex(COLUMN_REST_COLOR)));
+                rest.setWebUrl(res.getString(res.getColumnIndex(COLUMN_REST_WEB_URL)));
+                rest.setInstagramAccount(res.getString(res.getColumnIndex(COLUMN_REST_INSTAGRAM_ACCOUNT)));
+                rest.setServicePhone(res.getString(res.getColumnIndex(COLUMN_REST_SERVICEPHONE)));
+                rest.setServiceStatus(res.getString(res.getColumnIndex(COLUMN_REST_SERVICE_STATUS)));
+
+                Gson gson = new Gson();
+
+                String operatingHours = res.getString(res.getColumnIndex(COLUMN_REST_OPERATING_HOURS));
+                Type type = new TypeToken<ArrayList<OperatingHour>>() {}.getType();
+                ArrayList<OperatingHour> operatingHourArrayList = gson.fromJson(operatingHours, type);
+                rest.setOperatingHourArrayList(operatingHourArrayList);
+
+                String typeOFFood = res.getString(res.getColumnIndex(COLUMN_REST_TYPE_OF_FOOD));
+                Type typeOFFoodType = new TypeToken<ArrayList<String>>() {}.getType();
+                ArrayList<String> typeOFFoodArrayList = gson.fromJson(typeOFFood, typeOFFoodType);
+                rest.setTypeOfFood(typeOFFoodArrayList);
+
+                String otherStr = res.getString(res.getColumnIndex(COLUMN_REST_OTHER));
+                Type otherType = new TypeToken<ArrayList<String>>() {}.getType();
+                ArrayList<String> otherArrayList = gson.fromJson(otherStr, otherType);
+                rest.setOther(otherArrayList);
+
+                resturantObjectArrayList.add(rest);
+            } while (res.moveToNext());
+        }
+        return resturantObjectArrayList;
+    }
+
+
 }
