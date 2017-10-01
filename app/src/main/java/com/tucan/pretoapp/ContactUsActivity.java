@@ -1,4 +1,4 @@
-package com.elisa.pretoapp;
+package com.tucan.pretoapp;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

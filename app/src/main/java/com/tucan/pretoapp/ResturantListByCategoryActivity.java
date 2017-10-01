@@ -1,11 +1,10 @@
-package com.elisa.pretoapp;
+package com.tucan.pretoapp;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.KeyEvent;
@@ -18,30 +17,16 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptor;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.gms.vision.text.Line;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import API.PretoAppService;
 import API.ServiceGenerator;
 import APIEntity.FilterObject;
 import APIEntity.GetResturantListEntity;
-import APIEntity.Login_Entity;
 import APIResponse.CommonStringResponse;
 import APIResponse.GetResturantListResponse;
-import APIResponse.LoginResponse;
 import APIResponse.ResturantObject;
 import Adapter.ResturantAdapter;
 import CustomControl.LatoBoldEditText;

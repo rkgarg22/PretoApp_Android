@@ -1,9 +1,8 @@
-package com.elisa.pretoapp;
+package com.tucan.pretoapp;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,12 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
-import java.util.ArrayList;
-
 import API.PretoAppService;
 import API.ServiceGenerator;
-import APIEntity.FilterObject;
-import APIEntity.GetResturantListEntity;
 import APIResponse.CommonStringResponse;
 import APIResponse.GetResturantListResponse;
 import APIResponse.ResturantObject;

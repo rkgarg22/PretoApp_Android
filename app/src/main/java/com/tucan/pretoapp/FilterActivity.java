@@ -1,4 +1,4 @@
-package com.elisa.pretoapp;
+package com.tucan.pretoapp;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 
 import APIEntity.FilterObject;
 import butterknife.Bind;

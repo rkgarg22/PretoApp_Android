@@ -1,4 +1,4 @@
-package com.elisa.pretoapp;
+package com.tucan.pretoapp;
 
 import android.app.Application;
 import android.content.Context;

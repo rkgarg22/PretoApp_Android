@@ -1,11 +1,9 @@
-package com.elisa.pretoapp;
+package com.tucan.pretoapp;
 
-import android.*;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.media.Image;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -26,11 +24,8 @@ import java.util.ArrayList;
 
 import API.PretoAppService;
 import API.ServiceGenerator;
-import APIEntity.FilterObject;
-import APIEntity.GetResturantListEntity;
 import APIResponse.CommonStringResponse;
 import APIResponse.GetResturantDetailResponse;
-import APIResponse.GetResturantListResponse;
 import APIResponse.ResturantObject;
 import Adapter.OpeningHoursAdapter;
 import CustomControl.LatoBoldTextView;

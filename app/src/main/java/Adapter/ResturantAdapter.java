@@ -12,11 +12,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-import com.elisa.pretoapp.FavouriteListActivity;
-import com.elisa.pretoapp.MapActivityForDistance;
-import com.elisa.pretoapp.R;
-import com.elisa.pretoapp.ResturantDetailActivity;
-import com.elisa.pretoapp.ResturantListByCategoryActivity;
+import com.tucan.pretoapp.FavouriteListActivity;
+import com.tucan.pretoapp.MapActivityForDistance;
+import com.tucan.pretoapp.R;
+import com.tucan.pretoapp.ResturantDetailActivity;
+import com.tucan.pretoapp.ResturantListByCategoryActivity;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 

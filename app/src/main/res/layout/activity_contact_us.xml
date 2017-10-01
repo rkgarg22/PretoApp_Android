@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/home_screen_bg"
-    tools:context="com.elisa.pretoapp.LanguageSelectActivity">
+    tools:context="com.tucan.pretoapp.LanguageSelectActivity">
 
     <RelativeLayout
         android:id="@+id/titleLayout"

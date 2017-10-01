@@ -7,7 +7,7 @@
     android:layout_marginLeft="-5dp"
     android:background="@drawable/login_bg"
     android:gravity="center"
-    tools:context="com.elisa.pretoapp.LanguageSelectActivity">
+    tools:context="com.tucan.pretoapp.LanguageSelectActivity">
 
     <ImageView
         android:id="@+id/logoView"
