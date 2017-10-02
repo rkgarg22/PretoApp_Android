@@ -7,7 +7,7 @@ import android.webkit.WebView;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class WebViewActivity extends AppCompatActivity {
+public class WebViewActivity extends GenricActivity {
     @Bind(R.id.webView)
     WebView webView;
 

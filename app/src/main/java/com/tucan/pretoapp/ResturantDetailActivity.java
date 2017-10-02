@@ -40,7 +40,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ResturantDetailActivity extends AppCompatActivity {
+public class ResturantDetailActivity extends GenricActivity {
 
     @Bind(R.id.resturantName)
     LatoBoldTextView resturantNameTextView;

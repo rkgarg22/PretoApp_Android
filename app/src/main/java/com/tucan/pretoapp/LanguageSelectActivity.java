@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import infrastructure.AppCommon;
 
-public class LanguageSelectActivity extends AppCompatActivity {
+public class LanguageSelectActivity extends GenricActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import infrastructure.AppCommon;
 
-public class SettingActivity extends AppCompatActivity {
+public class SettingActivity extends GenricActivity {
 
     public int CONTACT_US_INTENT = 1000;
     public int HELP_INTENT = 1001;

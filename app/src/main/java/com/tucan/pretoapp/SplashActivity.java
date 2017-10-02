@@ -9,7 +9,7 @@ import java.util.Locale;
 
 import infrastructure.AppCommon;
 
-public class SplashActivity extends AppCompatActivity {
+public class SplashActivity extends GenricActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

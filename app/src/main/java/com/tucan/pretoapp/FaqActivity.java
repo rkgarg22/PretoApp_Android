@@ -8,7 +8,7 @@ import android.view.View;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class FaqActivity extends AppCompatActivity {
+public class FaqActivity extends GenricActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

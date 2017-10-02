@@ -22,7 +22,7 @@ import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 import infrastructure.AppCommon;
 
-public class FilterActivity extends AppCompatActivity {
+public class FilterActivity extends GenricActivity {
 
     @Bind(R.id.typeOFFoodOptionLayout)
     LinearLayout typeOFFoodOptionLayout;

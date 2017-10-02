@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import infrastructure.AppCommon;
 
-public class ContactUsActivity extends AppCompatActivity {
+public class ContactUsActivity extends GenricActivity {
 
     @Bind(R.id.nameEditText)
     LatoBoldEditText nameEditText;

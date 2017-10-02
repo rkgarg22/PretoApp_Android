@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RelativeLayout;
 
+import com.tucan.pretoapp.GenricActivity;
 import com.tucan.pretoapp.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -24,7 +25,7 @@ import java.util.Map;
 import APIResponse.ResturantObject;
 
 
-public class GenericMapActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
+public class GenericMapActivity extends GenricActivity implements OnMapReadyCallback, GoogleMap.OnInfoWindowClickListener {
 
     public GoogleMap mMap;
     public LatLng currentUserLatLon;

@@ -21,7 +21,7 @@ import butterknife.OnClick;
 import butterknife.OnEditorAction;
 import infrastructure.AppCommon;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends GenricActivity {
 
     @Bind(R.id.searchLayout)
     RelativeLayout searchlayout;

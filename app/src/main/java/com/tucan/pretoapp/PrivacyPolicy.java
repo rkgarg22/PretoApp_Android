@@ -7,7 +7,7 @@ import android.view.View;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class PrivacyPolicy extends AppCompatActivity {
+public class PrivacyPolicy extends GenricActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

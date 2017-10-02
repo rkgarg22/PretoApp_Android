@@ -9,7 +9,7 @@ import android.view.View;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class AyudaActivity extends AppCompatActivity {
+public class AyudaActivity extends GenricActivity {
 
     public int FAQ_INTENT = 1000;
 

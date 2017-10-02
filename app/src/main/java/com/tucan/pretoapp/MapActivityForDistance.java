@@ -1,6 +1,7 @@
 package com.tucan.pretoapp;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
@@ -37,6 +38,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 import APIResponse.ResturantObject;
 import CustomControl.GPSTracker;
@@ -68,6 +70,13 @@ public class MapActivityForDistance extends FragmentActivity implements OnMapRea
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map_for_distance);
+
+        Locale locale = new Locale(AppCommon.getInstance(this).getSelectedLanguage());
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
         ButterKnife.bind(this);
         gpsTracker = new GPSTracker(this);
         if (!gpsTracker.canGetLocation()) {
