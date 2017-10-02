@@ -7,9 +7,6 @@ import android.support.multidex.MultiDex;
 import com.facebook.FacebookSdk;
 import com.facebook.drawee.backends.pipeline.Fresco;
 
-/**
- * Created by imark on 12/9/2016.
- */
 
 public class PretoApplication extends Application {
 
