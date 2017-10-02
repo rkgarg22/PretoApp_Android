@@ -154,6 +154,6 @@
     <string name="we_recommend">Te recomendamos</string>
     <string name="recommend_text">Este sitio recomienda llamar a confirmar la disponibilidad de productos.</string>
 
-
     <string name="location_place_holder_text">Ingresar una ubicación</string>
+    <string name="contact_us_popup">¡Enviar correo electrónico con éxito! El administrador se pondrá en contacto con usted en breve.</string>
 </resources>

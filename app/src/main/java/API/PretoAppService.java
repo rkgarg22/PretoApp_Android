@@ -1,6 +1,7 @@
 package API;
 
 
+import APIEntity.ContactUs_Entity;
 import APIEntity.GetResturantListEntity;
 import APIEntity.Login_Entity;
 import APIEntity.UserInformation_Entity;
@@ -60,6 +61,11 @@ public interface PretoAppService {
     Call<CommonStringResponse> markFavourite(
             @Query("userID") String userID,
             @Query("restID") String restID
+    );
+
+    @POST("contactUs.php")
+    Call<CommonStringResponse> contactUs(
+            @Body ContactUs_Entity userEntity
     );
 
 }

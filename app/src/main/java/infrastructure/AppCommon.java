@@ -16,6 +16,8 @@ import android.util.Patterns;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 
+import com.tucan.pretoapp.R;
+
 import java.io.ByteArrayOutputStream;
 import java.io.FileDescriptor;
 import java.io.IOException;
@@ -75,7 +77,7 @@ public class AppCommon {
             builder.setCancelable(false);
             builder.setMessage(title);
             builder.setCancelable(false);
-            builder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+            builder.setNegativeButton(mactivity.getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
                     dialogInterface.dismiss();
