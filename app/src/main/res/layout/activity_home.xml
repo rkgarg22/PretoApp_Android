@@ -270,8 +270,8 @@
 
         </ScrollView>
 
-        <LinearLayout
-            android:id="@+id/adLayout"
+        <RelativeLayout
+
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@android:color/holo_green_dark"
@@ -279,12 +279,19 @@
             android:orientation="vertical">
 
             <CustomControl.MyriadProRegularTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/adLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:text="Junglebox"
+                android:gravity="center"
                 android:textColor="@android:color/white"
                 android:textSize="25sp" />
-        </LinearLayout>
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/bannerImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </RelativeLayout>
 
 
     </LinearLayout>

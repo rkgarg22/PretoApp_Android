@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+
 import java.util.ArrayList;
 
 import API.PretoAppService;
@@ -48,7 +50,7 @@ public class FavouriteListActivity extends GenericMapActivity {
     LinearLayout buttonLayout;
 
     @Bind(R.id.adLayout)
-    LinearLayout adLayout;
+    RelativeLayout adLayout;
 
     @Bind(R.id.mapFragmentLayout)
     LinearLayout mapFragmentLayout;
@@ -64,6 +66,7 @@ public class FavouriteListActivity extends GenericMapActivity {
         ButterKnife.bind(this);
 
         markerClickLayout = (RelativeLayout) findViewById(R.id.markerClickLayout);
+        bannerImageView = (SimpleDraweeView) findViewById(R.id.footerBannerImage);
 
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         favoritesRecyclerView.setLayoutManager(mLinearLayoutManager);
@@ -82,6 +85,7 @@ public class FavouriteListActivity extends GenericMapActivity {
         });
 
         setMapView();
+        showBanner();
     }
 
     @OnClick(R.id.backButtonClick)
@@ -227,20 +231,26 @@ public class FavouriteListActivity extends GenericMapActivity {
     }
 
     @OnClick(R.id.googleMapClick)
-    public void googleMapClick(View view){
+    public void googleMapClick(View view) {
         googleMapClick();
     }
 
     @OnClick(R.id.wazeClick)
-    public void wazeClick(View view){
+    public void wazeClick(View view) {
         wazeClick();
     }
 
-    @OnClick(R.id.adLayout)
-    public void adLayoutClick(View view){
-        Intent webViewIntent = new Intent(this,WebViewActivity.class);
-        webViewIntent.putExtra("url",getResources().getString(R.string.jungle_box_link));
-        startActivity(webViewIntent);
+    @OnClick(R.id.footerBannerImage)
+    public void adLayoutClick(View v) {
+        if (v.getTag() != null) {
+            Intent webViewIntent = new Intent(this, WebViewActivity.class);
+            webViewIntent.putExtra("url", v.getTag().toString());
+            startActivity(webViewIntent);
+        } else {
+            Intent webViewIntent = new Intent(this, WebViewActivity.class);
+            webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
+            startActivity(webViewIntent);
+        }
     }
 
     public void saveDataToLocalDataBase(ResturantObject object) {
@@ -252,8 +262,8 @@ public class FavouriteListActivity extends GenericMapActivity {
         }
     }
 
-    public void getDataFromLocalDataBase(){
-        if(resturantObjectArrayList.size()==0){
+    public void getDataFromLocalDataBase() {
+        if (resturantObjectArrayList.size() == 0) {
             DbHelper dbHelper = DbHelper.getInstance(this);
             ArrayList<ResturantObject> restObjArrayList = dbHelper.getResturantsListForFavourite();
             for (ResturantObject object : restObjArrayList) {

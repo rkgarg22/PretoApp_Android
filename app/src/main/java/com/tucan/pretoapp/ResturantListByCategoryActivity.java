@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
@@ -71,8 +72,8 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
     @Bind(R.id.buttonLayout)
     LinearLayout buttonLayout;
 
-    @Bind(R.id.adLayout)
-    LinearLayout adLayout;
+    @Bind(R.id.adLayoutParentView)
+    RelativeLayout adLayoutParentView;
 
     @Bind(R.id.mapFragmentLayout)
     LinearLayout mapFragmentLayout;
@@ -81,7 +82,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
     LinearLayout transparentBanner;
 
     @Bind(R.id.bannerImage)
-    ImageView bannerImageView;
+    ImageView upperBannerImageView;
 
     ResturantAdapter adapter;
     Call call;
@@ -98,11 +99,9 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resturant_list_bycategory);
         ButterKnife.bind(this);
-
+        bannerImageView = (SimpleDraweeView) findViewById(R.id.footerBannerImage);
         markerClickLayout = (RelativeLayout) findViewById(R.id.markerClickLayout);
-
         getDataFromIntent();
-
         progressBar.setVisibility(View.VISIBLE);
         LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         resturantRecyclerView.setLayoutManager(mLinearLayoutManager);
@@ -118,8 +117,8 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
                 callApi(1);
             }
         });
-
         setMapView();
+        showBanner();
     }
 
     public void getDataFromIntent(){
@@ -151,37 +150,37 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
             case 11:
                 categoryIconImage.setImageResource(R.drawable.breakfast);
                 headerTextView.setText(getResources().getString(R.string.breakfast));
-                bannerImageView.setBackgroundResource(R.drawable.breakfast_banner);
+                upperBannerImageView.setBackgroundResource(R.drawable.breakfast_banner);
                 break;
             case 13:
                 categoryIconImage.setImageResource(R.drawable.lunch);
                 headerTextView.setText(getResources().getString(R.string.lunch));
-                bannerImageView.setBackgroundResource(R.drawable.lunch_banner);
+                upperBannerImageView.setBackgroundResource(R.drawable.lunch_banner);
                 break;
             case 15:
                 categoryIconImage.setImageResource(R.drawable.dinner);
                 headerTextView.setText(getResources().getString(R.string.dinner));
-                bannerImageView.setBackgroundResource(R.drawable.dinner_banner);
+                upperBannerImageView.setBackgroundResource(R.drawable.dinner_banner);
                 break;
             case 19:
                 categoryIconImage.setImageResource(R.drawable.custom_made);
                 headerTextView.setText(getResources().getString(R.string.preorder));
-                bannerImageView.setBackgroundResource(R.drawable.pre_order_banner);
+                upperBannerImageView.setBackgroundResource(R.drawable.pre_order_banner);
                 break;
             case 17:
                 categoryIconImage.setImageResource(R.drawable.cravings);
                 headerTextView.setText(getResources().getString(R.string.snacks));
-                bannerImageView.setBackgroundResource(R.drawable.snacks_banner);
+                upperBannerImageView.setBackgroundResource(R.drawable.snacks_banner);
                 break;
             case 21:
                 categoryIconImage.setImageResource(R.drawable.supplies);
                 headerTextView.setText(getResources().getString(R.string.other));
-                bannerImageView.setBackgroundResource(R.drawable.supplies_banner);
+                upperBannerImageView.setBackgroundResource(R.drawable.supplies_banner);
                 break;
             case 23:
                 categoryIconImage.setImageResource(R.drawable.near_you);
                 headerTextView.setText(getResources().getString(R.string.near_you));
-                bannerImageView.setBackgroundResource(R.drawable.nearby_banner);
+                upperBannerImageView.setBackgroundResource(R.drawable.nearby_banner);
                 transparentBanner.setVisibility(View.GONE);
                 break;
             default:
@@ -190,7 +189,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
                 if (searchText.equals("")) {
                     headerTextView.setText(addressText);
                 }
-                bannerImageView.setBackgroundResource(R.drawable.search_banner);
+                upperBannerImageView.setBackgroundResource(R.drawable.search_banner);
                 break;
         }
     }
@@ -222,7 +221,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
     public void listButtonClick() {
         isMapActive = false;
         imageLayout.setVisibility(View.VISIBLE);
-        adLayout.setVisibility(View.VISIBLE);
+        adLayoutParentView.setVisibility(View.VISIBLE);
         swipeContainer.setVisibility(View.VISIBLE);
         mapFragmentLayout.setVisibility(View.GONE);
     }
@@ -235,7 +234,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
         onMapReady(mMap);
         callApi(0);
         imageLayout.setVisibility(View.GONE);
-        adLayout.setVisibility(View.GONE);
+        adLayoutParentView.setVisibility(View.GONE);
         swipeContainer.setVisibility(View.GONE);
         mapFragmentLayout.setVisibility(View.VISIBLE);
     }
@@ -446,11 +445,18 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
         wazeClick();
     }
 
-    @OnClick(R.id.adLayout)
-    public void adLayoutClick(View view) {
-        Intent webViewIntent = new Intent(this, WebViewActivity.class);
-        webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
-        startActivity(webViewIntent);
+
+    @OnClick(R.id.footerBannerImage)
+    public void bannerImageClick(View v) {
+        if(v.getTag()!= null) {
+            Intent webViewIntent = new Intent(this, WebViewActivity.class);
+            webViewIntent.putExtra("url", v.getTag().toString());
+            startActivity(webViewIntent);
+        }else{
+            Intent webViewIntent = new Intent(this, WebViewActivity.class);
+            webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
+            startActivity(webViewIntent);
+        }
     }
 
     public void saveDataToLocalDataBase(ResturantObject object) {

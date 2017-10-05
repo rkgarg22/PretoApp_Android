@@ -13,6 +13,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+
 import CustomControl.GPSTracker;
 import CustomControl.LatoBoldEditText;
 import butterknife.Bind;
@@ -41,11 +43,18 @@ public class HomeActivity extends GenricActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
         ButterKnife.bind(this);
 
+        bannerImageView = (SimpleDraweeView) findViewById(R.id.bannerImage);
         gpsTracker = new GPSTracker(this);
         if (!gpsTracker.canGetLocation()) {
             gpsTracker.showSettingsAlert();
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        showBanner();
     }
 
     @OnClick(R.id.searchBtnClick)
@@ -134,11 +143,17 @@ public class HomeActivity extends GenricActivity {
 
     }
 
-    @OnClick(R.id.adLayout)
-    public void adLayoutClick(View view) {
-        Intent webViewIntent = new Intent(this, WebViewActivity.class);
-        webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
-        startActivity(webViewIntent);
+    @OnClick(R.id.bannerImage)
+    public void bannerImageClick(View v) {
+        if(v.getTag()!= null) {
+            Intent webViewIntent = new Intent(this, WebViewActivity.class);
+            webViewIntent.putExtra("url", v.getTag().toString());
+            startActivity(webViewIntent);
+        }else{
+            Intent webViewIntent = new Intent(this, WebViewActivity.class);
+            webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
+            startActivity(webViewIntent);
+        }
     }
 
     @OnEditorAction(R.id.searchEditText)
@@ -158,5 +173,6 @@ public class HomeActivity extends GenricActivity {
         }
         return false;
     }
+
 
 }

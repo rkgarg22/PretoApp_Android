@@ -234,10 +234,12 @@ public class ResturantDetailActivity extends GenricActivity {
 
     public String getOtherString(ArrayList<String> otherArray) {
         String otherStr = "";
-        for (String str : otherArray) {
-            otherStr = otherStr + str + "\n";
+        if (otherArray.size() > 0) {
+            for (String str : otherArray) {
+                otherStr = otherStr + str + "\n";
+            }
+            otherStr = otherStr.substring(0, otherStr.length() - 1);
         }
-        otherStr = otherStr.substring(0, otherStr.length() - 1);
         return otherStr;
     }
 

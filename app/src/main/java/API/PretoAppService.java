@@ -5,6 +5,7 @@ import APIEntity.ContactUs_Entity;
 import APIEntity.GetResturantListEntity;
 import APIEntity.Login_Entity;
 import APIEntity.UserInformation_Entity;
+import APIResponse.BannerResponse;
 import APIResponse.CommonStringResponse;
 import APIResponse.GetResturantDetailResponse;
 import APIResponse.GetResturantListResponse;
@@ -67,5 +68,8 @@ public interface PretoAppService {
     Call<CommonStringResponse> contactUs(
             @Body ContactUs_Entity userEntity
     );
+
+    @GET("banner.php")
+    Call<BannerResponse> fetchBanner();
 
 }

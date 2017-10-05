@@ -28,6 +28,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import APIResponse.BannerObject;
+
 
 public class AppCommon {
 
@@ -40,6 +42,8 @@ public class AppCommon {
     public static final int RESTURANT_LIST_INTENT =1002;
     public static final int FILTER_INTENT = 1003;
     public static final int LANGUAGE_SELECT_INTENT = 1004;
+
+    public static ArrayList<BannerObject> bannerObjectsArrayList = new ArrayList<BannerObject>();
 
     public static AppCommon getInstance(Context _Context) {
         if (mInstance == null) {
