@@ -54,42 +54,6 @@ public class FilterActivity extends GenricActivity {
     @Bind(R.id.suppliesCheckBox)
     CheckBox suppliesCheckBox;
 
-    @Bind(R.id.meatCheckBox)
-    CheckBox meatCheckBox;
-
-    @Bind(R.id.signatureCheckBox)
-    CheckBox signatureCheckBox;
-
-    @Bind(R.id.seaFoodCheckBox)
-    CheckBox seaFoodCheckBox;
-
-    @Bind(R.id.healthyCheckBox)
-    CheckBox healthyCheckBox;
-
-    @Bind(R.id.vegetarianCheckBox)
-    CheckBox vegetarianCheckBox;
-
-    @Bind(R.id.hamburguersCheckBox)
-    CheckBox hamburguersCheckBox;
-
-    @Bind(R.id.fusionCheckBox)
-    CheckBox fusionCheckBox;
-
-    @Bind(R.id.typicalCheckBox)
-    CheckBox typicalCheckBox;
-
-    @Bind(R.id.fastFoodCheckBox)
-    CheckBox fastFoodCheckBox;
-
-    @Bind(R.id.peruvianCheckBox)
-    CheckBox peruvianCheckBox;
-
-    @Bind(R.id.internationalCheckBox)
-    CheckBox internationalCheckBox;
-
-    @Bind(R.id.mediterraneanCheckBox)
-    CheckBox mediterraneanCheckBox;
-
     @Bind(R.id.noOFLikesCheckBox)
     CheckBox noOFLikesCheckBox;
 
@@ -158,8 +122,13 @@ public class FilterActivity extends GenricActivity {
         }
     }
 
-    @OnCheckedChanged({R.id.meatCheckBox, R.id.signatureCheckBox, R.id.seaFoodCheckBox, R.id.healthyCheckBox, R.id.vegetarianCheckBox,
-            R.id.hamburguersCheckBox, R.id.fusionCheckBox, R.id.typicalCheckBox, R.id.fastFoodCheckBox, R.id.peruvianCheckBox, R.id.internationalCheckBox, R.id.mediterraneanCheckBox})
+    @OnCheckedChanged({R.id.americanCheckBox, R.id.crepesCheckBox, R.id.arabFoodCheckBox, R.id.cubanCheckBox, R.id.brazilianCheckBox,
+            R.id.signatureCuisineCheckBox, R.id.meatCheckBox, R.id.spanishCheckBox,
+            R.id.cateringCheckBox, R.id.frenchCheckBox, R.id.chineseCheckBox, R.id.fusionCuisineCheckBox, R.id.greekCheckBox, R.id.mexicanCheckBox,
+            R.id.hambuerguersCheckBox, R.id.orientalCheckBox, R.id.iceCreamCheckBox, R.id.othersCheckBox, R.id.indianCheckBox, R.id.bakeryCheckBox,
+            R.id.suppliesTypeOFFoodCheckBox, R.id.grillCheckBox, R.id.internationalCheckBox, R.id.peruvianCheckBox, R.id.italianCheckBox, R.id.seaFoodCheckBox,
+            R.id.japoneseCheckBox, R.id.pizzaCheckBox, R.id.mediterranCheckBox, R.id.fastFoodCheckBox, R.id.confectioneryCheckBox, R.id.thaiCheckBox, R.id.healthyFoodCheckBox,
+            R.id.typicalCheckBox, R.id.sandwichCheckBox, R.id.vegetarianCheckBox, R.id.sushiCheckBox, R.id.vietnameseCheckBox})
     public void foodTypeCheck(CompoundButton compoundButton, boolean b) {
         CheckBox checkBox = (CheckBox) compoundButton;
         String tag = checkBox.getTag().toString();
@@ -230,7 +199,7 @@ public class FilterActivity extends GenricActivity {
             Intent resturantIntent = new Intent(this, ResturantListByCategoryActivity.class);
             resturantIntent.putExtra("categorySelect", 1);
             resturantIntent.putExtra("searchText", "");
-            resturantIntent.putExtra("addressText","");
+            resturantIntent.putExtra("addressText", "");
             resturantIntent.putExtra("filterObject", objStr);
             startActivityForResult(resturantIntent, AppCommon.RESTURANT_LIST_INTENT);
         } else {
