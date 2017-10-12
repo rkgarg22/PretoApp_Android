@@ -21,32 +21,36 @@
         android:layout_alignParentTop="true"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/titleLayout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:background="@color/color_blue">
+            android:background="@color/color_blue"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/backButtonClick"
-                android:layout_width="40dp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
+                android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:src="@drawable/blue_back_button"
                 android:tint="@android:color/white" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_centerInParent="true"
+                android:layout_weight="8"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <CustomControl.LatoBoldTextView
                     android:id="@+id/resturantName"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
                     android:gravity="center"
                     android:textColor="@android:color/white"
                     android:textSize="20sp" />
@@ -62,17 +66,18 @@
 
             <ImageButton
                 android:id="@+id/homeButtonClick"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
                 android:background="@android:color/transparent"
                 android:src="@drawable/home_btn" />
 
-        </RelativeLayout>
+        </LinearLayout>
 
-        <ScrollView
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_below="@+id/titleLayout"
@@ -125,7 +130,7 @@
                         <CustomControl.LatoBoldTextView
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
-                            android:gravity="center"
+                            android:gravity="top|center_horizontal"
                             android:text="@string/information"
                             android:textColor="@color/color_blue"
                             android:textSize="10sp" />
@@ -150,7 +155,7 @@
                         <CustomControl.LatoBoldTextView
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
-                            android:gravity="center"
+                            android:gravity="top|center_horizontal"
                             android:text="@string/menu"
                             android:textColor="@color/color_blue"
                             android:textSize="10sp" />
@@ -176,7 +181,7 @@
                             android:id="@+id/likeCount"
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
-                            android:gravity="center"
+                            android:gravity="top|center_horizontal"
                             android:textColor="@color/color_blue"
                             android:textSize="10sp" />
 
@@ -200,7 +205,7 @@
                         <CustomControl.LatoBoldTextView
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
-                            android:gravity="center"
+                            android:gravity="center_horizontal|top"
                             android:text="@string/add_to_favorites"
                             android:textColor="@color/color_blue"
                             android:textSize="10sp" />
@@ -225,7 +230,7 @@
                         <CustomControl.LatoBoldTextView
                             android:layout_width="wrap_content"
                             android:layout_height="30dp"
-                            android:gravity="center"
+                            android:gravity="top|center_horizontal"
                             android:text="@string/instagram"
                             android:textColor="@color/color_blue"
                             android:textSize="10sp" />
@@ -304,7 +309,6 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
-                            android:text="@string/category_detail"
                             android:textColor="@color/color_blue" />
 
                         <CustomControl.LatoLightTextView
@@ -375,22 +379,22 @@
                         android:textColor="@color/color_blue"
                         android:visibility="gone" />
 
-                    <LinearLayout
-                        android:id="@+id/timingView"
+                    <!--<LinearLayout-->
+                    <!--android:id="@+id/timingView"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical">-->
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/openingHoursRecyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp"
+                        android:scrollbars="none" />
 
-                        <android.support.v7.widget.RecyclerView
-                            android:id="@+id/openingHoursRecyclerView"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginTop="10dp"
-                            android:scrollbars="none" />
-
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -422,16 +426,31 @@
                         android:layout_marginTop="10dp"
                         android:orientation="vertical">
 
-                        <CustomControl.LatoHeavyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/desription_detail"
-                            android:textColor="@color/color_blue" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <CustomControl.LatoHeavyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/desription_detail"
+                                android:textColor="@color/color_blue" />
+
+                            <CustomControl.LatoHeavyTextView
+                                android:id="@+id/decsriptionShowBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="@string/show"
+                                android:textColor="@color/color_blue" />
+
+                        </RelativeLayout>
 
                         <CustomControl.LatoLightTextView
                             android:id="@+id/description"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             android:textColor="@color/color_blue" />
                     </LinearLayout>
 
@@ -444,16 +463,30 @@
                         android:layout_marginTop="10dp"
                         android:orientation="vertical">
 
-                        <CustomControl.LatoHeavyTextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/history_detail"
-                            android:textColor="@color/color_blue" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <CustomControl.LatoHeavyTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/history_detail"
+                                android:textColor="@color/color_blue" />
+
+                            <CustomControl.LatoHeavyTextView
+                                android:id="@+id/historyShowBtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="@string/show"
+                                android:textColor="@color/color_blue" />
+                        </RelativeLayout>
 
                         <CustomControl.LatoLightTextView
                             android:id="@+id/history"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:visibility="gone"
                             android:textColor="@color/color_blue" />
                     </LinearLayout>
 
@@ -547,7 +580,7 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </ScrollView>
+        </android.support.v4.widget.NestedScrollView>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -613,9 +646,9 @@
                 android:layout_marginRight="10dp"
                 android:layout_toLeftOf="@+id/commentsLayout"
                 android:gravity="center"
-                android:visibility="gone"
                 android:orientation="vertical"
-                android:padding="3dp">
+                android:padding="3dp"
+                android:visibility="gone">
 
                 <CustomControl.LatoBoldTextView
                     android:layout_width="wrap_content"
@@ -642,10 +675,10 @@
         android:id="@+id/deliveryPopUp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:clickable="true"
-        android:visibility="gone"
-        android:orientation="vertical">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -675,9 +708,9 @@
 
                 <RelativeLayout
                     android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_centerInParent="true"
-                    android:background="@drawable/solid_circle_blue"
-                    android:layout_height="80dp"></RelativeLayout>
+                    android:background="@drawable/solid_circle_blue"></RelativeLayout>
 
                 <ImageView
                     android:layout_width="wrap_content"

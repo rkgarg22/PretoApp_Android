@@ -1,7 +1,9 @@
 package com.tucan.pretoapp;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -121,7 +123,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
         showBanner();
     }
 
-    public void getDataFromIntent(){
+    public void getDataFromIntent() {
         final int categoryID = getIntent().getExtras().getInt("categorySelect");
         gson = new Gson();
         if (categoryID == 1) {
@@ -329,7 +331,8 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
                         onMapReady(mMap);
                     } else {
                         progressBar.setVisibility(View.GONE);
-                        AppCommon.getInstance(ResturantListByCategoryActivity.this).showDialog(ResturantListByCategoryActivity.this, listResponse.getError());
+                        noResturantPopup(listResponse.getError());
+                        //AppCommon.getInstance(ResturantListByCategoryActivity.this).showDialog(ResturantListByCategoryActivity.this, listResponse.getError());
                     }
                 }
 
@@ -378,7 +381,7 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
                         adapter.notifyDataSetChanged();
                     } else {
                         progressBar.setVisibility(View.GONE);
-                        AppCommon.getInstance(ResturantListByCategoryActivity.this).showDialog(ResturantListByCategoryActivity.this, commonStringResponse.getError());
+                        AppCommon.showDialog(ResturantListByCategoryActivity.this, commonStringResponse.getError());
                     }
                 }
 
@@ -448,11 +451,11 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
 
     @OnClick(R.id.footerBannerImage)
     public void bannerImageClick(View v) {
-        if(v.getTag()!= null) {
+        if (v.getTag() != null) {
             Intent webViewIntent = new Intent(this, WebViewActivity.class);
             webViewIntent.putExtra("url", v.getTag().toString());
             startActivity(webViewIntent);
-        }else{
+        } else {
             Intent webViewIntent = new Intent(this, WebViewActivity.class);
             webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
             startActivity(webViewIntent);
@@ -478,5 +481,23 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
             adapter.notifyDataSetChanged();
             onMapReady(mMap);
         }
+    }
+
+    public void noResturantPopup(String title) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title);
+        builder.setCancelable(false);
+        builder.setNegativeButton(getResources().getString(R.string.ok), new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                if (resturantObjectArrayList.size() == 0) {
+                    Intent backIntent = new Intent();
+                    setResult(RESULT_OK, backIntent);
+                    ResturantListByCategoryActivity.this.finish();
+                }
+            }
+        });
+        builder.show();
     }
 }

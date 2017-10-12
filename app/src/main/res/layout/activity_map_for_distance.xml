@@ -11,7 +11,7 @@
         android:id="@+id/titleLayout"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:background="@android:color/white">
+        android:background="@color/color_blue">
 
         <ImageButton
             android:id="@+id/backButtonClick"
@@ -20,39 +20,18 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
-            android:src="@drawable/blue_back_button" />
-
-
-        <ImageButton
-            android:id="@+id/verticalDotsBtn"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:visibility="gone"
-            android:background="@android:color/transparent"
-            android:src="@drawable/vertical_dot" />
-
-        <ImageButton
-            android:id="@+id/homeBtnClick"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:layout_alignParentRight="true"
-            android:background="@android:color/transparent"
-            android:tint="@color/color_blue"
-            android:src="@drawable/home_btn" />
+            android:src="@drawable/back_button" />
 
         <CustomControl.LatoBoldTextView
             android:id="@+id/headerTextView"
-            android:layout_width="180dp"
-            android:layout_height="30dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:background="@drawable/shape_rounded_corner_blue"
             android:gravity="center"
-            android:text="IT, Park Chandigarh"
-            android:textColor="@color/color_blue" />
+            android:ellipsize="end"
+            android:layout_toRightOf="@+id/backButtonClick"
+            android:textSize="20sp"
+            android:textColor="@android:color/white" />
 
     </RelativeLayout>
 

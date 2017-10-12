@@ -1,5 +1,6 @@
 package com.tucan.pretoapp;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -36,6 +37,7 @@ public class HomeActivity extends GenricActivity {
 
     GPSTracker gpsTracker;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +61,7 @@ public class HomeActivity extends GenricActivity {
 
     @OnClick(R.id.searchBtnClick)
     public void searchBtnClick(View view) {
+        searchEditText.setText("");
         searchlayout.setVisibility(View.VISIBLE);
     }
 
@@ -107,13 +110,12 @@ public class HomeActivity extends GenricActivity {
             searchEditText.setError(getResources().getString(R.string.search_text_enter));
             return;
         }
-        searchEditText.setText("");
         searchlayout.setVisibility(View.GONE);
         Intent resturantIntent = new Intent(this, ResturantListByCategoryActivity.class);
         resturantIntent.putExtra("categorySelect", 0);
         resturantIntent.putExtra("searchText", searchText);
         resturantIntent.putExtra("addressText", "");
-        startActivity(resturantIntent);
+        startActivityForResult(resturantIntent,AppCommon.RESTURANT_LIST_INTENT_FROM_HOME_FOR_SEARCH);
     }
 
     public void performAddressSearch() {
@@ -174,5 +176,13 @@ public class HomeActivity extends GenricActivity {
         return false;
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode==AppCommon.RESTURANT_LIST_INTENT_FROM_HOME_FOR_SEARCH){
+            if(resultCode== Activity.RESULT_OK){
+                searchlayout.setVisibility(View.VISIBLE);
+            }
+        }
+    }
 }

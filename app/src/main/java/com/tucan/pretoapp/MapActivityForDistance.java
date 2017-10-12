@@ -97,12 +97,12 @@ public class MapActivityForDistance extends FragmentActivity implements OnMapRea
         this.finish();
     }
 
-    @OnClick(R.id.homeBtnClick)
-    public void homeBtnClick(View view) {
-        Intent i = new Intent();
-        setResult(RESULT_OK, i);
-        this.finish();
-    }
+//    @OnClick(R.id.homeBtnClick)
+//    public void homeBtnClick(View view) {
+//        Intent i = new Intent();
+//        setResult(RESULT_OK, i);
+//        this.finish();
+//    }
 
 
     /**

@@ -31,6 +31,7 @@ import Adapter.OpeningHoursAdapter;
 import CustomControl.LatoBoldTextView;
 import CustomControl.LatoHeavyTextView;
 import CustomControl.LatoLightTextView;
+import CustomControl.MyLinearLayoutManager;
 import Database.DbHelper;
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -102,8 +103,8 @@ public class ResturantDetailActivity extends GenricActivity {
     @Bind(R.id.circleTextView)
     TextView circleTextView;
 
-    @Bind(R.id.timingView)
-    LinearLayout timingView;
+    // @Bind(R.id.timingView)
+    // LinearLayout timingView;
 
     @Bind(R.id.timingStatusTextView)
     LatoLightTextView timingStatusTextView;
@@ -126,6 +127,12 @@ public class ResturantDetailActivity extends GenricActivity {
     @Bind(R.id.deliveryLayout)
     LinearLayout deliveryLayout;
 
+    @Bind(R.id.decsriptionShowBtn)
+    LatoHeavyTextView descriptionShowBtn;
+
+    @Bind(R.id.historyShowBtn)
+    LatoHeavyTextView historyShowBtn;
+
     Call call;
     String restID;
     ResturantObject resturantObject;
@@ -140,7 +147,7 @@ public class ResturantDetailActivity extends GenricActivity {
 
         infoImageView.setSelected(true);
         menuImageView.setSelected(false);
-        LinearLayoutManager mLinearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+        MyLinearLayoutManager mLinearLayoutManager = new MyLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         openingHoursRecyclerView.setLayoutManager(mLinearLayoutManager);
         getResturantDetail();
     }
@@ -172,8 +179,8 @@ public class ResturantDetailActivity extends GenricActivity {
         likeCountTextView.setText(resturantObject.getLikesCount());
         typeOFFoodTextView.setText(getTypeOFFood(resturantObject.getTypeOfFood()));
         categoryTextView.setText(resturantObject.getCategory());
-        addressTextView.setText(resturantObject.getAddress());
-        distanceTextView.setText(resturantObject.getDistance());
+        addressTextView.setText(getAddress(resturantObject.getAddress()));
+        distanceTextView.setText(resturantObject.getDistance()+" Km");
         averageCostTextView.setText(getResources().getString(R.string.from) + " " + resturantObject.getPriceFrom() + " - " + getResources().getString(R.string.to) + " " + resturantObject.getPriceTo());
         descriptionTextView.setText(resturantObject.getDescription());
         historyTextView.setText(resturantObject.getHistroy());
@@ -201,17 +208,17 @@ public class ResturantDetailActivity extends GenricActivity {
         if (resturantObject.getColor().equals("0")) {
             //red
             circleTextView.setBackgroundResource(R.drawable.red_circle);
-            timingView.setVisibility(View.VISIBLE);
+            openingHoursRecyclerView.setVisibility(View.VISIBLE);
             timingStatusTextView.setVisibility(View.GONE);
         } else if (resturantObject.getColor().equals("1")) {
             //green
             circleTextView.setBackgroundResource(R.drawable.green_circle);
-            timingView.setVisibility(View.VISIBLE);
+            openingHoursRecyclerView.setVisibility(View.VISIBLE);
             timingStatusTextView.setVisibility(View.GONE);
         } else {
             //grey
             circleTextView.setBackgroundResource(R.drawable.grey_circle);
-            timingView.setVisibility(View.GONE);
+            openingHoursRecyclerView.setVisibility(View.GONE);
             timingStatusTextView.setVisibility(View.VISIBLE);
             deliveryPopUp.setVisibility(View.VISIBLE);
         }
@@ -226,10 +233,20 @@ public class ResturantDetailActivity extends GenricActivity {
     public String getTypeOFFood(ArrayList<String> typeOFFood) {
         String typeofFoodString = "";
         for (String str : typeOFFood) {
-            typeofFoodString = typeofFoodString + str + ",";
+            typeofFoodString = typeofFoodString + str.trim() + ", ";
         }
         typeofFoodString = typeofFoodString.substring(0, typeofFoodString.length() - 1);
         return typeofFoodString;
+    }
+
+    public String getAddress(String address) {
+        String[] addressArray = address.split(",");
+        String addressStr = "";
+        for (String str : addressArray) {
+            addressStr = addressStr + str.trim() + "\n";
+        }
+        addressStr = addressStr.substring(0, addressStr.length() - 1);
+        return addressStr;
     }
 
     public String getOtherString(ArrayList<String> otherArray) {
@@ -305,6 +322,29 @@ public class ResturantDetailActivity extends GenricActivity {
         infoImageView.setSelected(false);
         infoContentLayout.setVisibility(View.GONE);
         menuContentLayout.setVisibility(View.VISIBLE);
+    }
+
+
+    @OnClick(R.id.decsriptionShowBtn)
+    public void descriptioShowBtn(View view) {
+        if (descriptionTextView.getVisibility() == View.VISIBLE) {
+            descriptionShowBtn.setText(getResources().getString(R.string.show));
+            descriptionTextView.setVisibility(View.GONE);
+        } else {
+            descriptionShowBtn.setText(getResources().getString(R.string.hide));
+            descriptionTextView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    @OnClick(R.id.historyShowBtn)
+    public void historyShowBtnClick(View view) {
+        if (historyTextView.getVisibility() == View.VISIBLE) {
+            historyShowBtn.setText(getResources().getString(R.string.show));
+            historyTextView.setVisibility(View.GONE);
+        } else {
+            historyShowBtn.setText(getResources().getString(R.string.hide));
+            historyTextView.setVisibility(View.VISIBLE);
+        }
     }
 
     private void requestPermission(String phoneNumber) {

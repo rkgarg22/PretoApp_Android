@@ -65,5 +65,6 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
     compile 'com.google.firebase:firebase-messaging:11.0.2'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.uncopt:android.justified:1.0'
     testCompile 'junit:junit:4.12'
 }

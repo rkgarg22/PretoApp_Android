@@ -15,7 +15,7 @@
     <string name="email">Correo</string>
     <string name="password">Contraseña</string>
     <string name="confirm_email">Confirmar Correo</string>
-    <string name="acceptance_text">Al crear una cuenta, usted se compromete\na las condiciones del servicio de PRETO\npolítica de privacidad y de contenindo.</string>
+    <string name="acceptance_text">Al crear una cuenta, usted se compromete\na las condiciones del servicio de PRETO\npolítica de privacidad y de contenido.</string>
     <string name="accept">ACEPTO</string>
     <string name="register">REGISTRATE</string>
     <string name="already_account">¿Ya tienes una cuenta? Inicia sesión</string>
@@ -196,4 +196,7 @@
 
     <string name="location_place_holder_text">Ingresar una ubicación</string>
     <string name="contact_us_popup">¡Enviar correo electrónico con éxito! El administrador se pondrá en contacto con usted en breve.</string>
+
+    <string name="show">Espectáculo</string>
+    <string name="hide">Esconder</string>
 </resources>
