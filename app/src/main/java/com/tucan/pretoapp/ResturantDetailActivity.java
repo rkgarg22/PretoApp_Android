@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -174,20 +175,20 @@ public class ResturantDetailActivity extends GenricActivity {
     }
 
     public void setData() {
-        resturantNameTextView.setText(resturantObject.getRestName());
-        registerDateTextView.setText(getResources().getString(R.string.registered_since) + " " + resturantObject.getRegistered_date());
-        likeCountTextView.setText(resturantObject.getLikesCount());
-        typeOFFoodTextView.setText(getTypeOFFood(resturantObject.getTypeOfFood()));
-        categoryTextView.setText(resturantObject.getCategory());
-        addressTextView.setText(getAddress(resturantObject.getAddress()));
-        distanceTextView.setText(resturantObject.getDistance()+" Km");
-        averageCostTextView.setText(getResources().getString(R.string.from) + " " + resturantObject.getPriceFrom() + " - " + getResources().getString(R.string.to) + " " + resturantObject.getPriceTo());
-        descriptionTextView.setText(resturantObject.getDescription());
-        historyTextView.setText(resturantObject.getHistroy());
-        paymentMethodTextView.setText(resturantObject.getPaymentMethod());
-        otherTextView.setText(getOtherString(resturantObject.getOther()));
-        websiteTextView.setText(resturantObject.getWebUrl());
-        menuTextView.setText(resturantObject.getMenu());
+        resturantNameTextView.setText(Html.fromHtml(resturantObject.getRestName()));
+        registerDateTextView.setText(Html.fromHtml(getResources().getString(R.string.registered_since) + " " + resturantObject.getRegistered_date()));
+        likeCountTextView.setText(Html.fromHtml(resturantObject.getLikesCount()));
+        typeOFFoodTextView.setText(Html.fromHtml(getTypeOFFood(resturantObject.getTypeOfFood())));
+        categoryTextView.setText(Html.fromHtml(resturantObject.getCategory()));
+        addressTextView.setText(Html.fromHtml(getAddress(resturantObject.getAddress())));
+        distanceTextView.setText(Html.fromHtml(resturantObject.getDistance()+" Km"));
+        averageCostTextView.setText(Html.fromHtml(getResources().getString(R.string.from) + " $" + resturantObject.getPriceFrom() + " - " + getResources().getString(R.string.to) + " $" + resturantObject.getPriceTo()));
+        descriptionTextView.setText(Html.fromHtml(resturantObject.getDescription()));
+        historyTextView.setText(Html.fromHtml(resturantObject.getHistroy()));
+        paymentMethodTextView.setText(Html.fromHtml(resturantObject.getPaymentMethod()));
+        otherTextView.setText(Html.fromHtml(getOtherString(resturantObject.getOther())));
+        websiteTextView.setText(Html.fromHtml(resturantObject.getWebUrl()));
+        menuTextView.setText(Html.fromHtml(resturantObject.getMenu()));
         dealImage.setImageURI(Uri.parse(resturantObject.getImages()));
 
         OpeningHoursAdapter adapter = new OpeningHoursAdapter(this, resturantObject.getOperatingHourArrayList());

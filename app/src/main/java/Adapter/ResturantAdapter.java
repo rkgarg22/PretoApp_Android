@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,12 +54,12 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         ResturantObject object = resturantObjectArrayList.get(position);
-        holder.resturantName.setText(object.getRestName());
-        holder.resturantAddress.setText(object.getAddress());
-        holder.typeOFFood.setText(object.getTypeOfFood().get(0));
+        holder.resturantName.setText(Html.fromHtml(object.getRestName()));
+        holder.resturantAddress.setText(Html.fromHtml(object.getAddress()));
+        holder.typeOFFood.setText(Html.fromHtml(object.getTypeOfFood().get(0)));
 
         String priceStr = context.getResources().getString(R.string.from) + " $" + object.getPriceFrom() + " - " + context.getResources().getString(R.string.to) + " $" + object.getPriceTo();
-        holder.priceRange.setText(priceStr);
+        holder.priceRange.setText(Html.fromHtml(priceStr));
         holder.likeCountTextView.setText(object.getLikesCount());
         holder.distanceTextView.setText(object.getDistance() + " km");
         holder.dealImageView.setImageURI(Uri.parse(object.getImages()));

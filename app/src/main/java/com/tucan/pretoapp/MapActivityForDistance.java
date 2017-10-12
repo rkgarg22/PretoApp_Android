@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -89,7 +90,7 @@ public class MapActivityForDistance extends FragmentActivity implements OnMapRea
 
         Gson gson = new Gson();
         resturantObject = gson.fromJson(getIntent().getExtras().getString("object"), ResturantObject.class);
-        headerTextView.setText(resturantObject.getRestName());
+        headerTextView.setText(Html.fromHtml(resturantObject.getRestName()));
     }
 
     @OnClick(R.id.backButtonClick)
