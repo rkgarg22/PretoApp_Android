@@ -39,7 +39,7 @@
         android:layout_weight="1"
         android:padding="10dp">
 
-        <com.uncopt.android.widget.text.justify.JustifiedTextView
+        <CustomControl.MyriadProRegularTextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

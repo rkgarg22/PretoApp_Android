@@ -82,7 +82,7 @@
 
         <provider
             android:name="com.facebook.FacebookContentProvider"
-            android:authorities="com.facebook.app.FacebookContentProvider1860787740806378"
+            android:authorities="com.facebook.app.FacebookContentProvider131671104253341"
             android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

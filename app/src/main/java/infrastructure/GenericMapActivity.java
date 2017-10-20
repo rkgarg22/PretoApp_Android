@@ -66,13 +66,15 @@ public class GenericMapActivity extends GenricActivity implements OnMapReadyCall
             if (resturantObjectArrayList.size() > 0) {
                 for (int i = 0; i < resturantObjectArrayList.size(); i++) {
                     ResturantObject resturantObject = resturantObjectArrayList.get(i);
-                    LatLng markerLat = new LatLng(Double.parseDouble(resturantObject.getLattitude()), Double.parseDouble(resturantObject.getLongitude()));
-                    Marker marker = mMap.addMarker(new MarkerOptions()
-                            .position(markerLat)
-                            .title(resturantObject.getRestName() + "\n" + resturantObject.getAddress())
-                            .icon(icon)
-                            .alpha(1.0f));
-                    markersOrderNumbers.put(marker, Integer.toString(i));
+                    try {
+                        LatLng markerLat = new LatLng(Double.parseDouble(resturantObject.getLattitude()), Double.parseDouble(resturantObject.getLongitude()));
+                        Marker marker = mMap.addMarker(new MarkerOptions()
+                                .position(markerLat)
+                                .title(resturantObject.getRestName() + "\n" + resturantObject.getAddress())
+                                .icon(icon)
+                                .alpha(1.0f));
+                        markersOrderNumbers.put(marker, Integer.toString(i));
+                    }catch(Exception e){}
                 }
             }
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentUserLatLon, 10.0f));

@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import CustomControl.LatoBoldTextView;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import infrastructure.AppCommon;
@@ -17,12 +19,16 @@ public class SettingActivity extends GenricActivity {
     public int CONTACT_US_INTENT = 1000;
     public int HELP_INTENT = 1001;
 
+    @Bind(R.id.emailTextView)
+    LatoBoldTextView emailTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
         ButterKnife.bind(this);
+        emailTextView.setText(AppCommon.getInstance(this).getUserEmail());
     }
 
     @OnClick(R.id.privacyPolicyLayout)

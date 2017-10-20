@@ -33,7 +33,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/user_image" />
 
-            <TextView
+            <CustomControl.LatoBoldTextView
+                android:id="@+id/emailTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

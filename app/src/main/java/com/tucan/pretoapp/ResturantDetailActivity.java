@@ -128,11 +128,11 @@ public class ResturantDetailActivity extends GenricActivity {
     @Bind(R.id.deliveryLayout)
     LinearLayout deliveryLayout;
 
-    @Bind(R.id.decsriptionShowBtn)
-    LatoHeavyTextView descriptionShowBtn;
-
-    @Bind(R.id.historyShowBtn)
-    LatoHeavyTextView historyShowBtn;
+//    @Bind(R.id.decsriptionShowBtn)
+//    LatoHeavyTextView descriptionShowBtn;
+//
+//    @Bind(R.id.historyShowBtn)
+//    LatoHeavyTextView historyShowBtn;
 
     Call call;
     String restID;
@@ -329,10 +329,10 @@ public class ResturantDetailActivity extends GenricActivity {
     @OnClick(R.id.decsriptionShowBtn)
     public void descriptioShowBtn(View view) {
         if (descriptionTextView.getVisibility() == View.VISIBLE) {
-            descriptionShowBtn.setText(getResources().getString(R.string.show));
+            //descriptionShowBtn.setText(getResources().getString(R.string.show));
             descriptionTextView.setVisibility(View.GONE);
         } else {
-            descriptionShowBtn.setText(getResources().getString(R.string.hide));
+            //descriptionShowBtn.setText(getResources().getString(R.string.hide));
             descriptionTextView.setVisibility(View.VISIBLE);
         }
     }
@@ -340,10 +340,10 @@ public class ResturantDetailActivity extends GenricActivity {
     @OnClick(R.id.historyShowBtn)
     public void historyShowBtnClick(View view) {
         if (historyTextView.getVisibility() == View.VISIBLE) {
-            historyShowBtn.setText(getResources().getString(R.string.show));
+            //historyShowBtn.setText(getResources().getString(R.string.show));
             historyTextView.setVisibility(View.GONE);
         } else {
-            historyShowBtn.setText(getResources().getString(R.string.hide));
+            //historyShowBtn.setText(getResources().getString(R.string.hide));
             historyTextView.setVisibility(View.VISIBLE);
         }
     }
