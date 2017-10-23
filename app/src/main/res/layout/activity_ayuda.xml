@@ -53,6 +53,7 @@
         android:paddingTop="10dp">
 
         <LinearLayout
+            android:id="@+id/howDoesItWorkLayout"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"

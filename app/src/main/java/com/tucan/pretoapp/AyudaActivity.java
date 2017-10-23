@@ -26,6 +26,12 @@ public class AyudaActivity extends GenricActivity {
         startActivityForResult(faqIntent,FAQ_INTENT);
     }
 
+    @OnClick(R.id.howDoesItWorkLayout)
+    public void howDoesItWork(View view){
+        Intent faqIntent = new Intent(this,HowDoesItWorkActivity.class);
+        startActivityForResult(faqIntent,FAQ_INTENT);
+    }
+
     @OnClick(R.id.backButtonClick)
     public void backButtonClick(View view){
         this.finish();

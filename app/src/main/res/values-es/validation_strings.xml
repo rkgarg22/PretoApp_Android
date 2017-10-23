@@ -13,4 +13,8 @@
 
     <string name="accept_terms_and_conditon">Acepto la política de privacidad</string>
     <string name="search_text_enter">Enter search text</string>
+
+    <string name="phoneNumber_enter">Por favor, introduzca su número de teléfono</string>
+    <string name="subject">Por favor ingrese el tema</string>
+    <string name="message_enter">Por favor ingrese el mensaje</string>
 </resources>

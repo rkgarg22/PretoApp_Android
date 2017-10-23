@@ -56,7 +56,9 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
         ResturantObject object = resturantObjectArrayList.get(position);
         holder.resturantName.setText(Html.fromHtml(object.getRestName()));
         holder.resturantAddress.setText(Html.fromHtml(object.getAddress()));
-        holder.typeOFFood.setText(Html.fromHtml(object.getTypeOfFood().get(0)));
+        if(object.getTypeOfFood().size()>0) {
+            holder.typeOFFood.setText(Html.fromHtml(object.getTypeOfFood().get(0)));
+        }
 
         String priceStr = context.getResources().getString(R.string.from) + " $" + object.getPriceFrom() + " - " + context.getResources().getString(R.string.to) + " $" + object.getPriceTo();
         holder.priceRange.setText(Html.fromHtml(priceStr));

@@ -79,13 +79,13 @@ public class ContactUsActivity extends GenricActivity {
         message = messageEditText.getText().toString().trim();
 
         if (name.length() == 0) {
-            nameEditText.setError(getResources().getString(R.string.name_enter));
+            nameEditText.setError(getResources().getString(R.string.enterName));
             isDataValid = false;
         } else if (phoneNumber.length() == 0) {
             phoneNumberEditText.setError(getResources().getString(R.string.phoneNumber_enter));
             isDataValid = false;
         } else if (email.length() == 0) {
-            emailEditText.setError(getResources().getString(R.string.email_enter));
+            emailEditText.setError(getResources().getString(R.string.enterEmailText));
             isDataValid = false;
         } else if (!AppCommon.getInstance(this).isValidEmail(email)) {
             emailEditText.setError(getResources().getString(R.string.enterValidEmailText));

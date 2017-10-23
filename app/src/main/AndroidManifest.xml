@@ -71,6 +71,10 @@
             android:name=".ResturantDetailActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".HowDoesItWorkActivity"
+            android:screenOrientation="portrait" />
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
