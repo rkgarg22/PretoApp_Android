@@ -455,11 +455,12 @@ public class ResturantListByCategoryActivity extends GenericMapActivity {
             Intent webViewIntent = new Intent(this, WebViewActivity.class);
             webViewIntent.putExtra("url", v.getTag().toString());
             startActivity(webViewIntent);
-        } else {
-            Intent webViewIntent = new Intent(this, WebViewActivity.class);
-            webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
-            startActivity(webViewIntent);
         }
+//        else {
+//            Intent webViewIntent = new Intent(this, WebViewActivity.class);
+//            webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
+//            startActivity(webViewIntent);
+//        }
     }
 
     public void saveDataToLocalDataBase(ResturantObject object) {

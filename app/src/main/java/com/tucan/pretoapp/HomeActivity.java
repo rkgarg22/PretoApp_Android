@@ -73,7 +73,7 @@ public class HomeActivity extends GenricActivity {
     @OnClick(R.id.verticalDotsBtn)
     public void verticalDotsBtnClick(View view) {
         Intent settingIntent = new Intent(this, SettingActivity.class);
-        startActivity(settingIntent);
+        startActivityForResult(settingIntent,AppCommon.SETTING_INTENT);
     }
 
     @OnClick(R.id.favouritesBtnClick)
@@ -151,11 +151,12 @@ public class HomeActivity extends GenricActivity {
             Intent webViewIntent = new Intent(this, WebViewActivity.class);
             webViewIntent.putExtra("url", v.getTag().toString());
             startActivity(webViewIntent);
-        }else{
-            Intent webViewIntent = new Intent(this, WebViewActivity.class);
-            webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
-            startActivity(webViewIntent);
         }
+//        else{
+//            Intent webViewIntent = new Intent(this, WebViewActivity.class);
+//            webViewIntent.putExtra("url", getResources().getString(R.string.jungle_box_link));
+//            startActivity(webViewIntent);
+//        }
     }
 
     @OnEditorAction(R.id.searchEditText)
@@ -182,6 +183,10 @@ public class HomeActivity extends GenricActivity {
         if(requestCode==AppCommon.RESTURANT_LIST_INTENT_FROM_HOME_FOR_SEARCH){
             if(resultCode== Activity.RESULT_OK){
                 searchlayout.setVisibility(View.VISIBLE);
+            }
+        }else if(requestCode == AppCommon.SETTING_INTENT){
+            if(resultCode== Activity.RESULT_OK){
+                this.finish();
             }
         }
     }

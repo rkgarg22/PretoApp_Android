@@ -90,6 +90,9 @@ public class SettingActivity extends GenricActivity {
                 Intent loginIntent = new Intent(SettingActivity.this, LoginOptionActivity.class);
                 loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(loginIntent);
+
+                Intent backIntent = new Intent();
+                setResult(RESULT_OK, backIntent);
                 SettingActivity.this.finish();
             }
         });

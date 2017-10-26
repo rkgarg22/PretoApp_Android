@@ -275,7 +275,6 @@
 
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:background="@android:color/holo_green_dark"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -285,6 +284,7 @@
                 android:layout_height="match_parent"
                 android:text="Junglebox"
                 android:gravity="center"
+                android:visibility="gone"
                 android:textColor="@android:color/white"
                 android:textSize="25sp" />
 

@@ -150,7 +150,14 @@ public class ResturantDetailActivity extends GenricActivity {
         menuImageView.setSelected(false);
         MyLinearLayoutManager mLinearLayoutManager = new MyLinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         openingHoursRecyclerView.setLayoutManager(mLinearLayoutManager);
-        getResturantDetail();
+        if (AppCommon.getInstance(this).isConnectingToInternet(this)) {
+            getResturantDetail();
+        } else {
+            String obj = getIntent().getExtras().getString("object");
+            Gson gson = new Gson();
+            resturantObject = gson.fromJson(obj,ResturantObject.class);
+            setData();
+        }
     }
 
     @OnClick(R.id.backButtonClick)
@@ -181,12 +188,12 @@ public class ResturantDetailActivity extends GenricActivity {
         typeOFFoodTextView.setText(Html.fromHtml(getTypeOFFood(resturantObject.getTypeOfFood())));
         categoryTextView.setText(Html.fromHtml(resturantObject.getCategory()));
         addressTextView.setText(Html.fromHtml(getAddress(resturantObject.getAddress())));
-        distanceTextView.setText(Html.fromHtml(resturantObject.getDistance()+" Km"));
+        distanceTextView.setText(Html.fromHtml(resturantObject.getDistance() + " Km"));
         averageCostTextView.setText(Html.fromHtml(getResources().getString(R.string.from) + " $" + resturantObject.getPriceFrom() + " - " + getResources().getString(R.string.to) + " $" + resturantObject.getPriceTo()));
         descriptionTextView.setText(Html.fromHtml(resturantObject.getDescription()));
         historyTextView.setText(Html.fromHtml(resturantObject.getHistroy()));
         paymentMethodTextView.setText(Html.fromHtml(resturantObject.getPaymentMethod()));
-        otherTextView.setText(Html.fromHtml(getOtherString(resturantObject.getOther())));
+        otherTextView.setText(getOtherString(resturantObject.getOther()));
         websiteTextView.setText(Html.fromHtml(resturantObject.getWebUrl()));
         menuTextView.setText(Html.fromHtml(resturantObject.getMenu()));
         dealImage.setImageURI(Uri.parse(resturantObject.getImages()));
@@ -278,7 +285,7 @@ public class ResturantDetailActivity extends GenricActivity {
 
     @OnClick(R.id.instagramLayout)
     public void instagramClick() {
-        if (resturantObject.getInstagramAccount() != null) {
+        if (resturantObject.getInstagramAccount() != null && !resturantObject.getInstagramAccount().equals("-")) {
             Intent webViewIntent = new Intent(this, WebViewActivity.class);
             webViewIntent.putExtra("url", resturantObject.getInstagramAccount());
             startActivity(webViewIntent);

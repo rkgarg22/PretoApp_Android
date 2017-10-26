@@ -295,17 +295,19 @@
                             android:textColor="@color/color_blue" />
                     </LinearLayout>
 
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
                         android:orientation="horizontal">
 
                         <CustomControl.LatoHeavyTextView
                             android:id="@+id/address"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="2.5"
                             android:layout_height="wrap_content"
                             android:layout_alignParentLeft="true"
                             android:layout_centerVertical="true"
@@ -313,7 +315,8 @@
 
                         <CustomControl.LatoLightTextView
                             android:id="@+id/distance"
-                            android:layout_width="wrap_content"
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="20dp"
@@ -336,7 +339,7 @@
                         </LinearLayout>
 
 
-                    </RelativeLayout>
+                    </LinearLayout>
 
 
                     <RelativeLayout

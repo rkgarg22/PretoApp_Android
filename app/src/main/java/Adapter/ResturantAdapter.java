@@ -159,9 +159,12 @@ public class ResturantAdapter extends RecyclerView.Adapter<ResturantAdapter.View
         @OnClick(R.id.rowLayout)
         public void rowLayoutClick(View view) {
             int position = Integer.parseInt(view.getTag().toString());
+            Gson gson = new Gson();
             ResturantObject object = resturantObjectArrayList.get(position);
+            String resObj= gson.toJson(object);
             Intent resturantDetailIntent = new Intent(context, ResturantDetailActivity.class);
             resturantDetailIntent.putExtra("restID", object.getRestID());
+            resturantDetailIntent.putExtra("object", resObj);
             if (context instanceof ResturantListByCategoryActivity) {
                 ((ResturantListByCategoryActivity) context).startActivityForResult(resturantDetailIntent, AppCommon.INTENT_FOR_RESTURANT_DETAIL);
             } else if (context instanceof FavouriteListActivity) {
