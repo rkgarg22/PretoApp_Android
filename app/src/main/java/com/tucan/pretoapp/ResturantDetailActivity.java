@@ -243,7 +243,7 @@ public class ResturantDetailActivity extends GenricActivity {
         for (String str : typeOFFood) {
             typeofFoodString = typeofFoodString + str.trim() + ", ";
         }
-        typeofFoodString = typeofFoodString.substring(0, typeofFoodString.length() - 1);
+        typeofFoodString = typeofFoodString.substring(0, typeofFoodString.length() - 2);
         return typeofFoodString;
     }
 
