@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -22,6 +23,7 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import API.PretoAppService;
 import API.ServiceGenerator;
@@ -195,7 +197,7 @@ public class ResturantDetailActivity extends GenricActivity {
         paymentMethodTextView.setText(Html.fromHtml(resturantObject.getPaymentMethod()));
         otherTextView.setText(getOtherString(resturantObject.getOther()));
         websiteTextView.setText(Html.fromHtml(resturantObject.getWebUrl()));
-        menuTextView.setText(Html.fromHtml(resturantObject.getMenu()));
+        menuTextView.setText(resturantObject.getMenu());
         dealImage.setImageURI(Uri.parse(resturantObject.getImages()));
 
         OpeningHoursAdapter adapter = new OpeningHoursAdapter(this, resturantObject.getOperatingHourArrayList());
@@ -285,7 +287,7 @@ public class ResturantDetailActivity extends GenricActivity {
 
     @OnClick(R.id.instagramLayout)
     public void instagramClick() {
-        if (resturantObject.getInstagramAccount() != null && !resturantObject.getInstagramAccount().equals("-")) {
+        if (resturantObject.getInstagramAccount() != null && !resturantObject.getInstagramAccount().equals("-") && !resturantObject.getInstagramAccount().equals("")) {
             Intent webViewIntent = new Intent(this, WebViewActivity.class);
             webViewIntent.putExtra("url", resturantObject.getInstagramAccount());
             startActivity(webViewIntent);
@@ -295,12 +297,30 @@ public class ResturantDetailActivity extends GenricActivity {
     @OnClick(R.id.commentsLayout)
     public void commentClick(View view) {
         String[] recipients = {"contacto@preto.co"};
-        Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.setType("text/plain");
-        intent.putExtra(Intent.EXTRA_EMAIL, recipients);
-        intent.putExtra(Intent.EXTRA_SUBJECT, resturantObject.getRestName());
-        intent.putExtra(Intent.EXTRA_TEXT, "");
-        startActivity(Intent.createChooser(intent, "Send Email"));
+//        Intent intent = new Intent(Intent.ACTION_VIEW);
+//        intent.setType("text/plain");
+//        intent.setData(Uri.parse("contacto@preto.co"));
+//        intent.setClassName("com.google.android.gm", "com.google.android.gm.ConversationListActivity");
+//        intent.putExtra(Intent.EXTRA_EMAIL, recipients);
+//        intent.putExtra(Intent.EXTRA_SUBJECT, resturantObject.getRestName());
+//        intent.putExtra(Intent.EXTRA_TEXT, "");
+//        startActivity(intent);
+
+
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, resturantObject.getRestName());
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "");
+        final PackageManager pm = this.getPackageManager();
+        final List<ResolveInfo> matches = pm.queryIntentActivities(emailIntent, 0);
+        ResolveInfo best = null;
+        for(final ResolveInfo info : matches)
+            if (info.activityInfo.packageName.endsWith(".gm") || info.activityInfo.name.toLowerCase().contains("gmail"))
+                best = info;
+        if (best != null)
+            emailIntent.setClassName(best.activityInfo.packageName, best.activityInfo.name);
+        this.startActivity(emailIntent);
     }
 
     @OnClick(R.id.deliveryLayout)
