@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 
 import java.util.Locale;
 
 import infrastructure.AppCommon;
 
 public class SplashActivity extends GenricActivity {
+
+    //zvbBFBowDPsJeWn0/i6pYWPSxWI=  (Release hash key for facebook)
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,12 @@ public class SplashActivity extends GenricActivity {
         Configuration config = new Configuration();
         config.locale = locale;
         getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+
+//        byte[] sha1 = {
+//                (byte) 0xCE, (byte)0xF6, (byte)0xC1, 0x14, 0x1A, 0x30, 0x0C, (byte) 0xFB, 0x09, 0x79, (byte)0x69,
+//                (byte)0xF4, (byte)0xFE, 0x2E, (byte) 0xA9, (byte)0x61, (byte)0x63, (byte)0xD2, (byte)0xC5, 0x62,
+//        };
+//        Log.e("keyhash", Base64.encodeToString(sha1, Base64.NO_WRAP));
 
         Thread t = new Thread() {
             public void run() {
