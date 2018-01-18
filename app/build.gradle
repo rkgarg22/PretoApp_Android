@@ -7,7 +7,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.trello:victor:0.1.4'
-        classpath 'com.google.gms:google-services:3.0.0'
+        classpath 'com.google.gms:google-services:3.1.1'
     }
 
 }
@@ -27,7 +27,7 @@ android {
         applicationId "com.tucan.pretoapp"
         minSdkVersion 18
         targetSdkVersion 24
-        versionCode 4
+        versionCode 6
         versionName "1.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -62,16 +62,16 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.android.support:recyclerview-v7:25.0.1'
     compile 'com.android.support:design:25.0.1'
-    compile 'com.google.android.gms:play-services:11.0.2'
-    compile 'com.google.android.gms:play-services-maps:11.0.2'
+    compile 'com.google.android.gms:play-services:11.8.0'
+    compile 'com.google.android.gms:play-services-maps:11.8.0'
     compile 'com.github.JakeWharton:ViewPagerIndicator:2.4.1@aar'
     compile 'com.squareup.retrofit2:retrofit:2.0.2'
     compile 'com.squareup.retrofit2:converter-gson:2.0.2'
     compile 'com.facebook.fresco:fresco:0.7.0'
     compile 'com.android.support:multidex:1.0.1'
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
-    compile 'com.google.firebase:firebase-messaging:11.0.2'
-    compile 'com.google.firebase:firebase-core:11.0.2'
+    compile 'com.google.firebase:firebase-messaging:11.8.0'
+    compile 'com.google.firebase:firebase-core:11.8.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.uncopt:android.justified:1.0'
     testCompile 'junit:junit:4.12'

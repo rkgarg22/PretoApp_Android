@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import java.util.Locale;
 
 import infrastructure.AppCommon;
@@ -14,11 +16,13 @@ import infrastructure.AppCommon;
 public class SplashActivity extends GenricActivity {
 
     //zvbBFBowDPsJeWn0/i6pYWPSxWI=  (Release hash key for facebook)
+    //private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         Locale locale = new Locale(AppCommon.getInstance(this).getSelectedLanguage());
         Locale.setDefault(locale);

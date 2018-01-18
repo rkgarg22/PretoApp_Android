@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "675234788826-t0h72fqebo2utklm39r6jfnn875u4qn5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tucan.pretoapp",
+            "certificate_hash": "cef6c1141a300cfb097969f4fe2ea96163d2c562"
+          }
+        },
+        {
+          "client_id": "675234788826-ibilhc8jupdsvrmeb8qcpret1hb85j6i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tucan.pretoapp",
+            "certificate_hash": "9048a6760dd2c4f61c34974237ddf153ac048db7"
+          }
+        },
+        {
           "client_id": "675234788826-mcbegqep72av0qqg1dp30odob2h28dth.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -60,3 +76,70 @@
   ],
   "configuration_version": "1"
 }
+
+
+
+
+
+//{
+//  "project_info": {
+//    "project_number": "675234788826",
+//    "firebase_url": "https://preto-23ba2.firebaseio.com",
+//    "project_id": "preto-23ba2",
+//    "storage_bucket": "preto-23ba2.appspot.com"
+//  },
+//  "client": [
+//    {
+//      "client_info": {
+//        "mobilesdk_app_id": "1:675234788826:android:4e0ff83153c1d5cb",
+//        "android_client_info": {
+//          "package_name": "com.tucan.pretoapp"
+//        }
+//      },
+//      "oauth_client": [
+//        {
+//          "client_id": "675234788826-mcbegqep72av0qqg1dp30odob2h28dth.apps.googleusercontent.com",
+//          "client_type": 1,
+//          "android_info": {
+//            "package_name": "com.tucan.pretoapp",
+//            "certificate_hash": "22f85f32e8e7cbab0f6624d031257c108b660095"
+//          }
+//        },
+//        {
+//          "client_id": "675234788826-doq7hrp7hmn4idfhdi07a7mh68us3ifm.apps.googleusercontent.com",
+//          "client_type": 3
+//        }
+//      ],
+//      "api_key": [
+//        {
+//          "current_key": "AIzaSyBlBFsYnOXOgP46p3vH7Vksa3TlAe1XVB8"
+//        }
+//      ],
+//      "services": {
+//        "analytics_service": {
+//          "status": 1
+//        },
+//        "appinvite_service": {
+//          "status": 2,
+//          "other_platform_oauth_client": [
+//            {
+//              "client_id": "675234788826-doq7hrp7hmn4idfhdi07a7mh68us3ifm.apps.googleusercontent.com",
+//              "client_type": 3
+//            },
+//            {
+//              "client_id": "675234788826-up2pei01c96oee0peoe7ot8qee8sfkoo.apps.googleusercontent.com",
+//              "client_type": 2,
+//              "ios_info": {
+//                "bundle_id": "com.1tucan.pretoapp"
+//              }
+//            }
+//          ]
+//        },
+//        "ads_service": {
+//          "status": 2
+//        }
+//      }
+//    }
+//  ],
+//  "configuration_version": "1"
+//}

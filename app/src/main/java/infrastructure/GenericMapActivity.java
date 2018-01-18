@@ -61,6 +61,7 @@ public class GenericMapActivity extends GenricActivity implements OnMapReadyCall
                         .title("")
                         .icon(icon)
                         .alpha(1.0f));
+
             }
             BitmapDescriptor icon = BitmapDescriptorFactory.fromResource(R.drawable.small_food_icon);
             if (resturantObjectArrayList.size() > 0) {
@@ -77,7 +78,9 @@ public class GenericMapActivity extends GenricActivity implements OnMapReadyCall
                     }catch(Exception e){}
                 }
             }
-            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentUserLatLon, 10.0f));
+            if(currentUserLatLon!=null) {
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(currentUserLatLon, 10.0f));
+            }
         }
     }
 
