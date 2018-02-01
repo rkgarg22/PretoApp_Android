@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
@@ -110,6 +111,7 @@ public class LoginOptionActivity extends GenricActivity {
 
             @Override
             public void onError(FacebookException error) {
+                Toast.makeText(LoginOptionActivity.this,error.getLocalizedMessage(),Toast.LENGTH_LONG).show();
             }
         });
     }
