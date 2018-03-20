@@ -197,7 +197,7 @@ public class ResturantDetailActivity extends GenricActivity {
         paymentMethodTextView.setText(Html.fromHtml(resturantObject.getPaymentMethod()));
         otherTextView.setText(getOtherString(resturantObject.getOther()));
         websiteTextView.setText(Html.fromHtml(resturantObject.getWebUrl()));
-        menuTextView.setText(resturantObject.getMenu());
+        menuTextView.setText(Html.fromHtml(resturantObject.getMenu()));
         dealImage.setImageURI(Uri.parse(resturantObject.getImages()));
 
         OpeningHoursAdapter adapter = new OpeningHoursAdapter(this, resturantObject.getOperatingHourArrayList());
@@ -306,10 +306,11 @@ public class ResturantDetailActivity extends GenricActivity {
 //        intent.putExtra(Intent.EXTRA_TEXT, "");
 //        startActivity(intent);
 
+        String resName = Html.fromHtml(resturantObject.getRestName()).toString();
 
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
         emailIntent.putExtra(Intent.EXTRA_EMAIL, recipients);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, resturantObject.getRestName());
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, resName);
         emailIntent.setType("text/plain");
         emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "");
         final PackageManager pm = this.getPackageManager();

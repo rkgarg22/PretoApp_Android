@@ -50,7 +50,6 @@ public class HomeActivity extends GenricActivity {
         if (!gpsTracker.canGetLocation()) {
             gpsTracker.showSettingsAlert();
         }
-
     }
 
     @Override

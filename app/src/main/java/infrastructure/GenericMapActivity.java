@@ -3,6 +3,7 @@ package infrastructure;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Html;
 import android.view.View;
 import android.widget.RelativeLayout;
 
@@ -71,7 +72,7 @@ public class GenericMapActivity extends GenricActivity implements OnMapReadyCall
                         LatLng markerLat = new LatLng(Double.parseDouble(resturantObject.getLattitude()), Double.parseDouble(resturantObject.getLongitude()));
                         Marker marker = mMap.addMarker(new MarkerOptions()
                                 .position(markerLat)
-                                .title(resturantObject.getRestName() + "\n" + resturantObject.getAddress())
+                                .title(Html.fromHtml(resturantObject.getRestName()) + "\n" + resturantObject.getAddress())
                                 .icon(icon)
                                 .alpha(1.0f));
                         markersOrderNumbers.put(marker, Integer.toString(i));

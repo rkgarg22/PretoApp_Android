@@ -139,7 +139,7 @@ public class MapActivityForDistance extends FragmentActivity implements OnMapRea
         markerLat = new LatLng(Double.parseDouble(resturantObject.getLattitude()), Double.parseDouble(resturantObject.getLongitude()));
         Marker marker = mMap.addMarker(new MarkerOptions()
                 .position(markerLat)
-                .title(resturantObject.getRestName() + "," + resturantObject.getAddress())
+                .title(Html.fromHtml(resturantObject.getRestName()) + "," + resturantObject.getAddress())
                 .icon(icon)
                 .alpha(1.0f));
         mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(markerLat, 12.0f));

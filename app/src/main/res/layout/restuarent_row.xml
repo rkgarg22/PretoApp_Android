@@ -58,17 +58,17 @@
             <ImageView
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="8dp"
                 android:src="@drawable/small_food_icon" />
 
             <CustomControl.LatoBoldTextView
                 android:id="@+id/distance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="4dp"
                 android:text="1.3 km"
                 android:textColor="@color/color_blue"
-                android:textSize="13sp" />
+                android:textSize="12sp" />
 
         </LinearLayout>
     </RelativeLayout>

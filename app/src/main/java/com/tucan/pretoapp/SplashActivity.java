@@ -11,19 +11,18 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.Locale;
 
+import CustomControl.GPSTracker;
 import infrastructure.AppCommon;
 
 public class SplashActivity extends GenricActivity {
-
-    //zvbBFBowDPsJeWn0/i6pYWPSxWI=  (Release hash key for facebook)
-    //private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-
+        AppCommon.getInstance(this).setUserLatitude(0.0f);
+        AppCommon.getInstance(this).setUserLongitude(0.0f);
+        GPSTracker gpsTracker = new GPSTracker(this);
         Locale locale = new Locale(AppCommon.getInstance(this).getSelectedLanguage());
         Locale.setDefault(locale);
         Configuration config = new Configuration();
@@ -39,7 +38,7 @@ public class SplashActivity extends GenricActivity {
         Thread t = new Thread() {
             public void run() {
                 try {
-                    sleep(3000);
+                    sleep(4000);
                     if (AppCommon.getInstance(SplashActivity.this).isUserLogIn()) {
                         Intent i = new Intent(SplashActivity.this, HomeActivity.class);
                         startActivity(i);
