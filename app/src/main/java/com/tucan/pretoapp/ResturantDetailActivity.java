@@ -197,7 +197,7 @@ public class ResturantDetailActivity extends GenricActivity {
         paymentMethodTextView.setText(Html.fromHtml(resturantObject.getPaymentMethod()));
         otherTextView.setText(getOtherString(resturantObject.getOther()));
         websiteTextView.setText(Html.fromHtml(resturantObject.getWebUrl()));
-        menuTextView.setText(Html.fromHtml(resturantObject.getMenu()));
+        menuTextView.setText(resturantObject.getMenu());
         dealImage.setImageURI(Uri.parse(resturantObject.getImages()));
 
         OpeningHoursAdapter adapter = new OpeningHoursAdapter(this, resturantObject.getOperatingHourArrayList());
